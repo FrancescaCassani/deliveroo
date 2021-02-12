@@ -15,6 +15,7 @@ class CreateRestaurantsTable extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name', 100)->notnull();
             $table->string('slug')->notnull();
             $table->string('email', 50)->notnull()->unique();
@@ -24,6 +25,11 @@ class CreateRestaurantsTable extends Migration
             $table->text('description')->notnull();
             $table->string('path_img')->nullable();
             $table->timestamps();
+
+            //Relazione RESTAURANT - USER UR
+            $table->foreign('user_id')
+                  ->references('id')
+                  ->on('users');
         });
     }
 

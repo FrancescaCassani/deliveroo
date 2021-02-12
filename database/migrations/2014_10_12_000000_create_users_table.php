@@ -15,7 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('restaurant_id');
             $table->string('name', 55)->notnull();
             $table->string('last_name', 55)->notnull();
             $table->string('phone_number', 30)->notnull()->unique();
@@ -24,11 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('password')->notnull();
             $table->rememberToken();
             $table->timestamps();
-
-            //Relazione RESTAURANT - USER UR
-            $table->foreign('restaurant_id')
-                  ->references('id')
-                  ->on('restaurants');
         });
     }
 

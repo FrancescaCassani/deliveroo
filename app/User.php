@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     //Relazione del DB: USERS - RESTAURANT
-    public function restaurants() {
-        return $this->hasMany('App\Restaurant');
-    }
+    // public function Restaurant() {
+    //     return $this->belongsTo('App\Restaurant');
+    // }
 }

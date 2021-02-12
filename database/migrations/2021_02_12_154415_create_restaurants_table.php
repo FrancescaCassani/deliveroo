@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRestaurantControllersTable extends Migration
+class CreateRestaurantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateRestaurantControllersTable extends Migration
      */
     public function up()
     {
-        Schema::create('restaurant_controllers', function (Blueprint $table) {
+        Schema::create('restaurant', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->string('name', 100)->notnull();
             $table->string('slug')->notnull();
             $table->string('email', 50)->notnull()->unique();
@@ -25,11 +24,6 @@ class CreateRestaurantControllersTable extends Migration
             $table->text('description')->notnull();
             $table->string('path_img')->nullable();
             $table->timestamps();
-
-            //Relazione RESTAURANT - USER UR
-            $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users');
         });
     }
 
@@ -40,6 +34,6 @@ class CreateRestaurantControllersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurant_controllers');
+        Schema::dropIfExists('restaurant');
     }
 }

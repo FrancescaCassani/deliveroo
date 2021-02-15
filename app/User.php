@@ -38,7 +38,11 @@ class User extends Authenticatable
     ];
 
     //Relazione del DB: USERS - RESTAURANT
+<<<<<<< Updated upstream
     public function Restaurants() {
+=======
+    public function restaurants() {
+>>>>>>> Stashed changes
         return $this->hasMany('App\Restaurant');
     }
 }

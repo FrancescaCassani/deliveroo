@@ -21,6 +21,7 @@ Route::get('/', 'HomeController@index')->name('home');
 //ROTTE PER LOGIN / REGISTRAZIONE
 Auth::routes();
 
+<<<<<<< Updated upstream
 //ROTTE PAGINE PER UTENTI LOGGATI
 //Route::get('/home', 'HomeController@index')->name('home');
 
@@ -35,3 +36,17 @@ Route::prefix('admin')
         //ROTTE POST CRUD
     });
     
+=======
+//Tutto ciò che mettiamo qua dentro sarà protetto da auth
+Route::prefix('admin')
+     ->namespace('Admin')
+     ->name('admin.')  //la parte che voglio mettere sempre prima della rotta che passo più sotto
+     ->middleware('auth')
+     ->group(function(){
+        //Home Admin
+        Route::get('/', 'HomeController@index')->name('home');
+
+        //Rotte CRUD Post
+        Route::resource('restaurants', 'PostController');
+     });
+>>>>>>> Stashed changes

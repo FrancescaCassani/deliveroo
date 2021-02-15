@@ -19,7 +19,7 @@ class RestaurantController extends Controller
     {
         //Get data-Reastaurants from DB
         $restaurants = Restaurant::where('user_id', Auth::id())
-        ->orderBy('name', 'asc')
+        ->orderBy('created_at', 'desc')
         ->get();
 
         return view('admin.restaurants.index', compact('restaurants'));

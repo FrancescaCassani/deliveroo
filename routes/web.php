@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 //HOME
 Route::get('/', 'HomeController@index')->name('home');
 
+//RESTAURANT ADMIN
+// Route::get('/admin/restaurants', 'RestaurantController')->name('admin.restaurants.index');
+
 //ROTTE PER LOGIN / REGISTRAZIONE
 Auth::routes();
 

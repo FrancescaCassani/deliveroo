@@ -10,11 +10,7 @@ class Restaurant extends Model
 
 
     //Relazione del DB: USERS - RESTAURANT
-<<<<<<< Updated upstream
     public function User() {
-=======
-    public function user() {
->>>>>>> Stashed changes
         return $this->belongsTo('App\User');
     }
 }

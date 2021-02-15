@@ -18,6 +18,20 @@ use Illuminate\Support\Facades\Auth;
 //HOME
 Route::get('/', 'HomeController@index')->name('home');
 
+//ROTTE PER LOGIN / REGISTRAZIONE
 Auth::routes();
 
-Route::get('/admin/home', 'HomeController@index')->name('home');
+//ROTTE PAGINE PER UTENTI LOGGATI
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('admin')
+    ->namespace('admin/')
+    ->name('admin.')
+    ->middleware('auth')
+    ->group(function() {
+        //Home admin
+        Route::get('/', 'HomeController@index')
+        ->name('home');
+        //ROTTE POST CRUD
+    });
+    

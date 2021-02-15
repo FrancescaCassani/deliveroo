@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'last_name', 'phone_number', 'email', 'password',
     ];
 
     /**
@@ -38,7 +38,7 @@ class User extends Authenticatable
     ];
 
     //Relazione del DB: USERS - RESTAURANT
-    // public function Restaurant() {
-    //     return $this->belongsTo('App\Restaurant');
-    // }
+    public function Restaurants() {
+        return $this->hasMany('App\Restaurant');
+    }
 }

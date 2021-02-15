@@ -10,7 +10,7 @@ class Restaurant extends Model
 
 
     //Relazione del DB: USERS - RESTAURANT
-    // public function Users() {
-    //     return $this->hasMany('App\User');
-    // }
+    public function User() {
+        return $this->belongsTo('App\User');
+    }
 }

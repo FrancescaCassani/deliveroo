@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
@@ -48,6 +49,11 @@ class RestaurantController extends Controller
         //VALIDAZIONE
         $request->validate($this->ruleValidation());
 
+        // Salvare immagine in locale
+        if(!empty($data['path_img'])){
+            $data['path_img'] = Storage::disk('public')->put('images' , $data['path_img']);
+        }
+
         //SALVO DATI A DB
         $data['user_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
 
@@ -72,9 +78,11 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -106,9 +114,12 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Restaurant $restaurant)
     {
-        //
+        $ref = $restaurant->name;
+
+
+
     }
 
     //UTILITY FUNCTIONS

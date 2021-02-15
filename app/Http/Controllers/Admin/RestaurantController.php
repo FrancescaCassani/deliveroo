@@ -17,7 +17,12 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        //Get data-Reastaurants from DB
+        $restaurants = Restaurant::where('user_id', Auth::id())
+        ->orderBy('name', 'asc')
+        ->get();
+
+        return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -27,7 +32,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -38,7 +43,27 @@ class RestaurantController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        //VALIDAZIONE
+        $request->validate($this->ruleValidation());
+
+        //SALVO DATI A DB
+        $data['user_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
+
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $newRestaurant = new Restaurant();
+        $newRestaurant->fill($data);  //Facciamo fillable nel model!!!
+
+        $saved = $newRestaurant->save();
+
+        if($saved) {
+            return redirect()->route('admin.restaurants.index');
+        } else {
+            return redirect()->route('admin.home');
+        } //DA RIVEDERE ERRORS...
+
     }
 
     /**
@@ -85,4 +110,21 @@ class RestaurantController extends Controller
     {
         //
     }
+
+    //UTILITY FUNCTIONS
+    private function ruleValidation() {
+        return [
+            //QUA STABILIAMO LE INFO RICHIESTE PER PROCEDERE
+            'name' => 'required | max: 100',
+            // 'slug'=>notnull();
+            'email' => 'required | max: 50',
+            'phone_number' => 'required | max: 30',
+            'vat_number' => 'required | max: 11',
+            'address' => 'required | max: 50',
+            'description' => 'required',
+            'path_img' => 'image',
+        ];
+    }
 }
+
+

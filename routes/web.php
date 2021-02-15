@@ -32,6 +32,7 @@ Route::prefix('admin')
         //Home admin
         Route::get('/', 'HomeController@index')->name('home');
 
-        //ROTTE POST CRUD
+        //ROTTE Restaurants CRUD
+        Route::resource('restaurants', 'RestaurantController');
     });
 

@@ -8,6 +8,7 @@ class Restaurant extends Model
 {
     //MASS ASSIGNMENT
     protected $fillable = [
+        'user_id',
         'name',
         'email',
         'phone_number',

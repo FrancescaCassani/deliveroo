@@ -13,7 +13,7 @@
         </div>
         @endif
 
-        <form action="{{ Route('admin.restaurants.create') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ Route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('POST')
             {{-- NAME --}}

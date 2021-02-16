@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 //HOME
 Route::get('/', 'RestaurantController@index')->name('home');
+
 //ROTTE UI
 Route::get('/restaurants/{slug}', 'RestaurantController@show')->name('restaurants.show');
 
@@ -38,5 +39,8 @@ Route::prefix('admin')
 
         //ROTTE Restaurants CRUD
         Route::resource('restaurants', 'RestaurantController');
+
+        //ROTTE Foods CRUD
+        Route::resource('foods', 'FoodController');
     });
 

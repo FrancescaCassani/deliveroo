@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Food;
+use App\Restaurant;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class FoodController extends Controller
 {
@@ -14,7 +19,16 @@ class FoodController extends Controller
      */
     public function index()
     {
-        //
+        //Get data-Restaurants/Foods from DB
+        $restaurants = Restaurant::where('user_id', Auth::id())
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        $foods = Food::where('restaurant_id', Auth::id())
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+        return view('admin.foods.index', compact('restaurants', 'foods'));
     }
 
     /**

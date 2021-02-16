@@ -18,7 +18,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //Get data-Reastaurants from DB
+        //Get data-Restaurants from DB
         $restaurants = Restaurant::where('user_id', Auth::id())
         ->orderBy('created_at', 'desc')
         ->get();

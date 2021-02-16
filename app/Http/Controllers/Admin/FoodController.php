@@ -49,7 +49,31 @@ class FoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        //VALIDAZIONE
+        $request->validate($this->ruleValidation());
+
+        // Salvare immagine in locale
+        if(!empty($data['path_img'])){
+            $data['path_img'] = Storage::disk('public')->put('images' , $data['path_img']);
+        }
+
+        //SALVO DATI A DB
+        $data['user_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
+
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $newFood = new Food();
+        $newFood->fill($data);  //Facciamo fillable nel model!!!
+
+        $saved = $newFood->save();
+
+        if($saved) {
+            return redirect()->route('admin.foods.index');
+        } else {
+            return redirect()->route('admin.home');
+        } //DA RIVEDERE ERRORS...
     }
 
     /**
@@ -95,5 +119,19 @@ class FoodController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    //UTILITY FUNCTIONS
+    private function ruleValidation() {
+        return [
+            //QUA STABILIAMO LE INFO RICHIESTE PER PROCEDERE
+            'name' => 'required | max: 200',
+            // 'slug'=>notnull();
+            'description' => 'required',
+            'ingredients' => 'required | max: 255',
+            'price' => 'required',
+            'visibility' => 'required',
+            'path_img' => 'image',
+        ];
     }
 }

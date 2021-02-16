@@ -39,8 +39,14 @@
             {{-- VISIBILITY --}}
             <div class="form-group">
                 <label for="visibility">Visibility</label>
-                <input class="form-control" type="text" name="visibility" value="{{old('visibility')}}" id="visibility">
+
+                    <select name="visibility" id="visibility">
+                        <option value="si" {{old('visibility') == 'si' ? 'selected' : ''}}>Si</option>
+                        <option value="no" {{old('visibility') == 'no' ? 'selected' : ''}}>No</option>
+                    </select>
+
             </div>
+
             {{-- IMAGE --}}
             <div class="form-group">
                 <label for="path_img">Add image</label>

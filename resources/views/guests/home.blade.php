@@ -20,6 +20,8 @@
                         {{$restaurant->name}}
                     </div>
                 </li>
+
+                <a href="{{ route('restaurants.show', $restaurant->slug) }}">Read more</a>
             @endforeach
         </ul>
 </div>

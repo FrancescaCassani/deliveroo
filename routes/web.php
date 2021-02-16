@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Auth;
 
 //HOME
 Route::get('/', 'RestaurantController@index')->name('home');
+//ROTTE UI
+Route::get('/restaurants/{slug}', 'RestaurantController@show')->name('restaurants.show');
+
 
 //RESTAURANT ADMIN
 // Route::get('/admin/restaurants', 'RestaurantController')->name('admin.restaurants.index');

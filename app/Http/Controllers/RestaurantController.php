@@ -12,4 +12,14 @@ class RestaurantController extends Controller
 
         return view('guests.home', compact('restaurants'));
     }
+
+    public function show($slug) {
+        $restaurant = Restaurant::where('slug', $slug)->first();
+
+        if (empty($restaurant)) {
+            abort(404);
+        } //DA PERSONALIZZARE
+
+        return view('guests.restaurants.show', compact('restaurant'));
+    }
 }

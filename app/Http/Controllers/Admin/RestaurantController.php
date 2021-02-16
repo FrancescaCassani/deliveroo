@@ -91,9 +91,9 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Restaurant $restaurant)
     {
-        //
+        return view('admin.restaurants.edit', compact('restaurant'));
     }
 
     /**
@@ -103,9 +103,37 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Restaurant $restaurant)
     {
-        //
+        //Dati inviati dalla form di aggiornamento
+        $data = $request->all();
+
+        ///VALIDAZIONE
+        $request->validate($this->ruleValidation());
+
+        // Salvare immagine in locale
+        if(!empty($data['img_path'])) {
+            if(!empty($restaurant->img_path)) {
+                Storage::disk('public')->delete($restaurant->img_path);
+            }
+            $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+        }
+
+        //AGGIORNO DATI A DB
+        $data['user_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
+
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $newRestaurant = new Restaurant();
+        $newRestaurant->fill($data);  //Facciamo fillable nel model!!!
+
+        $updated = $restaurant->update($data);
+
+        if($updated) {
+            return redirect()->route('admin.restaurants.index');
+        } else {
+            return redirect()->route('admin.home');
+        } //DA RIVEDERE ERRORS...
     }
 
     /**
@@ -118,7 +146,16 @@ class RestaurantController extends Controller
     {
         $ref = $restaurant->name;
 
+        $deleted = $restaurant->delete();
 
+        if($deleted) {
+            if(!empty($image)) {
+                Storage::disk('public')->delete($image);
+            }
+            return redirect()->route('admin.restaurants.index')->with('deleted', $ref);
+        } else {
+            return redirect()->route('admin.home');
+        }
 
     }
 

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 //HOME
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'RestaurantController@index')->name('home');
 
 //RESTAURANT ADMIN
 // Route::get('/admin/restaurants', 'RestaurantController')->name('admin.restaurants.index');
@@ -25,8 +25,6 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 //ROTTE PAGINE PER UTENTI LOGGATI
-//Route::get('/home', 'HomeController@index')->name('home');
-
 Route::prefix('admin')
     ->namespace('Admin')
     ->name('admin.')

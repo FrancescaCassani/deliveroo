@@ -4,9 +4,9 @@
 <div class="container">
     <h1>Homepage</h1>
     {{-- Controlo nessun ristorante presente --}}
-    @if ($restaurants->isEmpty())
+    {{-- @if ($restaurants ?? ''->isEmpty())
        <p>Nessun ristorante presente nella tua ricerca</p>
-    @endif
+    @endif --}}
     
     <h2>I ristoranti nella tua zona:</h2>
         <ul class="container">

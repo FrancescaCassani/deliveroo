@@ -10,6 +10,6 @@ class RestaurantController extends Controller
     public function index() {
         $restaurants = Restaurant::orderBy('name', 'asc')->get();
 
-        return view('guests.restaurants.home', compact('restaurants'));
+        return view('guests.home', compact('restaurants'));
     }
 }

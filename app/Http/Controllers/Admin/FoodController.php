@@ -60,7 +60,7 @@ class FoodController extends Controller
         }
 
         //SALVO DATI A DB
-        $data['user_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
+        $data['restaurant_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
 
         $data['slug'] = Str::slug($data['name'], '-');
 

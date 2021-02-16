@@ -21,7 +21,7 @@ class CreateFoodTable extends Migration
             $table->text('description')->nullable();
             $table->string('ingredients', 255)->notnull();
             $table->float('price', 6,2)->notnull();
-            $table->boolean('visibility')->default(0);
+            $table->string('visibility', 10)->notnull();
             $table->string('path_img')->nullable();
             $table->timestamps();
 

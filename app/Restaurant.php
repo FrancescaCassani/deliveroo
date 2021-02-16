@@ -24,4 +24,9 @@ class Restaurant extends Model
     public function User() {
         return $this->belongsTo('App\User');
     }
+
+    //Relazione del DB: RESTAURANT - FOODS
+    public function Foods() {
+        return $this->hasMany('App\Food');
+    }
 }

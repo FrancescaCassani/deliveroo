@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    <title>Deliveroo - Homepage</title>
+@endsection
+
 @section('content')
 <div class="text-center">
     <h1>Homepage</h1>

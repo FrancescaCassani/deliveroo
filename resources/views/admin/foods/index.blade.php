@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    <title>Deliveroo - I tuoi piatti</title>
+@endsection
+
 @section('content')
 <div class="container">
     {{-- Banner verifica deleted --}}

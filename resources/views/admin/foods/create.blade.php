@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('page-title')
+    <title>Deliveroo - Aggiungi un nuovo piatto</title>
+@endsection
+
+
 @section('content')
     <div class="container">
 

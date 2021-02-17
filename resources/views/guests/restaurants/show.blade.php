@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('page-title')
+    <title>Deliveroo - {{$restaurant->name}}</title>
+@endsection
+
 @section('content')
 <div class="text-center">
     <div class="container">

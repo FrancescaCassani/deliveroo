@@ -116,11 +116,11 @@ class FoodController extends Controller
         $request->validate($this->ruleValidation());
 
         // Salvare immagine in locale
-        if(!empty($data['img_path'])) {
-            if(!empty($food->img_path)) {
-                Storage::disk('public')->delete($food->img_path);
+        if(!empty($data['path_img'])) {
+            if(!empty($food->path_img)) {
+                Storage::disk('public')->delete($food->path_img);
             }
-            $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+            $data['path_img'] = Storage::disk('public')->put('images', $data['path_img']);
         }
 
         //AGGIORNO DATI A DB

@@ -111,21 +111,25 @@ class RestaurantController extends Controller
         ///VALIDAZIONE
         $request->validate($this->ruleValidation());
 
-        // Salvare immagine in locale
-        if(!empty($data['img_path'])) {
-            if(!empty($restaurant->img_path)) {
-                Storage::disk('public')->delete($restaurant->img_path);
-            }
-            $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
-        }
-
-        //AGGIORNO DATI A DB
-        $data['user_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
-
+        //SLUG
         $data['slug'] = Str::slug($data['name'], '-');
 
-        $newRestaurant = new Restaurant();
-        $newRestaurant->fill($data);  //Facciamo fillable nel model!!!
+        // Salvare immagine in locale
+        if(!empty($data['path_img'])) {
+
+            //Cancella l'immagine eventualmente precedente
+            if(!empty($restaurant->path_img)) {
+                Storage::disk('public')->delete($restaurant->path_img);
+            }
+            $data['path_img'] = Storage::disk('public')->put('images', $data['path_img']);
+        }
+
+
+        //AGGIORNO DATI A DB
+        // $data['user_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
+
+        // $newRestaurant = new Restaurant();
+        // $newRestaurant->fill($data);  //Facciamo fillable nel model!!!
 
         $updated = $restaurant->update($data);
 

@@ -5,7 +5,7 @@
     {{-- Banner verifica deleted --}}
     @if (session('deleted'))
     <div class="alert alert-danger">
-        {{ session('deleted') }} Eliminato con successo.
+        {{ session('deleted') }} Piatto eliminato con successo.
     </div>
     @endif
 
@@ -34,12 +34,12 @@
                         <td> <a class="btn btn-success" href="{{ route('admin.foods.show', $food->slug) }}">Mostra food</a></td>
                         <td> <a class="btn btn-primary" href="{{ route('admin.foods.edit', $food->id) }}">Modifica food</a></td>
                         <td>
-                            {{-- <form action="{{ route('admin.restaurants.destroy', $restaurant->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
+                        <form action="{{ route('admin.foods.destroy', $food->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
 
-                                <input type="submit" class="btn btn-danger" value="Elimina">
-                            </form> --}}
+                            <input type="submit" class="btn btn-danger" value="Elimina food">
+                        </form>
                         </td>
                     </tr>
                 @endforeach

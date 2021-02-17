@@ -146,9 +146,20 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Food $food)
     {
-        //
+        $ref = $food->name;
+
+        $deleted = $food->delete();
+
+        if($deleted) {
+            if(!empty($image)) {
+                Storage::disk('public')->delete($image);
+            }
+            return redirect()->route('admin.foods.index')->with('deleted', $ref);
+        } else {
+            return redirect()->route('admin.home');
+        }
     }
 
     //UTILITY FUNCTIONS

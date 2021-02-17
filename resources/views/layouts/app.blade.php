@@ -50,14 +50,14 @@
                             @endif
                         @else
 
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a href="{{route('admin.home')}}" class="nav-link">Dashboard</a>
+                            </li> --}}
+                            <li class="nav-item dropdown">
+                                <a href="{{route('admin.restaurants.index')}}" class="nav-link">I tuoi ristoranti</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="{{route('admin.restaurants.index')}}" class="nav-link">Ristoranti</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a href="{{route('admin.restaurants.create')}}" class="nav-link">Aggiungi Ristorante</a>
+                                <a href="{{route('admin.restaurants.create')}}" class="nav-link">Aggiungi</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

@@ -95,9 +95,9 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Food $food)
     {
-        //
+        return view('admin.foods.edit', compact('food'));
     }
 
     /**
@@ -107,9 +107,37 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Food $food)
     {
-        //
+        //Dati inviati dalla form di aggiornamento
+        $data = $request->all();
+
+        ///VALIDAZIONE
+        $request->validate($this->ruleValidation());
+
+        // Salvare immagine in locale
+        if(!empty($data['img_path'])) {
+            if(!empty($food->img_path)) {
+                Storage::disk('public')->delete($food->img_path);
+            }
+            $data['img_path'] = Storage::disk('public')->put('images', $data['img_path']);
+        }
+
+        //AGGIORNO DATI A DB
+        $data['restaurant_id'] = Auth::id(); //attraverso AUTH generiamo lo slug del ristorante nella fase di autenticazione.
+
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $newFood = new Food();
+        $newFood->fill($data);  //Facciamo fillable nel model!!!
+
+        $updated = $food->update($data);
+
+        if($updated) {
+            return redirect()->route('admin.foods.index');
+        } else {
+            return redirect()->route('admin.home');
+        } //DA RIVEDERE ERRORS...
     }
 
     /**

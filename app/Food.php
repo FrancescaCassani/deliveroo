@@ -22,4 +22,9 @@ class Food extends Model
     public function Restaurant() {
         return $this->belongsTo('App\Restaurant');
     }
+
+    //Relazione del DB: FOODS - ORDERS 
+    public function Orders() {
+        return $this->belongsToMany('App\Order');
+    }
 }

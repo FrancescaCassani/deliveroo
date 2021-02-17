@@ -82,9 +82,11 @@ class FoodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $food = Food::where('slug', $slug)->first();
+
+        return view('admin.foods.show', compact('food'));
     }
 
     /**

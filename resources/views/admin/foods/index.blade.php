@@ -31,8 +31,8 @@
                         <td>{{$food->id}}</td>
                         <td>{{$food->name}}</td>
                         <td>{{$food->created_at->format('d/m/Y')}}</td>
-                        {{-- <td> <a class="btn btn-success" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">Mostra</a></td>
-                        <td> <a class="btn btn-primary" href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Modifica</a></td> --}}
+                        <td> <a class="btn btn-success" href="{{ route('admin.foods.show', $food->slug) }}">Mostra food</a></td>
+                        {{-- <td> <a class="btn btn-primary" href="{{ route('admin.restaurants.edit', $restaurant->id) }}">Modifica</a></td> --}}
                         <td>
                             {{-- <form action="{{ route('admin.restaurants.destroy', $restaurant->id) }}" method="POST">
                                 @csrf

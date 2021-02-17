@@ -55,6 +55,10 @@
                 <label for="path_img">Add image</label>
                 <input class="form-control" type="file" name="path_img" id="path_img" accept="image/*">
             </div>
+
+            {{-- ********************************
+                TAB GENRES creata, da aggiungere nelle VIEWS
+                ********************************* --}}
             
             <div class="form-group">
                 <input class="btn btn-primary" type="submit" value="Add">

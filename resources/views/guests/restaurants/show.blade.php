@@ -13,18 +13,21 @@
             <h1 class="pt-4">{{ $restaurant->title }}</h1>
 
         {{-- Ciclo controllo se l'immagine del ristorante è presente --}}
-            @if (!empty($restaurant->path_img))
+        <img class="mb-3" width="250" src="{{ $restaurant->path_img }}" alt="{{$restaurant->title}}">
+
+            {{-- @if (!empty($restaurant->path_img))
                 <img class="mb-3" width="250" src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->title}}">
+                
             @else
                 <img class="mb-3" width="250" src="{{asset('img/no-img.png')}}" alt="{{$restaurant->title}}">
-            @endif
+            @endif --}}
 
             <p>Descrizione: {{$restaurant->description}}</p>
             <p>Address: {{$restaurant->address}}</p>
             <p>Phone number: {{$restaurant->phone_number}}</p>
 
-            @foreach ($restaurant->foods as $food)
-                {{$food->name}}
+            @foreach ($restaurant->foods as $item)
+                {{$item->name}}
             @endforeach
         </div>
     </div>

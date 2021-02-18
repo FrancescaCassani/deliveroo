@@ -19,7 +19,8 @@
             @foreach ($restaurants as $restaurant)
                 <div class="col-sm mb-5">
                     <div>
-                        <img width="250" src="{{ asset('storage/' . $restaurant->path_img) }}" alt="{{$restaurant->name}}">
+                        {{-- <img width="250" src="{{ asset('storage/' . $restaurant->path_img) }}" alt="{{$restaurant->name}}"> --}}
+                        <img width="250" src="{{ $restaurant->path_img }}" alt="{{$restaurant->name}}">
                         <h3>{{$restaurant->name}}</h3>
                         <a href="{{ route('restaurants.show', $restaurant->slug) }}">Show more</a>
                     </div>

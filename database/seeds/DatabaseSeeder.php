@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RestaurantsTableSeeder::class,
             FoodsTableSeeder::class,
+            GenresTableSeeder::class,
             ]);
     }
 }

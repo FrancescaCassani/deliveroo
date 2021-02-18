@@ -26,9 +26,10 @@
             <p>Address: {{$restaurant->address}}</p>
             <p>Phone number: {{$restaurant->phone_number}}</p>
 
-            @foreach ($restaurant->foods as $item)
-                {{$item->name}}
+            @foreach ($restaurant->foods as $food)
+                {{$food->name}}
             @endforeach
+
         </div>
     </div>
 

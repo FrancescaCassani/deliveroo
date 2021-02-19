@@ -49608,8 +49608,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     genres: []
   },
   created: function created() {
-    this.getRestaurants(); // this.getFoods();
-    // this.getGenres();
+    this.getRestaurants();
+    this.getFoods();
+    this.getGenres();
   },
   methods: {
     //Chiamata API restaurants
@@ -49639,7 +49640,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       var _this3 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then(function (result) {
-        _this3.genre = result.data;
+        _this3.genres = result.data; //console.log(this.genres);
       })["catch"](function (error) {
         // handle error
         console.log(error);

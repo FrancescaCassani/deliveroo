@@ -11,8 +11,8 @@ const app = new Vue({
     },
     created() {
         this.getRestaurants();
-        // this.getFoods();
-        // this.getGenres();
+        this.getFoods();
+        this.getGenres();
     },
     methods: {
         //Chiamata API restaurants
@@ -37,7 +37,8 @@ const app = new Vue({
         //Chiamata API genres
         getGenres() {
             axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then((result) => {
-                this.genre = result.data;
+            this.genres = result.data;
+            //console.log(this.genres);
             }).catch((error) => {
             // handle error
             console.log(error);

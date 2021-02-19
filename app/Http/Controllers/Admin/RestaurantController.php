@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
+use App\Genre;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -23,7 +24,9 @@ class RestaurantController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
-        return view('admin.restaurants.index', compact('restaurants'));
+        $genres = Genre::all();
+
+        return view('admin.restaurants.index', compact('restaurants', 'genres'));
     }
 
     /**
@@ -33,7 +36,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        return view('admin.restaurants.create');
+        $genres = Genre::all();
+
+        return view('admin.restaurants.create', compact('genres'));
     }
 
     /**
@@ -65,11 +70,15 @@ class RestaurantController extends Controller
         $saved = $newRestaurant->save();
 
         if($saved) {
+
+            if(!empty($data['genres'])) {
+                $newRestaurant->genres()->attach($data['genres']);
+            }
+
             return redirect()->route('admin.restaurants.index');
         } else {
             return redirect()->route('admin.home');
         } //DA RIVEDERE ERRORS...
-
     }
 
     /**
@@ -93,7 +102,9 @@ class RestaurantController extends Controller
      */
     public function edit(Restaurant $restaurant)
     {
-        return view('admin.restaurants.edit', compact('restaurant'));
+        $genres = Genre::all();
+
+        return view('admin.restaurants.edit', compact('restaurant', 'genres'));
     }
 
     /**
@@ -134,6 +145,15 @@ class RestaurantController extends Controller
         $updated = $restaurant->update($data);
 
         if($updated) {
+
+            if (!empty($data['genres'])) {
+                //Sincronizza con precedenti generi indicati
+                $restaurant->tags()->sync($data['genres']);
+            } else {
+                //Se non c'è sync con precedenti generi indicati elimina i vecchi
+                $restaurant->tags()->detach();
+            }
+
             return redirect()->route('admin.restaurants.index');
         } else {
             return redirect()->route('admin.home');
@@ -149,6 +169,9 @@ class RestaurantController extends Controller
     public function destroy(Restaurant $restaurant)
     {
         $ref = $restaurant->name;
+        $image = $restaurant->path_img;
+
+        $restaurant->tags()->detach();
 
         $deleted = $restaurant->delete();
 

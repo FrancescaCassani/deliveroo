@@ -27,7 +27,14 @@
                 </div>
             @endforeach --}}
             <div v-for="restaurant in restaurants">
-                <h3>@{{restaurant.name}}</h3> <br>
+                <div class="card" style="width: 15rem;">
+                    <img :src="restaurant.path_img" class="card-img-top" :alt="restaurant.name">
+                    <div class="card-body">
+                        <h5 class="card-title">@{{restaurant.name}}</h5>
+           
+                        <a href="#" class="btn btn-primary">Show</a>
+                    </div>
+                </div>
             </div>
 
             <div v-for="food in foods">
@@ -37,6 +44,8 @@
             <div v-for="genre in genres">
                 <h3>@{{genre.type}}</h3>
             </div>
+
+   
         </div>
     </div>
 </div>

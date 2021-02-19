@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRestaurantGenreTable extends Migration
+class CreateGenreRestaurantTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateRestaurantGenreTable extends Migration
      */
     public function up()
     {
-        Schema::create('restaurant_genre', function (Blueprint $table) {
+        Schema::create('genre_restaurant', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('restaurant_id');
             $table->unsignedBigInteger('genre_id');
@@ -21,12 +21,14 @@ class CreateRestaurantGenreTable extends Migration
             //Relazione RESTAURANT - GENRE
             $table->foreign('restaurant_id')
             ->references('id')
-            ->on('restaurants');
+            ->on('restaurants')
+            ->onDelete('cascade');
 
             //Relazione GENRE - RESTAURANT
             $table->foreign('genre_id')
             ->references('id')
-            ->on('genres');
+            ->on('genres')
+            ->onDelete('cascade');
         });
     }
 
@@ -37,6 +39,6 @@ class CreateRestaurantGenreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurant_genre');
+        Schema::dropIfExists('genre_restaurant');
     }
 }

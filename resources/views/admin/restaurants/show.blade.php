@@ -7,6 +7,9 @@
 @section('content')
     <div class="container">
         <h2>{{$restaurant->name}}</h2>
+        @foreach($restaurant->genres as $genre)
+            <small>{{$genre->type}}</small>
+        @endforeach
         <p>{{$restaurant->vat_number}}</p>
         <p>{{$restaurant->description}}</p>
         <p>{{$restaurant->created_at->diffForHumans()}}</p>

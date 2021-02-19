@@ -26,13 +26,13 @@
                     </div>
                 </div>
             @endforeach --}}
-            {{-- <div v-for="restaurant in restaurants">
-                <h3>@{{restaurant.name}}</h3>
+            <div v-for="restaurant in restaurants">
+                <h3>@{{restaurant.name}}</h3> <br>
             </div>
 
             <div v-for="food in foods">
                 <h3>@{{food.name}}</h3>
-            </div> --}}
+            </div>
 
             <div v-for="genre in genres">
                 <h3>@{{genre.type}}</h3>

@@ -37,6 +37,7 @@ class RestaurantController extends Controller
     public function create()
     {
         $genres = Genre::all();
+        // dd($genres);
 
         return view('admin.restaurants.create', compact('genres'));
     }
@@ -148,10 +149,10 @@ class RestaurantController extends Controller
 
             if (!empty($data['genres'])) {
                 //Sincronizza con precedenti generi indicati
-                $restaurant->tags()->sync($data['genres']);
+                $restaurant->genres()->sync($data['genres']);
             } else {
                 //Se non c'è sync con precedenti generi indicati elimina i vecchi
-                $restaurant->tags()->detach();
+                $restaurant->genres()->detach();
             }
 
             return redirect()->route('admin.restaurants.index');
@@ -171,7 +172,7 @@ class RestaurantController extends Controller
         $ref = $restaurant->name;
         $image = $restaurant->path_img;
 
-        $restaurant->tags()->detach();
+        $restaurant->genres()->detach();
 
         $deleted = $restaurant->delete();
 

@@ -16,16 +16,20 @@
     <h2 class="text-center pt-3 pb-3">I ristoranti nella tua zona</h2>
     <div class="container">
         <div class="hero row">
-            @foreach ($restaurants as $restaurant)
+            {{-- @foreach ($restaurants as $restaurant)
                 <div class="col-sm mb-5">
-                    <div>
+                    <div> --}}
                         {{-- <img width="250" src="{{ asset('storage/' . $restaurant->path_img) }}" alt="{{$restaurant->name}}"> --}}
-                        <img width="250" src="{{ $restaurant->path_img }}" alt="{{$restaurant->name}}">
+                        {{-- <img width="250" src="{{ $restaurant->path_img }}" alt="{{$restaurant->name}}">
                         <h3>{{$restaurant->name}}</h3>
                         <a href="{{ route('restaurants.show', $restaurant->slug) }}">Show more</a>
                     </div>
                 </div>
-            @endforeach
+            @endforeach --}}
+            <div v-for="restaurant in restaurants">
+                <h3>@{{restaurant.name}}</h3>
+
+            </div>
         </div>
     </div>
 </div>

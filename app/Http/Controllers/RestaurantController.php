@@ -9,8 +9,8 @@ use App\Food;
 class RestaurantController extends Controller
 {
     public function index() {
-        $restaurants = Restaurant::orderBy('name', 'asc')->get();
-
+        $restaurants = Restaurant::orderBy('id', 'asc')->get();
+        
         return view('guests.home', compact('restaurants'));
     }
 

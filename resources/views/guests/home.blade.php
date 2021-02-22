@@ -15,35 +15,33 @@
 
     <h2 class="text-center pt-3 pb-3">I ristoranti nella tua zona</h2>
     <div class="container">
-        <div class="hero row">
-            @foreach ($restaurants as $restaurant)
-                <div class="col-sm mb-5">
-                    <div>
-                        {{-- <img width="250" src="{{ asset('storage/' . $restaurant->path_img) }}" alt="{{$restaurant->name}}"> --}}
-                        <img width="250" src="{{ $restaurant->path_img }}" alt="{{$restaurant->name}}">
-                        <h3>{{$restaurant->name}}</h3>
-                        <a href="{{ route('restaurants.show', $restaurant->slug) }}">Show more</a>
+        <div class="show-restaurant">
+            <span v-for="(restautant, i) in restaurants">
+                <div class="container" v-if="restautant.id == restaurantIndex"> 
+                    <img :src="restautant.path_img" class="card-img-top" :alt="restautant.name">
+                    <h1>@{{restautant.name}}</h1>
+                    <div v-for="food in foods" v-if="food.id === restautant.id">
+                        <h3>@{{food.name}}</h3>
+                    </div>
+                    <div v-for="genre in genres" v-if="genre.id === restautant.id">
+                        <h3>@{{genre.type}}</h3>
                     </div>
                 </div>
-            @endforeach
-            <!-- <div class="col-sm mb-5" v-for="restaurant in restaurants">
+            </span>
+        </div>
+        <div class="hero row">
+            <div class="col-sm mb-5" v-for="(restaurant, index) in restaurants">
                 <div class="card" style="width: 15rem">
                     <img :src="restaurant.path_img" class="card-img-top" :alt="restaurant.name">
                     <div class="card-body">
                         <h5 class="card-title">@{{restaurant.name}}</h5>
-           
-                        <a href="#" class="btn btn-primary">Show</a>
+                        <span @click="showRestaurant(index)" class="btn btn-primary">Show</span>
                     </div>
                 </div>
-            </div> -->
-
-            <!-- <div v-for="food in foods">
-                <h3>@{{food.name}}</h3>
             </div>
 
-            <div v-for="genre in genres">
-                <h3>@{{genre.type}}</h3>
-            </div> -->
+          
+
 
    
         </div>

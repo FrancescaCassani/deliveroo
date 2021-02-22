@@ -5,9 +5,9 @@ import Vue from 'vue';
 const app = new Vue({
     el: '#app',
     data: {
-        prova: true,
+        research: '',
         restaurantIndex: '',
-
+        visible: false,
         restaurants: [],
         foods: [],
         genres: [],
@@ -18,6 +18,18 @@ const app = new Vue({
         this.getGenres();
     },
     methods: {
+        //Barra di ricerca
+        searchRestaurant() {
+            this.restaurants.forEach( el => {
+                if (el.name.toLowerCase().includes(this.research.toLowerCase())) {
+                    el.visible = true;
+                } else {
+                    el.visible = false;
+                }
+            
+            });
+        
+        },
         //Chiamata API restaurants
         getRestaurants() {
             axios.get('http://127.0.0.1:8000/api/deliveroo').then((result) => {

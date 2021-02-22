@@ -49603,8 +49603,9 @@ __webpack_require__.r(__webpack_exports__);
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   data: {
-    prova: true,
+    research: '',
     restaurantIndex: '',
+    visible: false,
     restaurants: [],
     foods: [],
     genres: []
@@ -49615,12 +49616,24 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     this.getGenres();
   },
   methods: {
-    //Chiamata API restaurants
-    getRestaurants: function getRestaurants() {
+    //Barra di ricerca
+    searchRestaurant: function searchRestaurant() {
       var _this = this;
 
+      this.restaurants.forEach(function (el) {
+        if (el.name.toLowerCase().includes(_this.research.toLowerCase())) {
+          el.visible = true;
+        } else {
+          el.visible = false;
+        }
+      });
+    },
+    //Chiamata API restaurants
+    getRestaurants: function getRestaurants() {
+      var _this2 = this;
+
       axios.get('http://127.0.0.1:8000/api/deliveroo').then(function (result) {
-        _this.restaurants = result.data; // console.log(this.restaurants);
+        _this2.restaurants = result.data; // console.log(this.restaurants);
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49628,10 +49641,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Chiamata API foods
     getFoods: function getFoods() {
-      var _this2 = this;
+      var _this3 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/food').then(function (result) {
-        _this2.foods = result.data;
+        _this3.foods = result.data;
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49639,10 +49652,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Chiamata API genres
     getGenres: function getGenres() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then(function (result) {
-        _this3.genres = result.data; //console.log(this.genres);
+        _this4.genres = result.data; //console.log(this.genres);
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49719,8 +49732,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ivandf/Desktop/ /WIP/Lavori in corso/deliveroo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ivandf/Desktop/ /WIP/Lavori in corso/deliveroo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean-php\deliveroo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean-php\deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

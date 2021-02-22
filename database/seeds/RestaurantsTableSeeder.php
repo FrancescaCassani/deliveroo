@@ -28,6 +28,7 @@ class RestaurantsTableSeeder extends Seeder
                 $newRestaurant->address = $faker->sentence(2);
                 $newRestaurant->description = $faker->text(400);
                 $newRestaurant->path_img = $faker->imageUrl(640, 480);
+                $newRestaurant->visible = $faker->randomElement([true]);
                 $newRestaurant->save();
             }
         }

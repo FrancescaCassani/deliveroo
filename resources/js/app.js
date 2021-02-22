@@ -5,27 +5,40 @@ import Vue from 'vue';
 const app = new Vue({
     el: '#app',
     data: {
-        research: '',
-        restaurantIndex: '',
-        visible: false,
-        restaurants: [],
+
         foods: [],
         genres: [],
+        restaurants: [],
+        restaurantIndex: '',
+        
+        // imput search
+        research: '',
+        visible: false,
+        genresId: [],
+        filter: true,
+
         showGenres: [],
         allRestaurants: [],
 
+        // shop cart
+        shopCart: [],
 
-        genresId: [],
-        filter: true,
     },
     created() {
         this.getRestaurants();
         this.getFoods();
         this.getGenres();
-        
-        
     },
     methods: {
+        // Aggiungi al carrello
+        addCart(food) {
+
+            this.shopCart.push(food)
+
+            console.log(this.shopCart);
+
+        },
+
         //Barra di ricerca
         searchRestaurant() {
             this.allRestaurants.forEach( el => {
@@ -41,6 +54,8 @@ const app = new Vue({
                 });
             }
         },
+
+
         //Filtro dei generi
         filterGenres(genre) {
             this.genresId = [];
@@ -57,6 +72,7 @@ const app = new Vue({
                 }
             });
         },
+        // resettare la ricerca
         filterNone() {
             this.allRestaurants.forEach( el => {
                 this.genresId = [];
@@ -99,6 +115,8 @@ const app = new Vue({
                 console.log(error);
             });
         },
+
+
         showRestaurant(index) {
             this.restaurantIndex = index + 1;
         }

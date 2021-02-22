@@ -8,12 +8,14 @@
 <div class="text-center">
     <h1>Homepage</h1>
     {{-- Barra di ricerca --}}
-    <input type="text" placeholder="Ricerca il ristorante" v-model='research' @keyup="searchRestaurant">
+    <input class="imput-group" type="text" placeholder="Ricerca il ristorante" v-model='research' @keyup="searchRestaurant">
     {{-- Lista generi --}}
-    <ul class="list-group list-group-horizontal-sm">
-        <li class="list-group-item" v-for="genre in showGenres" @click="filterGenres(genre)">@{{genre}}</li>
-        <li class="list-group-item" @click="filterNone">Tutti</li>
-    </ul>
+    <div class="container d-flex justify-content-center mt-4 mb-3">
+        <ul class="list-group list-group-horizontal-sm">
+            <li class="list-group-item" v-for="genre in showGenres" @click="filterGenres(genre)">@{{genre}}</li>
+            <button class="btn btn-primary" @click="filterNone">Tutti</button>
+        </ul>
+    </div>
 
     {{-- Controlo nessun ristorante presente --}}
     @if ($restaurants->isEmpty())
@@ -28,7 +30,7 @@
                     <img :src="restautant.path_img" class="card-img-top" :alt="restautant.name">
                     <h1>@{{restautant.name}}</h1>
                     <div v-for="food in foods" v-if="food.id === restautant.id">
-                        <h3>@{{food.name}}</h3>
+                        <h3>@{{food.name}}</h3> <span href="#" class="btn btn-primary" @click="addCart(food)">Aggiungi al carrello</span>
                     </div>
                     <div v-for="genre in genres" v-if="genre.id === restautant.id">
                         <h3>@{{genre.type}}</h3>

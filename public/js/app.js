@@ -49603,16 +49603,19 @@ __webpack_require__.r(__webpack_exports__);
 var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   el: '#app',
   data: {
-    research: '',
-    restaurantIndex: '',
-    visible: false,
-    restaurants: [],
     foods: [],
     genres: [],
+    restaurants: [],
+    restaurantIndex: '',
+    // imput search
+    research: '',
+    visible: false,
+    genresId: [],
+    filter: true,
     showGenres: [],
     allRestaurants: [],
-    genresId: [],
-    filter: true
+    // shop cart
+    shopCart: []
   },
   created: function created() {
     this.getRestaurants();
@@ -49620,6 +49623,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     this.getGenres();
   },
   methods: {
+    // Aggiungi al carrello
+    addCart: function addCart(food) {
+      this.shopCart.push(food);
+      console.log(this.shopCart);
+    },
     //Barra di ricerca
     searchRestaurant: function searchRestaurant() {
       var _this = this;
@@ -49657,6 +49665,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         }
       });
     },
+    // resettare la ricerca
     filterNone: function filterNone() {
       var _this3 = this;
 

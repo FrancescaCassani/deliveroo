@@ -49608,7 +49608,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     visible: false,
     restaurants: [],
     foods: [],
-    genres: []
+    genres: [],
+    showGenres: [],
+    allRestaurants: []
   },
   created: function created() {
     this.getRestaurants();
@@ -49620,20 +49622,47 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     searchRestaurant: function searchRestaurant() {
       var _this = this;
 
-      this.restaurants.forEach(function (el) {
+      this.allRestaurants.forEach(function (el) {
         if (el.name.toLowerCase().includes(_this.research.toLowerCase())) {
-          el.visible = true;
+          el.visible = 1;
         } else {
-          el.visible = false;
+          el.visible = 0;
         }
       });
     },
-    //Chiamata API restaurants
-    getRestaurants: function getRestaurants() {
+    //Filtro dei generi
+    filterGenres: function filterGenres(genre) {
       var _this2 = this;
 
+      this.genres.forEach(function (element) {
+        if (genre == element.type) {
+          var restaurants_id = element.restaurant_id;
+
+          _this2.restaurants.forEach(function (el) {
+            if (restaurants_id == el.id) {
+              // this.restaurants.filter(e => {
+              //     this.restaurants = e;
+              // });
+              el.visible = 1;
+              _this2.allRestaurants = el;
+              console.log(_this2.allRestaurants);
+            }
+          });
+
+          console.log(element.type);
+        }
+      }); // this.albums = albumsList;
+
+      console.log('CIAOOOO!!!');
+      console.log(genre);
+    },
+    //Chiamata API restaurants
+    getRestaurants: function getRestaurants() {
+      var _this3 = this;
+
       axios.get('http://127.0.0.1:8000/api/deliveroo').then(function (result) {
-        _this2.restaurants = result.data; // console.log(this.restaurants);
+        _this3.restaurants = result.data;
+        _this3.allRestaurants = result.data; // console.log(this.restaurants);
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49641,10 +49670,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Chiamata API foods
     getFoods: function getFoods() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/food').then(function (result) {
-        _this3.foods = result.data;
+        _this4.foods = result.data;
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49652,10 +49681,15 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Chiamata API genres
     getGenres: function getGenres() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then(function (result) {
-        _this4.genres = result.data; //console.log(this.genres);
+        _this5.genres = result.data;
+        result.data.forEach(function (element) {
+          if (!_this5.showGenres.includes(element.type)) {
+            _this5.showGenres.push(element.type);
+          }
+        }); //console.log(this.genres);
       })["catch"](function (error) {
         // handle error
         console.log(error);

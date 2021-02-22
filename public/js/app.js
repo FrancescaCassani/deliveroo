@@ -49610,7 +49610,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     foods: [],
     genres: [],
     showGenres: [],
-    allRestaurants: []
+    allRestaurants: [],
+    genresId: [],
+    filter: true
   },
   created: function created() {
     this.getRestaurants();
@@ -49623,46 +49625,53 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       var _this = this;
 
       this.allRestaurants.forEach(function (el) {
-        if (el.name.toLowerCase().includes(_this.research.toLowerCase())) {
+        if (el.name.toLowerCase().includes(_this.research.toLowerCase()) && el.visible == 1) {
           el.visible = 1;
         } else {
           el.visible = 0;
         }
       });
+
+      if (this.research == '') {
+        this.allRestaurants.forEach(function (el) {
+          el.visible = 1;
+        });
+      }
     },
     //Filtro dei generi
     filterGenres: function filterGenres(genre) {
       var _this2 = this;
 
+      this.genresId = [];
       this.genres.forEach(function (element) {
         if (genre == element.type) {
-          var restaurants_id = element.restaurant_id;
+          _this2.genresId.push(element.restaurant_id.toString());
 
-          _this2.restaurants.forEach(function (el) {
-            if (restaurants_id == el.id) {
-              // this.restaurants.filter(e => {
-              //     this.restaurants = e;
-              // });
+          _this2.allRestaurants.forEach(function (el) {
+            if (_this2.genresId.includes(el.id.toString())) {
               el.visible = 1;
-              _this2.allRestaurants = el;
-              console.log(_this2.allRestaurants);
+            } else {
+              el.visible = 0;
             }
           });
-
-          console.log(element.type);
         }
-      }); // this.albums = albumsList;
+      });
+    },
+    filterNone: function filterNone() {
+      var _this3 = this;
 
-      console.log('CIAOOOO!!!');
-      console.log(genre);
+      this.allRestaurants.forEach(function (el) {
+        _this3.genresId = [];
+        el.visible = 1;
+      });
     },
     //Chiamata API restaurants
     getRestaurants: function getRestaurants() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo').then(function (result) {
-        _this3.restaurants = result.data;
-        _this3.allRestaurants = result.data; // console.log(this.restaurants);
+        _this4.restaurants = result.data;
+        _this4.allRestaurants = result.data; // console.log(this.restaurants);
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49670,10 +49679,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Chiamata API foods
     getFoods: function getFoods() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/food').then(function (result) {
-        _this4.foods = result.data;
+        _this5.foods = result.data;
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49681,13 +49690,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Chiamata API genres
     getGenres: function getGenres() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then(function (result) {
-        _this5.genres = result.data;
+        _this6.genres = result.data;
         result.data.forEach(function (element) {
-          if (!_this5.showGenres.includes(element.type)) {
-            _this5.showGenres.push(element.type);
+          if (!_this6.showGenres.includes(element.type)) {
+            _this6.showGenres.push(element.type);
           }
         }); //console.log(this.genres);
       })["catch"](function (error) {
@@ -49766,8 +49775,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\boolean-php\deliveroo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean-php\deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ivandf/Desktop/ /WIP/Lavori in corso/deliveroo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ivandf/Desktop/ /WIP/Lavori in corso/deliveroo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

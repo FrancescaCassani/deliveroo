@@ -13,52 +13,55 @@ const app = new Vue({
         genres: [],
         showGenres: [],
         allRestaurants: [],
+
+
+        genresId: [],
+        filter: true,
     },
     created() {
         this.getRestaurants();
         this.getFoods();
         this.getGenres();
         
+        
     },
     methods: {
         //Barra di ricerca
         searchRestaurant() {
             this.allRestaurants.forEach( el => {
-                if (el.name.toLowerCase().includes(this.research.toLowerCase())) {
+                if (el.name.toLowerCase().includes(this.research.toLowerCase()) && el.visible == 1) {
                     el.visible = 1;
                 } else {
                     el.visible = 0;
                 }
-            
             });
-        
+            if( this.research == '' ) {
+                this.allRestaurants.forEach( el => {
+                    el.visible = 1;
+                });
+            }
         },
         //Filtro dei generi
         filterGenres(genre) {
+            this.genresId = [];
             this.genres.forEach(element => {
                 if(genre == element.type) {
-                    let restaurants_id = element.restaurant_id;
-                    this.restaurants.forEach(el => {
-                        if(restaurants_id == el.id) {
-                            // this.restaurants.filter(e => {
-                            //     this.restaurants = e;
-                            // });
+                    this.genresId.push(element.restaurant_id.toString());
+                    this.allRestaurants.forEach( el => {
+                        if (this.genresId.includes(el.id.toString())) {
                             el.visible = 1;
-                            this.allRestaurants = el;
-                            console.log(this.allRestaurants);
-                            
+                        } else {
+                            el.visible = 0;
                         }
                     });
-                    console.log(element.type);
                 }
-                
             });
-            
-                   
-            // this.albums = albumsList;
-            console.log('CIAOOOO!!!');
-            console.log(genre);
-            
+        },
+        filterNone() {
+            this.allRestaurants.forEach( el => {
+                this.genresId = [];
+                el.visible = 1;
+            });
         },
         //Chiamata API restaurants
         getRestaurants() {

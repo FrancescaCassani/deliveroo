@@ -12,6 +12,7 @@
     {{-- Lista generi --}}
     <ul class="list-group list-group-horizontal-sm">
         <li class="list-group-item" v-for="genre in showGenres" @click="filterGenres(genre)">@{{genre}}</li>
+        <li class="list-group-item" @click="filterNone">Tutti</li>
     </ul>
 
     {{-- Controlo nessun ristorante presente --}}
@@ -45,11 +46,6 @@
                     </div>
                 </div>
             </div>
-
-          
-
-
-   
         </div>
     </div>
 </div>

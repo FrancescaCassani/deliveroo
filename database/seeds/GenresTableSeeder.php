@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Generator as Faker;
 use App\Genre;
-use App\Restaurant;
 
 class GenresTableSeeder extends Seeder
 {
@@ -12,16 +10,21 @@ class GenresTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run(Faker $faker)
+    public function run()
     {
+        $genres = [
+            'Pizzeria',
+            'Piadineria',
+            'Gelateria',
+            'Indiano',
+            'Cinese',
+            'Giapponese',
+            'Messicano',
+        ];
 
-        $restaurants = Restaurant::all();
-        foreach ($restaurants as $restaurant) {
+        foreach ($genres as $genre) {
             $newGenre = new Genre();
-
-            $newGenre->type = $faker->randomElement(['Pizzeria', 'Piadineria', 'Gelateria', 'Indiano', 'Cinese', 'Giapponese', 'Messicano']);
-            $newGenre->restaurant_id = $restaurant->id;
-
+            $newGenre->type = $genre;
             $newGenre->save();
         }
     }

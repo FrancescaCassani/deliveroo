@@ -10,7 +10,7 @@ const app = new Vue({
         genres: [],
         restaurants: [],
         restaurantIndex: '',
-        
+
         // imput search
         research: '',
         visible: false,
@@ -24,6 +24,7 @@ const app = new Vue({
         shopCart: [],
         finalPrice: 0,
         showCart: false,
+        activeGenre: 'Pizzeria',
 
     },
     created() {
@@ -94,7 +95,8 @@ const app = new Vue({
         },
         //Chiamata API restaurants
         getRestaurants() {
-            axios.get('http://127.0.0.1:8000/api/deliveroo').then((result) => {
+            axios.get('http://127.0.0.1:8000/api/deliveroo')
+            .then((result) => {
                 this.restaurants = result.data;
                 this.allRestaurants = result.data;
                 // console.log(this.restaurants);
@@ -116,7 +118,7 @@ const app = new Vue({
         getGenres() {
             axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then((result) => {
                 this.genres = result.data;
-                
+
                 result.data.forEach(element => {
                     if (!this.showGenres.includes(element.type)) {
                         this.showGenres.push(element.type);

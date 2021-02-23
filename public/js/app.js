@@ -49617,7 +49617,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     // shop cart
     shopCart: [],
     finalPrice: 0,
-    showCart: false
+    showCart: false,
+    activeGenre: 'Pizzeria'
   },
   created: function created() {
     this.getRestaurants();

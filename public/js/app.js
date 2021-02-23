@@ -49616,7 +49616,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     allRestaurants: [],
     // shop cart
     shopCart: [],
-    finalPrice: 0
+    finalPrice: 0,
+    showCart: false
   },
   created: function created() {
     this.getRestaurants();

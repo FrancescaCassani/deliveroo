@@ -48,8 +48,12 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                                <li class="nav-item">
+                                <li class="nav-item position-relative" @click="showCart = !showCart">
                                     <a class="nav-link" href="#"><i class="fas fa-cart-plus"></i></a>
+                                    <ul v-if='showCart' class="position-absolute mt-4" style="width: 250px">
+                                        <li v-for="(product, index) in shopCart" width=100>@{{ product.name }} @{{ product.price }}</li>
+                                        <li>Total: @{{ finalPrice }}</li>
+                                    </ul>
                                 </li>
                         @else
 

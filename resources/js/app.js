@@ -23,6 +23,7 @@ const app = new Vue({
         // shop cart
         shopCart: [],
         finalPrice: 0,
+        showCart: false,
 
     },
     created() {

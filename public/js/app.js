@@ -49698,7 +49698,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
 
       axios.get('http://127.0.0.1:8000/api/deliveroo').then(function (result) {
         _this5.restaurants = result.data;
-        _this5.allRestaurants = result.data; // console.log(this.restaurants);
+        _this5.allRestaurants = result.data;
+        console.log(_this5.restaurants);
       })["catch"](function (error) {
         // handle error
         console.log(error);

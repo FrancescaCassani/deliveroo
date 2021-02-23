@@ -95,11 +95,10 @@ const app = new Vue({
         },
         //Chiamata API restaurants
         getRestaurants() {
-            axios.get('http://127.0.0.1:8000/api/deliveroo')
-            .then((result) => {
+            axios.get('http://127.0.0.1:8000/api/deliveroo').then((result) => {
                 this.restaurants = result.data;
                 this.allRestaurants = result.data;
-                // console.log(this.restaurants);
+                console.log(this.restaurants);
             }).catch((error) => {
                 // handle error
                 console.log(error);

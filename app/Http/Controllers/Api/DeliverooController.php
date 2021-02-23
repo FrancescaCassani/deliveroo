@@ -31,10 +31,14 @@ class DeliverooController extends Controller
         $restaurants = DB::table('genre_restaurant')
         ->join('restaurants', 'restaurants.id', '=', 'genre_restaurant.restaurant_id')
         ->join('genres', 'genres.id', '=', 'genre_restaurant.genre_id')
-        ->where('genres.type', 'Pizzeria')
-        ->orWhere('genres.type', 'Cinese')
+        ->where('genres.type', '=', 'Pizzeria')
+        // ->where('genres.type', '=', 'Gelateria')
+        // ->where('genres.type', '=', 'Cinese')
+        // ->where('genres.type', '=', 'Messicano')
+        // ->where('genres.type', '=', 'Giapponese')
+        // ->where('genres.type', '=', 'Indiano')
+        // ->where('genres.type', '=', 'Piadineria')
         ->get();
-
 
         return response()->json($restaurants);
     }

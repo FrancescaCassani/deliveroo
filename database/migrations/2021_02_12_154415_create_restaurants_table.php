@@ -24,7 +24,7 @@ class CreateRestaurantsTable extends Migration
             $table->string('address', 50)->notnull();
             $table->text('description')->notnull();
             $table->string('path_img')->nullable();
-            $table->string('visible', 5)->nullable();
+            $table->string('visible', 5)->default(1);
             $table->timestamps();
 
             //Relazione RESTAURANT - USER UR

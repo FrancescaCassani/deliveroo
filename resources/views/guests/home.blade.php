@@ -26,7 +26,7 @@
     <div class="container">
         <div class="show-restaurant">
             <span v-for="(restautant, i) in allRestaurants">
-                <div class="container" v-if="restautant.id == restaurantIndex"> 
+                <div class="container" v-if="restautant.id == restaurantIndex">
                     <img :src="restautant.path_img" class="card-img-top" :alt="restautant.name">
                     <h1>@{{restautant.name}}</h1>
                     <div v-for="food in foods" v-if="food.id === restautant.id">

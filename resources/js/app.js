@@ -22,6 +22,7 @@ const app = new Vue({
 
         // shop cart
         shopCart: [],
+        finalPrice: 0,
 
     },
     created() {
@@ -32,11 +33,22 @@ const app = new Vue({
     methods: {
         // Aggiungi al carrello
         addCart(food) {
+            let newFood = [];
+            newFood.push(food);
+            newFood.forEach(element => {
+                this.shopCart.push({
+                    price: element.price,
+                    name: element.name,
+                });
+                // console.log(this.shopCart);
+            });
+            this.totalPrice(food);
+        },
 
-            this.shopCart.push(food)
-
-            console.log(this.shopCart);
-
+        //Totale carrello
+        totalPrice(food) {
+                this.finalPrice += food.price;
+                console.log(this.finalPrice);
         },
 
         //Barra di ricerca

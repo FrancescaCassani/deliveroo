@@ -49615,7 +49615,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     showGenres: [],
     allRestaurants: [],
     // shop cart
-    shopCart: []
+    shopCart: [],
+    finalPrice: 0
   },
   created: function created() {
     this.getRestaurants();
@@ -49625,15 +49626,30 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
   methods: {
     // Aggiungi al carrello
     addCart: function addCart(food) {
-      this.shopCart.push(food);
-      console.log(this.shopCart);
+      var _this = this;
+
+      var newFood = [];
+      newFood.push(food);
+      newFood.forEach(function (element) {
+        _this.shopCart.push({
+          price: element.price,
+          name: element.name
+        }); // console.log(this.shopCart);
+
+      });
+      this.totalPrice(food);
+    },
+    //Totale carrello
+    totalPrice: function totalPrice(food) {
+      this.finalPrice += food.price;
+      console.log(this.finalPrice);
     },
     //Barra di ricerca
     searchRestaurant: function searchRestaurant() {
-      var _this = this;
+      var _this2 = this;
 
       this.allRestaurants.forEach(function (el) {
-        if (el.name.toLowerCase().includes(_this.research.toLowerCase()) && el.visible == 1) {
+        if (el.name.toLowerCase().includes(_this2.research.toLowerCase()) && el.visible == 1) {
           el.visible = 1;
         } else {
           el.visible = 0;
@@ -49648,15 +49664,15 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Filtro dei generi
     filterGenres: function filterGenres(genre) {
-      var _this2 = this;
+      var _this3 = this;
 
       this.genresId = [];
       this.genres.forEach(function (element) {
         if (genre == element.type) {
-          _this2.genresId.push(element.restaurant_id.toString());
+          _this3.genresId.push(element.restaurant_id.toString());
 
-          _this2.allRestaurants.forEach(function (el) {
-            if (_this2.genresId.includes(el.id.toString())) {
+          _this3.allRestaurants.forEach(function (el) {
+            if (_this3.genresId.includes(el.id.toString())) {
               el.visible = 1;
             } else {
               el.visible = 0;
@@ -49667,20 +49683,20 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     // resettare la ricerca
     filterNone: function filterNone() {
-      var _this3 = this;
+      var _this4 = this;
 
       this.allRestaurants.forEach(function (el) {
-        _this3.genresId = [];
+        _this4.genresId = [];
         el.visible = 1;
       });
     },
     //Chiamata API restaurants
     getRestaurants: function getRestaurants() {
-      var _this4 = this;
+      var _this5 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo').then(function (result) {
-        _this4.restaurants = result.data;
-        _this4.allRestaurants = result.data; // console.log(this.restaurants);
+        _this5.restaurants = result.data;
+        _this5.allRestaurants = result.data; // console.log(this.restaurants);
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49688,10 +49704,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Chiamata API foods
     getFoods: function getFoods() {
-      var _this5 = this;
+      var _this6 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/food').then(function (result) {
-        _this5.foods = result.data;
+        _this6.foods = result.data;
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49699,13 +49715,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     //Chiamata API genres
     getGenres: function getGenres() {
-      var _this6 = this;
+      var _this7 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then(function (result) {
-        _this6.genres = result.data;
+        _this7.genres = result.data;
         result.data.forEach(function (element) {
-          if (!_this6.showGenres.includes(element.type)) {
-            _this6.showGenres.push(element.type);
+          if (!_this7.showGenres.includes(element.type)) {
+            _this7.showGenres.push(element.type);
           }
         }); //console.log(this.genres);
       })["catch"](function (error) {
@@ -49784,8 +49800,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ivandf/Desktop/ /WIP/Lavori in corso/deliveroo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ivandf/Desktop/ /WIP/Lavori in corso/deliveroo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean-php\deliveroo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean-php\deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

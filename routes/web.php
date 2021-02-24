@@ -44,3 +44,6 @@ Route::prefix('admin')
         Route::resource('foods', 'FoodController');
     });
 
+    //ROTTE PAGAMENTO
+    Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
+

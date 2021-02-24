@@ -45,5 +45,7 @@ Route::prefix('admin')
     });
 
     //ROTTE PAGAMENTO
-    Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
+    // Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
+
+    Route::get('/guests/payment', 'PaymentsController@make')->name('payment');
 

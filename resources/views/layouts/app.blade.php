@@ -26,8 +26,6 @@
     <!-- includes jQuery -->
     <script src="http://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
 
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script> --}}
 </head>
 <body>
     <div id="app">
@@ -64,6 +62,7 @@
                                         <li v-for="(product, index) in shopCart" width=100>@{{ product.name }} @{{ product.price }}</li>
                                         <li>Total: @{{ finalPrice }}</li>
                                     </ul>
+                                    <a href="{{ route('payment') }}">Vai al pagamento</a>
                                 </li>
                         @else
 
@@ -104,61 +103,8 @@
         </main>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div id="dropin-container"></div>
-                <button id="submit-button">Request payment method</button>
-            </div>
-        </div>
-    </div>
-
-    {{-- Payment --}}
-    {{-- <script>var button = document.querySelector('#submit-button');braintree.dropin.create({authorization: "{{ Braintree_ClientToken::generate() }}",container: '#dropin-container'}, function (createErr, instance) {button.addEventListener('click', function () {instance.requestPaymentMethod(function (err, payload) {$.get('{{ route('payment.make') }}', {payload}, function (response) {if (response.success) {alert('Payment successfull!');} else {alert('Payment failed');}}, 'json');});});});</script>
-     --}}
-
-    {{-- PROVA PAYMENT --}}
-     <script>
-        var button = document.querySelector('#submit-button');
-      
-        braintree.dropin.create({
-          // Insert your tokenization key here
-          authorization: 'sandbox_tv4jr93b_z3djsm2w4fpsnkqy',
-          container: '#dropin-container'
-        }, function (createErr, instance) {
-          button.addEventListener('click', function () {
-            instance.requestPaymentMethod(function (requestPaymentMethodErr, payload) {
-              // When the user clicks on the 'Submit payment' button this code will send the
-              // encrypted payment information in a variable called a payment method nonce
-              $.ajax({
-                type: 'POST',
-                url: '/checkout',
-                data: {'paymentMethodNonce': payload.nonce}
-              }).done(function(result) {
-                // Tear down the Drop-in UI
-                instance.teardown(function (teardownErr) {
-                  if (teardownErr) {
-                    console.error('Could not tear down Drop-in UI!');
-                  } else {
-                    console.info('Drop-in UI has been torn down!');
-                    // Remove the 'Submit payment' button
-                    $('#submit-button').remove();
-                  }
-                });
-      
-                if (result.success) {
-                  $('#checkout-message').html('<h1>Success</h1><p>Your Drop-in UI is working! Check your <a href="https://sandbox.braintreegateway.com/login">sandbox Control Panel</a> for your test transactions.</p><p>Refresh to try another transaction.</p>');
-                } else {
-                  console.log(result);
-                  $('#checkout-message').html('<h1>Error</h1><p>Check your console.</p>');
-                }
-              });
-            });
-          });
-        });
-      </script>
-
     {{-- JS --}}
     <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/payment.js')}}"></script>
 </body>
 </html>

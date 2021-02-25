@@ -14,7 +14,7 @@ const app = new Vue({
         // imput search
         research: '',
         visible: false,
-        genresId: [],
+        genresFiter: [],
         filter: true,
 
         showGenres: [],
@@ -29,7 +29,7 @@ const app = new Vue({
     },
     created() {
         this.getRestaurants();
-        this.getFoods();
+        // this.getFoods();
         this.getGenres();
     },
     methods: {
@@ -68,41 +68,52 @@ const app = new Vue({
                 });
             }
         },
-
-
         //Filtro dei generi
         filterGenres(genre) {
-            this.genresId = [];
-            this.genres.forEach(element => {
-                if(genre == element.type) {
-                    this.genresId.push(element.restaurant_id.toString());
-                    this.allRestaurants.forEach( el => {
-                        if (this.genresId.includes(el.id.toString())) {
-                            el.visible = 1;
-                        } else {
-                            el.visible = 0;
-                        }
-                    });
+            this.genresFiter.push(genre);
+            console.log(this.genresFiter);
+            let url = "http://127.0.0.1:8000/api/deliveroo";
+            axios.get(url, {
+                params: {
+                    genre: this.genresFiter,
                 }
-            });
+                })
+                .then( response => {
+                    // handle success;
+                    console.log(response.data);
+                    this.allRestaurants = response.data;
+                })
+                .catch( error => {
+                    // handle error
+                    console.log(error);
+                });
         },
         // resettare la ricerca
         filterNone() {
-            this.allRestaurants.forEach( el => {
-                this.genresId = [];
-                el.visible = 1;
-            });
+            this.genresFiter = [];
+            let url = "http://127.0.0.1:8000/api/deliveroo";
+            axios.get(url)
+                .then( response => {
+                    // handle success;
+                    this.allRestaurants = response.data;
+                })
+                .catch( error => {
+                    // handle error
+                    console.log(error);
+                });
         },
         //Chiamata API restaurants
         getRestaurants() {
-            axios.get('http://127.0.0.1:8000/api/deliveroo').then((result) => {
-                this.restaurants = result.data;
-                this.allRestaurants = result.data;
-                console.log(this.restaurants);
-            }).catch((error) => {
-                // handle error
-                console.log(error);
-            });
+            let url = "http://127.0.0.1:8000/api/deliveroo";
+            axios.get(url)
+                .then( response => {
+                    // handle success;
+                    this.allRestaurants = response.data;
+                })
+                .catch( error => {
+                    // handle error
+                    console.log(error);
+                });
         },
         //Chiamata API foods
         getFoods() {
@@ -113,7 +124,7 @@ const app = new Vue({
                 console.log(error);
             });
         },
-        //Chiamata API genres
+        // //Chiamata API genres
         getGenres() {
             axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then((result) => {
                 this.genres = result.data;
@@ -129,8 +140,6 @@ const app = new Vue({
                 console.log(error);
             });
         },
-
-
         showRestaurant(index) {
             this.restaurantIndex = index + 1;
         }

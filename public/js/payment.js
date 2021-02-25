@@ -1,6 +1,6 @@
 // PAYMENT
 
-    var button = document.querySelector('#submit-button');
+    var button = document.getElementById('#submit-button');
   
     braintree.dropin.create({
       // Insert your tokenization key here

@@ -63,6 +63,15 @@
             </div>
             
             <div class="form-group">
+                @foreach ($genres as $genre)
+                    <div class="form-check">
+                        <input class="from-check-input" type="checkbox" name="genres[]" id="genre-{{$genre->id}}" value="{{$genre->id}}">
+                        <label for="genre-{{$genre->id}}"> {{$genre->type}} </label>
+                    </div>
+                @endforeach
+            </div>
+            
+            <div class="form-group">
                 <input class="btn btn-primary" type="submit" value="Update">
             </div>
         </form>

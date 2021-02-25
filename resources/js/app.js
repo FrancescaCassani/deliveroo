@@ -71,7 +71,6 @@ const app = new Vue({
         //Filtro dei generi
         filterGenres(genre) {
             this.genresFiter.push(genre);
-            console.log(this.genresFiter);
             let url = "http://127.0.0.1:8000/api/deliveroo";
             axios.get(url, {
                 params: {
@@ -80,7 +79,6 @@ const app = new Vue({
                 })
                 .then( response => {
                     // handle success;
-                    console.log(response.data);
                     this.allRestaurants = response.data;
                 })
                 .catch( error => {
@@ -140,8 +138,9 @@ const app = new Vue({
                 console.log(error);
             });
         },
-        showRestaurant(index) {
-            this.restaurantIndex = index;
+        showRestaurant(restaurant) {
+            this.restaurantIndex = restaurant.slug
+            console.log(restaurant.slug);
         }
     }
 });

@@ -24,19 +24,10 @@ class DeliverooController extends Controller
                 ->join('genres', 'genres.id', '=', 'genre_restaurant.genre_id')
                 ->where('genres.type', '=', $genre)
                 ->get();
-
-                foreach ($restaurants as $el) {
-                    // dd($el);
-                    if (($searchGenre >= 2)) {
-                        $allRestaurants = $restaurants;
-                    }
-                }
+                
+                $allRestaurants = $restaurants;
             }
         }
-        $restaurants = DB::table('genre_restaurant')
-        ->join('restaurants', 'restaurants.id', '=', 'genre_restaurant.restaurant_id')
-        ->join('genres', 'genres.id', '=', 'genre_restaurant.genre_id')
-        ->get();
         return response()->json($allRestaurants);
 
     }

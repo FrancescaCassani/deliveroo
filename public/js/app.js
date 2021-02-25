@@ -49669,7 +49669,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       var _this3 = this;
 
       this.genresFiter.push(genre);
-      console.log(this.genresFiter);
       var url = "http://127.0.0.1:8000/api/deliveroo";
       axios.get(url, {
         params: {
@@ -49677,7 +49676,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         }
       }).then(function (response) {
         // handle success;
-        console.log(response.data);
         _this3.allRestaurants = response.data;
       })["catch"](function (error) {
         // handle error
@@ -49738,8 +49736,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         console.log(error);
       });
     },
-    showRestaurant: function showRestaurant(index) {
-      this.restaurantIndex = index;
+    showRestaurant: function showRestaurant(restaurant) {
+      this.restaurantIndex = restaurant.slug;
+      console.log(restaurant.slug);
     }
   }
 });

@@ -26,15 +26,15 @@
     <div class="container">
         <div class="show-restaurant">
             <span v-for="(restautant, i) in allRestaurants">
-                <div class="container" v-if="restautant.id == restaurantIndex">
-                    <img :src="restautant.path_img" class="card-img-top" :alt="restautant.name">
+                <div class="container" v-if="restautant.slug == restaurantIndex">
+                    <img :src="'../storage/' + restautant.path_img" class="card-img-top" :alt="restautant.name">
                     <h1>@{{restautant.name}}</h1>
-                    <!-- <div v-for="food in foods" v-if="food.id === restautant.id">
+                    <div v-for="food in foods" v-if="food.id === restautant.id">
                         <h3>@{{food.name}}</h3> <span href="#" class="btn btn-primary" @click="addCart(food)">Aggiungi al carrello</span>
-                    </div> -->
-                    <!-- <div v-for="genre in genres" v-if="genre.id === restautant.id">
+                    </div>
+                    <div v-for="genre in genres" v-if="genre.id === restautant.id">
                         <h3>@{{genre.type}}</h3>
-                    </div> -->
+                    </div>
                 </div>
             </span>
         </div>
@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@{{restaurant.name}}</h5>
                         <h5 class="card-title">@{{restaurant.restaurant_id}}</h5>
-                        <span @click="showRestaurant(restaurant.id)" class="btn btn-primary">Show</span>
+                        <a :href="'#' + restaurant.slug" @click="showRestaurant(restaurant)" class="btn btn-primary">Show</a>
                     </div>
                 </div>
             </div>

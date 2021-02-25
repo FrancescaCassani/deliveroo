@@ -49739,7 +49739,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       });
     },
     showRestaurant: function showRestaurant(index) {
-      this.restaurantIndex = index + 1;
+      this.restaurantIndex = index;
     }
   }
 });

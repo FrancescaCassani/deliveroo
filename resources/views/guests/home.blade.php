@@ -41,7 +41,7 @@
         <div class="hero row">
             <div class="col-sm mb-5" v-for="(restaurant, index) in allRestaurants" v-if="restaurant.visible == 1">
                 <div class="card" style="width: 15rem">
-                    <img :src="restaurant.path_img" class="card-img-top" :alt="restaurant.name">
+                    <img :src="'../storage/' + restaurant.path_img" class="card-img-top" :alt="restaurant.name">
                     <div class="card-body">
                         <h5 class="card-title">@{{restaurant.name}}</h5>
                         <h5 class="card-title">@{{restaurant.restaurant_id}}</h5>

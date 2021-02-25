@@ -141,7 +141,7 @@ const app = new Vue({
             });
         },
         showRestaurant(index) {
-            this.restaurantIndex = index + 1;
+            this.restaurantIndex = index;
         }
     }
 });

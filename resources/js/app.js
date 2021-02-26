@@ -43,7 +43,7 @@ const app = new Vue({
         }
       },
     methods: {
-        prova(){
+        puliziaCache(){
             localStorage.clear();
         },
         // Aggiungi al carrello

@@ -12,7 +12,7 @@
             <input type="text" value="nome utente">
             <input type="text" value="cognome utente">
             <input type="text" value="indirizzo utente">
-            <input @click="prova" type="submit" />
+            <input @click="puliziaCache" type="submit" />
             <input type="hidden" id="nonce" name="payment_method_nonce"/>
             <input type="hidden" :value="finalPrice" id="amount" name="amount"/>
             <label for="amount">@{{finalPrice}}</label>

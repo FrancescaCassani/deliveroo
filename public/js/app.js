@@ -49636,7 +49636,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     }
   },
   methods: {
-    prova: function prova() {
+    puliziaCache: function puliziaCache() {
       localStorage.clear();
     },
     // Aggiungi al carrello

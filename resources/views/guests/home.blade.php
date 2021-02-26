@@ -12,7 +12,7 @@
     {{-- Lista generi --}}
     <div class="container d-flex justify-content-center mt-4 mb-3">
         <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item" v-for="genre in showGenres" @click="filterGenres(genre, i)">@{{genre}}</li>
+            <li class="list-group-item" v-for="genre in showGenres" @click="filterGenres(genre)">@{{genre}}</li>
             <button class="btn btn-primary" @click="filterNone">Tutti</button>
         </ul>
     </div>

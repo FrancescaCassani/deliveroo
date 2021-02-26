@@ -42,7 +42,6 @@ const app = new Vue({
                     price: element.price,
                     name: element.name,
                 });
-                // console.log(this.shopCart);
             });
             this.totalPrice(food);
         },
@@ -50,7 +49,6 @@ const app = new Vue({
         //Totale carrello
         totalPrice(food) {
                 this.finalPrice += food.price;
-                console.log(this.finalPrice);
         },
 
         //Barra di ricerca
@@ -69,30 +67,13 @@ const app = new Vue({
             }
         },
         genreSelected(index) {
-            this.genresFiter.splice(index, 1)
-            console.log(this.genresFiter);
-            console.log(index);
-            let url = "http://127.0.0.1:8000/api/deliveroo";
-            axios.get(url, {
-                params: {
-                    genre: this.genresFiter,
-                }
-                })
-                .then( response => {
-                    // handle success;
-                    this.allRestaurants = response.data;
-                })
-                .catch( error => {
-                    // handle error
-                    console.log(error);
-                });
+            this.genresFiter.splice(index, 1);
         },
         //Filtro dei generi
         filterGenres(genre) {
             if (! this.genresFiter.includes(genre)) {
                 this.genresFiter.push(genre);
             }
-            console.log(this.genresFiter);
             let url = "http://127.0.0.1:8000/api/deliveroo";
             axios.get(url, {
                 params: {
@@ -139,7 +120,6 @@ const app = new Vue({
         getFoods() {
             axios.get('http://127.0.0.1:8000/api/deliveroo/food').then((result) => {
                 this.foods = result.data;
-                console.log(this.foods);
             }).catch((error) => {
                 // handle error
                 console.log(error);
@@ -155,7 +135,6 @@ const app = new Vue({
                         this.showGenres.push(element.type);
                     }
                 });
-                //console.log(this.genres);
             }).catch((error) => {
                 // handle error
                 console.log(error);
@@ -163,7 +142,6 @@ const app = new Vue({
         },
         showRestaurant(restaurant) {
             this.restaurantIndex = restaurant.slug
-            console.log(restaurant.slug);
         }
     }
 });

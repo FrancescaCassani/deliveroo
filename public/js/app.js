@@ -49636,15 +49636,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         _this.shopCart.push({
           price: element.price,
           name: element.name
-        }); // console.log(this.shopCart);
-
+        });
       });
       this.totalPrice(food);
     },
     //Totale carrello
     totalPrice: function totalPrice(food) {
       this.finalPrice += food.price;
-      console.log(this.finalPrice);
     },
     //Barra di ricerca
     searchRestaurant: function searchRestaurant() {
@@ -49665,11 +49663,16 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
       }
     },
     genreSelected: function genreSelected(index) {
+      this.genresFiter.splice(index, 1);
+    },
+    //Filtro dei generi
+    filterGenres: function filterGenres(genre) {
       var _this3 = this;
 
-      this.genresFiter.splice(index, 1);
-      console.log(this.genresFiter);
-      console.log(index);
+      if (!this.genresFiter.includes(genre)) {
+        this.genresFiter.push(genre);
+      }
+
       var url = "http://127.0.0.1:8000/api/deliveroo";
       axios.get(url, {
         params: {
@@ -49683,21 +49686,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         console.log(error);
       });
     },
-    //Filtro dei generi
-    filterGenres: function filterGenres(genre) {
+    // resettare la ricerca
+    filterNone: function filterNone() {
       var _this4 = this;
 
-      if (!this.genresFiter.includes(genre)) {
-        this.genresFiter.push(genre);
-      }
-
-      console.log(this.genresFiter);
+      this.genresFiter = [];
       var url = "http://127.0.0.1:8000/api/deliveroo";
-      axios.get(url, {
-        params: {
-          genre: this.genresFiter
-        }
-      }).then(function (response) {
+      axios.get(url).then(function (response) {
         // handle success;
         _this4.allRestaurants = response.data;
       })["catch"](function (error) {
@@ -49705,11 +49700,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         console.log(error);
       });
     },
-    // resettare la ricerca
-    filterNone: function filterNone() {
+    //Chiamata API restaurants
+    getRestaurants: function getRestaurants() {
       var _this5 = this;
 
-      this.genresFiter = [];
       var url = "http://127.0.0.1:8000/api/deliveroo";
       axios.get(url).then(function (response) {
         // handle success;
@@ -49719,26 +49713,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         console.log(error);
       });
     },
-    //Chiamata API restaurants
-    getRestaurants: function getRestaurants() {
-      var _this6 = this;
-
-      var url = "http://127.0.0.1:8000/api/deliveroo";
-      axios.get(url).then(function (response) {
-        // handle success;
-        _this6.allRestaurants = response.data;
-      })["catch"](function (error) {
-        // handle error
-        console.log(error);
-      });
-    },
     //Chiamata API foods
     getFoods: function getFoods() {
-      var _this7 = this;
+      var _this6 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/food').then(function (result) {
-        _this7.foods = result.data;
-        console.log(_this7.foods);
+        _this6.foods = result.data;
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49746,15 +49726,15 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     // //Chiamata API genres
     getGenres: function getGenres() {
-      var _this8 = this;
+      var _this7 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then(function (result) {
-        _this8.genres = result.data;
+        _this7.genres = result.data;
         result.data.forEach(function (element) {
-          if (!_this8.showGenres.includes(element.type)) {
-            _this8.showGenres.push(element.type);
+          if (!_this7.showGenres.includes(element.type)) {
+            _this7.showGenres.push(element.type);
           }
-        }); //console.log(this.genres);
+        });
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49762,7 +49742,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     showRestaurant: function showRestaurant(restaurant) {
       this.restaurantIndex = restaurant.slug;
-      console.log(restaurant.slug);
     }
   }
 });

@@ -49621,8 +49621,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     activeGenre: 'Pizzeria'
   },
   created: function created() {
-    this.getRestaurants(); // this.getFoods();
-
+    this.getRestaurants();
+    this.getFoods();
     this.getGenres();
   },
   methods: {
@@ -49664,11 +49664,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         });
       }
     },
-    //Filtro dei generi
-    filterGenres: function filterGenres(genre) {
+    genreSelected: function genreSelected(index) {
       var _this3 = this;
 
-      this.genresFiter.push(genre);
+      this.genresFiter.splice(index, 1);
+      console.log(this.genresFiter);
+      console.log(index);
       var url = "http://127.0.0.1:8000/api/deliveroo";
       axios.get(url, {
         params: {
@@ -49682,13 +49683,21 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         console.log(error);
       });
     },
-    // resettare la ricerca
-    filterNone: function filterNone() {
+    //Filtro dei generi
+    filterGenres: function filterGenres(genre) {
       var _this4 = this;
 
-      this.genresFiter = [];
+      if (!this.genresFiter.includes(genre)) {
+        this.genresFiter.push(genre);
+      }
+
+      console.log(this.genresFiter);
       var url = "http://127.0.0.1:8000/api/deliveroo";
-      axios.get(url).then(function (response) {
+      axios.get(url, {
+        params: {
+          genre: this.genresFiter
+        }
+      }).then(function (response) {
         // handle success;
         _this4.allRestaurants = response.data;
       })["catch"](function (error) {
@@ -49696,10 +49705,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         console.log(error);
       });
     },
-    //Chiamata API restaurants
-    getRestaurants: function getRestaurants() {
+    // resettare la ricerca
+    filterNone: function filterNone() {
       var _this5 = this;
 
+      this.genresFiter = [];
       var url = "http://127.0.0.1:8000/api/deliveroo";
       axios.get(url).then(function (response) {
         // handle success;
@@ -49709,12 +49719,26 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
         console.log(error);
       });
     },
-    //Chiamata API foods
-    getFoods: function getFoods() {
+    //Chiamata API restaurants
+    getRestaurants: function getRestaurants() {
       var _this6 = this;
 
+      var url = "http://127.0.0.1:8000/api/deliveroo";
+      axios.get(url).then(function (response) {
+        // handle success;
+        _this6.allRestaurants = response.data;
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    },
+    //Chiamata API foods
+    getFoods: function getFoods() {
+      var _this7 = this;
+
       axios.get('http://127.0.0.1:8000/api/deliveroo/food').then(function (result) {
-        _this6.foods = result.data;
+        _this7.foods = result.data;
+        console.log(_this7.foods);
       })["catch"](function (error) {
         // handle error
         console.log(error);
@@ -49722,13 +49746,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     },
     // //Chiamata API genres
     getGenres: function getGenres() {
-      var _this7 = this;
+      var _this8 = this;
 
       axios.get('http://127.0.0.1:8000/api/deliveroo/genre').then(function (result) {
-        _this7.genres = result.data;
+        _this8.genres = result.data;
         result.data.forEach(function (element) {
-          if (!_this7.showGenres.includes(element.type)) {
-            _this7.showGenres.push(element.type);
+          if (!_this8.showGenres.includes(element.type)) {
+            _this8.showGenres.push(element.type);
           }
         }); //console.log(this.genres);
       })["catch"](function (error) {

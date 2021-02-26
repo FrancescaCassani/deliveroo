@@ -12,10 +12,11 @@
     {{-- Lista generi --}}
     <div class="container d-flex justify-content-center mt-4 mb-3">
         <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item" v-for="genre in showGenres" @click="filterGenres(genre)">@{{genre}}</li>
+            <li class="list-group-item" v-for="genre in showGenres" @click="filterGenres(genre, i)">@{{genre}}</li>
             <button class="btn btn-primary" @click="filterNone">Tutti</button>
         </ul>
     </div>
+        <span v-for="(genre, index) in genresFiter"> @{{genre}} <small @click="genreSelected(index)">X</small> </span>
 
     {{-- Controlo nessun ristorante presente --}}
     @if ($restaurants->isEmpty())
@@ -29,11 +30,8 @@
                 <div class="container" v-if="restautant.slug == restaurantIndex">
                     <img :src="'../storage/' + restautant.path_img" class="card-img-top" :alt="restautant.name">
                     <h1>@{{restautant.name}}</h1>
-                    <div v-for="food in foods" v-if="food.id === restautant.id">
+                    <div v-for="food in foods" v-if="food.restaurant_id === restautant.id">
                         <h3>@{{food.name}}</h3> <span href="#" class="btn btn-primary" @click="addCart(food)">Aggiungi al carrello</span>
-                    </div>
-                    <div v-for="genre in genres" v-if="genre.id === restautant.id">
-                        <h3>@{{genre.type}}</h3>
                     </div>
                 </div>
             </span>

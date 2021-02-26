@@ -79,9 +79,10 @@ const app = new Vue({
                 params: {
                     genre: this.genresFiter,
                 }
-                })
-                .then( response => {
-                    // handle success;
+            })
+            .then( response => {
+                // handle success;
+                console.log(response.data);
                     this.allRestaurants = response.data;
                 })
                 .catch( error => {

@@ -62,7 +62,7 @@
                                         <li v-for="(product, index) in shopCart" width=100>@{{ product.name }} @{{ product.price }}</li>
                                         <li>Total: @{{ finalPrice }}</li>
                                     </ul>
-                                    <a href="{{ route('payment') }}">Vai al pagamento</a>
+                                    <a href="{{ route('pay') }}">Vai al pagamento</a>
                                 </li>
                         @else
 
@@ -105,6 +105,6 @@
 
     {{-- JS --}}
     <script src="{{asset('js/app.js')}}"></script>
-    <script src="{{asset('js/payment.js')}}"></script>
+    @yield('script')
 </body>
 </html>

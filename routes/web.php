@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use Braintree\Gateway as Gateway;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,5 +47,16 @@ Route::prefix('admin')
     //ROTTE PAGAMENTO
     // Route::get('/payment/make', 'PaymentsController@make')->name('payment.make');
 
-    Route::get('/guests/payment', 'PaymentsController@make')->name('payment');
+Route::get('/guests/payment', function () {
+    $gateway = new Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => '4wvx6k87m9sxq5k3',
+        'publicKey' => 'p4rqqmp276684b36',
+        'privateKey' => 'c7e93c2e0a9728be721a0140af83f1ae'
+    ]);
+
+    $clientToken = $gateway->clientToken()->generate();
+
+    return view('guests.payment', compact('clientToken'));
+})->name('pay');
 

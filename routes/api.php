@@ -21,4 +21,5 @@ Route::namespace('Api')->group(function() {
     Route::get('/deliveroo', 'DeliverooController@index');
     Route::get('/deliveroo/food', 'DeliverooController@food');
     Route::get('/deliveroo/genre', 'DeliverooController@genre');
+    Route::post('/payment', 'PaymentController@pay')->name('payment');
 });

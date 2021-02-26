@@ -49625,7 +49625,20 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     this.getFoods();
     this.getGenres();
   },
+  mounted: function mounted() {
+    if (localStorage.finalPrice) {
+      this.finalPrice = localStorage.finalPrice;
+    }
+  },
+  watch: {
+    finalPrice: function finalPrice(_finalPrice) {
+      localStorage.finalPrice = _finalPrice;
+    }
+  },
   methods: {
+    prova: function prova() {
+      localStorage.clear();
+    },
     // Aggiungi al carrello
     addCart: function addCart(food) {
       var _this = this;
@@ -49812,8 +49825,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/FrankieFitze/Desktop/deliveroo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/FrankieFitze/Desktop/deliveroo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ivandf/Desktop/ /WIP/Lavori in corso/deliveroo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/ivandf/Desktop/ /WIP/Lavori in corso/deliveroo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -32,7 +32,20 @@ const app = new Vue({
         this.getFoods();
         this.getGenres();
     },
+    mounted() {
+        if (localStorage.finalPrice) {
+          this.finalPrice = localStorage.finalPrice;
+        }
+      },
+      watch: {
+        finalPrice(finalPrice) {
+            localStorage.finalPrice = finalPrice;
+        }
+      },
     methods: {
+        prova(){
+            localStorage.clear();
+        },
         // Aggiungi al carrello
         addCart(food) {
             let newFood = [];

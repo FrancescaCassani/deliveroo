@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+/****************************************************************
+*** OUR VARS
+****************************************************************/
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -10946,5 +10950,96 @@ a.text-dark:focus {
 
 body {
   font-family: "Roboto", sans-serif;
+}
+
+a {
+  cursor: pointer;
+}
+
+.btn i {
+  margin-right: 10px;
+  color: #00ccbb;
+}
+
+.btn-primary {
+  background-color: #00ccbb;
+  border: 1px solid #fff;
+  transition: all 0.1s;
+}
+
+.btn-primary:hover {
+  color: #00ccbb;
+  background-color: #fff;
+  border: 1px solid #00ccbb;
+}
+
+/* TRANSITIONS */
+
+.slide-down-fade-enter-active {
+  transition: all 0.3s ease;
+}
+
+.slide-down-fade-leave-active {
+  transition: all 0.1s ease;
+}
+
+.slide-down-fade-enter,
+.slide-down-fade-leave-to {
+  transform: translateX(60px);
+  opacity: 0;
+}
+
+nav {
+  position: fixed;
+  background: #00ccbb;
+}
+
+nav .container .navbar-brand {
+  height: 40px;
+}
+
+nav .container .navbar-brand img {
+  max-height: 100%;
+}
+
+nav .container .navbar-nav div {
+  margin-left: 20px;
+}
+
+nav .container .navbar-nav i {
+  font-size: 20px;
+  color: #00ccbb;
+}
+
+nav .container .menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+}
+
+nav .container .menu .navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+nav .container .menu .navbar-nav:first-child {
+  border-bottom: 1px solid #abadac;
+}
+
+nav .container .menu .navbar-nav:nth-child(2) {
+  display: block;
+}
+
+nav .container .menu .navbar-nav:nth-child(2) .nav-item {
+  margin: 20px 0;
+}
+
+nav .container .menu .navbar-nav:nth-child(2) .nav-item .btn {
+  width: 100%;
 }
 

@@ -26,6 +26,9 @@ const app = new Vue({
         showCart: false,
         activeGenre: 'Pizzeria',
 
+        // menù
+        showMenu: false,
+
     },
     created() {
         this.getRestaurants();

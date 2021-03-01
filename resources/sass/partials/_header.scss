@@ -1,0 +1,47 @@
+nav {
+    position: fixed;
+    background: $principal-col;
+    .container {
+        .navbar-brand {
+            height: 40px;
+            img {
+                max-height: 100%;
+            }
+        }
+        .navbar-nav {
+            div {
+                margin-left: 20px;
+            }
+            i {
+                font-size: 20px;
+                color: $principal-col;
+            }
+        }
+        .menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100vh;
+            background: $white;
+            .navbar-nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                &:first-child {
+                    border-bottom: 1px solid $system3-col;
+                }
+                &:nth-child(2) {
+                    display: block;
+                    .nav-item {
+                        margin: 20px 0;
+                        .btn {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

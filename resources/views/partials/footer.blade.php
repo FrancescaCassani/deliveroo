@@ -16,7 +16,7 @@
         <h6><a href="#">Cookies</a></h6>
     </div>
     <div class="box-ft aiuto">
-        <h3><a href="#">Aiuto</a></h3>
+        <h3>Aiuto</a></h3>
         <h6><a href="#">Contatti</a></h6>
         <h6><a href="#">FAQ</a></h6>
         <h6><a href="#">Tipi di cucina</a></h6>

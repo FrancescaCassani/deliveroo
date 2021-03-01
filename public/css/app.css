@@ -11043,3 +11043,50 @@ nav .container .menu .navbar-nav:nth-child(2) .nav-item .btn {
   width: 100%;
 }
 
+.footer {
+  background-color: #2f3233;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 150px;
+  color: #fff;
+}
+
+.footer .box-ft {
+  background-color: #434848;
+  width: calc((100% / 4) - 40px);
+  margin: 20px 20px;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.footer .box-ft img {
+  width: 50%;
+  margin: 10px 0;
+}
+
+.footer .box-ft a {
+  color: #fff;
+}
+
+.footer .box-ft a:hover {
+  color: #00ccbb;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 1024px) {
+  .footer .box-ft {
+    width: calc((100% / 2) - 40px);
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .footer {
+    padding: 10px;
+  }
+
+  .footer .box-ft {
+    width: 500px;
+  }
+}
+

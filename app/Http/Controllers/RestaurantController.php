@@ -24,4 +24,9 @@ class RestaurantController extends Controller
 
         return view('guests.restaurants.show', compact('restaurant', 'foods'));
     }
+
+    public function payed()
+    {
+        return view('guests.payed');
+    }
 }

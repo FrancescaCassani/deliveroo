@@ -18,13 +18,9 @@ use Braintree\Gateway as Gateway;
 
 //HOME
 Route::get('/', 'RestaurantController@index')->name('home');
-
+Route::get('/guests/payed', 'RestaurantController@payed')->name('payed');
 //ROTTE UI
 Route::get('/restaurants/{slug}', 'RestaurantController@show')->name('restaurants.show');
-
-
-//RESTAURANT ADMIN
-// Route::get('/admin/restaurants', 'RestaurantController')->name('admin.restaurants.index');
 
 //ROTTE PER LOGIN / REGISTRAZIONE
 Auth::routes();

@@ -97,9 +97,9 @@ const app = new Vue({
                 }
             })
             .then( response => {
-                // handle success;
-                console.log(response.data);
+                    // handle success;
                     this.allRestaurants = response.data;
+                    console.log(response.data);
                 })
                 .catch( error => {
                     // handle error

@@ -52,5 +52,12 @@
 </div>
 
 {{-- Footer --}}
-@include('partials.footer')
+{{-- <footer class="footer">
+    <div class="box-ft scopri">
+        <h3>Scopri Deliveroo</h3>
+    </div>
+    <div class="box-ft note"></div>
+    <div class="box-ft aiuto"></div>
+    <div class="box-ft deliveroo-app"></div>
+</footer> --}}
 @endsection

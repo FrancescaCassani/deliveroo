@@ -26,10 +26,11 @@ class PaymentController extends Controller
             'amount' => $data["amount"],
             'paymentMethodNonce' => $nonceFromTheClient,
             'options' => [
-              'submitForSettlement' => False
+              'submitForSettlement' => true
             ]
           ]);
 
-          return response()->json($result);
+          // return response()->json($result);
+          return redirect()->route('payed');
         }
 }

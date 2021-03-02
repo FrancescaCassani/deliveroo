@@ -3,33 +3,37 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Restaurant;
-use App\Food;
 use App\Genre;
-use Illuminate\Support\Facades\DB;
+use App\Food;
 
 class DeliverooController extends Controller
 {
-    public function index() {
+    public function index(Request $request) 
+    {
+        $data = $request->all();
+        if(empty($data['genre'])) {
 
-        $allRestaurants = Restaurant::all();
-        $genres = Genre::all();
-        if (!empty($_GET['genre'])) {
-            $allRestaurants = [];
-            $searchGenre = $_GET['genre'];
-            foreach ($searchGenre as $genre) {
-                $restaurants = DB::table('genre_restaurant')
-                ->join('restaurants', 'restaurants.id', '=', 'genre_restaurant.restaurant_id')
-                ->join('genres', 'genres.id', '=', 'genre_restaurant.genre_id')
-                ->where('genres.type', '=', $genre)
-                ->get();
-                
-                $allRestaurants = $restaurants;
+            $restaurants = DB::table('restaurants')
+            ->orderBy('created_at', 'asc')
+            ->get();
+        }
+        elseif (!empty($data['genre'])) 
+        {
+            $restaurants = [];
+            $genresId = [];
+
+            $genresId = $data['genre'];
+            foreach ($genresId as $genre) {
+                $restaurants = Restaurant::whereHas('genres', function($q) use ($genresId) 
+                {
+                    $q->whereIn('type', $genresId);
+                }, '=', count($genresId))->get();
             }
         }
-        return response()->json($allRestaurants);
-
+        return response()->json($restaurants);
     }
 
     public function food() {

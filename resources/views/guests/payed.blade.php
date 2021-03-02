@@ -6,7 +6,12 @@
 
 @section('content')
 
-<h2>Pagamento avvenuto con successo</h2>
-<a href="{{route('home')}}">Torna alla homw</a>
+<div class="jumbotron-fluid text-center">
+<img src="../img/asset/payment/payed.png" alt="">
+  <h1 class="display-4 mt-4">Pagamento avvenuto con successo!</h1>
+  <p class="lead">Grazie per aver acquistato da noi, stiamo elaborando l'ordine...</p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" href="{{route('home')}}" role="button">Torna alla home</a>
+</div>
 
 @endsection

@@ -12,6 +12,7 @@
 @import 'partials/header';
 @import 'partials/main-home';
 @import 'partials/hero';
+@import 'partials/show-restaurant';
 @import 'partials/footer';
 
 
@@ -20,3 +21,9 @@
 @import 'partials/auth/auth-show';
 @import 'partials/auth/auth-food-index';
 @import 'partials/auth/auth-food-show';
+
+
+//Payment pages 
+@import 'partials/payment/payed';
+
+

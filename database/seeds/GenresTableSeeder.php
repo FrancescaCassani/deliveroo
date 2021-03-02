@@ -43,8 +43,8 @@ class GenresTableSeeder extends Seeder
                 'img' => 'messicano'
             ],
             [
-                'type' => 'Vegana',
-                'img' => 'vegano'
+                'type' => 'Poke',
+                'img' => 'poke'
             ],
         ];
 

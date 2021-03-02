@@ -10333,6 +10333,38 @@ nav .container .bottom .nav-item {
   border: 2px solid #00ccbb;
 }
 
+.show-restaurant {
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+  display: flex;
+  align-items: flex-end;
+  padding: 0;
+}
+
+.show-restaurant .bg-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 0;
+}
+
+.show-restaurant .jumbotron-txt {
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  width: 100%;
+  padding: 10px 0;
+  background: linear-gradient(rgba(0, 204, 187, 0), #00ccbb);
+}
+
+.show-restaurant .jumbotron-txt h1 {
+  font-weight: bold;
+}
+
 .footer {
   background-color: #2f3233;
   display: flex;
@@ -10426,3 +10458,19 @@ nav .container .bottom .nav-item {
 .auth-container .content p {
   color: #7d7d7d;
 }
+
+.jumbotron-fluid {
+  height: 100vh;
+  color: #00ccbb;
+  padding: 50px 0;
+  background: url();
+}
+
+.jumbotron-fluid img {
+  margin-top: 25px;
+}
+
+.jumbotron-fluid p {
+  color: #000;
+}
+

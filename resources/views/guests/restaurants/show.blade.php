@@ -6,33 +6,14 @@
 
 @section('content')
 <div class="text-center">
-    <div class="container">
-
-        <div class="container">
-            <h2>Dettaglio Ristorante</h2>
-            <h1 class="pt-4">{{ $restaurant->title }}</h1>
-
-        {{-- Ciclo controllo se l'immagine del ristorante è presente --}}
-        <img class="mb-3" width="250" src="{{ $restaurant->path_img }}" alt="{{$restaurant->title}}">
-
-            {{-- @if (!empty($restaurant->path_img))
-                <img class="mb-3" width="250" src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->title}}">
-                
-            @else
-                <img class="mb-3" width="250" src="{{asset('img/no-img.png')}}" alt="{{$restaurant->title}}">
-            @endif --}}
-
-            <p>Descrizione: {{$restaurant->description}}</p>
-            <p>Address: {{$restaurant->address}}</p>
-            <p>Phone number: {{$restaurant->phone_number}}</p>
-
-            @foreach ($restaurant->foods as $food)
-                {{$food->name}}
-            @endforeach
-
+    <div class="jumbotron show-restaurant">
+        <img src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->name}}" class="bg-img">
+        <div class="jumbotron-txt">
+            <div class="container">
+                <h1 class="display-4">{{$restaurant->name}}</h1>
+                <p class="lead">Maggiori informazioni su questo ristorante</p>
+            </div>
         </div>
     </div>
-
-
 </div>
 @endsection

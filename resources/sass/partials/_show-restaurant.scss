@@ -1,0 +1,27 @@
+.show-restaurant {
+    position: relative;
+    overflow: hidden;
+    height: 600px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0;
+    .bg-img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+    .jumbotron-txt {
+        position: relative;
+        z-index: 1;
+        text-align: left;
+        width: 100%;
+        padding: 10px 0;
+        background: linear-gradient(rgba($principal-col, 0), $principal-col);
+        h1 {
+            font-weight: bold;
+        }
+    }
+}

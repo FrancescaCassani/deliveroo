@@ -51,6 +51,49 @@
             </div>
         </div>
     </div>
+
+    {{-- Selezione di deliveroo --}}
+    <section class="selection container">
+        <h2>La selezione di deliveroo</h2>
+        <div class="content">
+            <div class="comfort-food">
+                <img src="{{ asset('img/asset/comfort_food.png') }}" alt="Comfort_food">
+                <p>I grandi classici che scaldano il cuore, perfetti in ogni momento.</p>
+                <a href="#">Scopri Comfort food</a>
+            </div>
+            <div class="dolci-dessert">
+                <img src="{{ asset('img/asset/dolci_dessert.png') }}" alt="Dolci_dessert">
+                <p>Dolci piaceri per rendere la gionata ancora più gustosa.</p>
+                <a href="#">Scopri Dolci e dessert</a>
+            </div>
+            <div class="perfect-to-share">
+                <img src="{{ asset('img/asset/perfect_to_share.png') }}" alt="Perfect-to-share">
+                <p>Serve una scusa per stare insieme? Ordina dai ristoranti che trasformeranno la tua serata in una vera festa.</p>
+                <a href="#">Scopri perfetti da condividere</a>
+            </div>
+            <div class="exclusive-deliveroo">
+                <img src="{{ asset('img/asset/exclusive_deliveroo.png') }}" alt="Exclusive-deliveroo">
+                <p>I più famosi, i più buoni, i preferiti. Quelli che trovi solo su Deliveroo.</p>
+                <a href="#">Scopri Esclusiva Deliveroo</a>
+            </div>
+        </div>
+    </section>
+
+    {{-- Section work with Deliveroo --}}
+    <section class="work container">
+        <h2>Lavora con Deliveroo</h2>
+        <div class="content">
+            <div class="box-work">
+                <img src="{{ asset('img/asset/lavora_con_deliveroo.png') }}" alt="Lavora con noi">
+            </div>
+            <div class="box-work">
+                <img src="{{ asset('img/asset/diventa_partner.png') }}" alt="Diventa partner">
+            </div>
+            <div class="box-work">
+                <img src="{{ asset('img/asset/lavora_con_noi.png') }}" alt="Lavora con noi">
+            </div>
+        </div>
+    </section>
 </div>
 
 {{-- Footer --}}

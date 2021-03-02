@@ -7,11 +7,82 @@
     }
 }
 
+//Selection Deliveroo
+.selection {
+    h2 {
+        font-weight: 700;
+    }
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+        p {
+            text-align: left;
+            margin-top: 7px;
+            margin-bottom: 0;
+        }
+        a {
+            display: block;
+            text-align: left;
+            color: $principal-col;
+            &:hover {
+                color: $accent3-col;
+                text-decoration: none;
+            }
+        }
+        .comfort-food {
+            width: 40%;
+            margin-right: 20px;
+        }
+        .dolci-dessert {
+            width: calc(60% - 20px);
+        }
+        .perfect-to-share {
+            width: 60%;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+        .exclusive-deliveroo {
+            width: calc(40% - 20px);
+            margin-top: 20px;
+        }
+    }
+}
+
+//Section work with Deliveroo
+.work {
+    margin-top: 50px;
+    h2 {
+        font-weight: 700;
+    }
+    .content {
+        display: flex;
+        .box-work {
+            width: calc((100% / 3) - 20px);
+            margin: 0 10px;
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
 @media only screen and (max-width: 575px) {
     .hero {
         .card {
             margin: 0 auto;
             width: 20rem;
+        }
+    }
+
+    //Section work with Deliveroo
+    .work {
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            .box-work {
+                width: 100%;
+                margin: 7px auto;
+            }
         }
     }
 }

@@ -1,0 +1,17 @@
+.hero {
+    .card {
+        img {
+            max-height: 160px;
+        }
+
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .hero {
+        .card {
+            margin: 0 auto;
+            width: 20rem;
+        }
+    }
+}

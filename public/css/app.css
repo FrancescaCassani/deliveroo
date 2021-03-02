@@ -11067,6 +11067,17 @@ nav .container .menu .navbar-nav:nth-child(2) .nav-item .btn {
   width: 100%;
 }
 
+.hero .card img {
+  max-height: 160px;
+}
+
+@media only screen and (max-width: 575px) {
+  .hero .card {
+    margin: 0 auto;
+    width: 20rem;
+  }
+}
+
 .footer {
   background-color: #2f3233;
   display: flex;

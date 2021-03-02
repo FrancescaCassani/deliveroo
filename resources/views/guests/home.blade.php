@@ -12,11 +12,13 @@
     {{-- Lista generi --}}
     <div class="container d-flex justify-content-center mt-4 mb-3">
         <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item" v-for="genre in showGenres" @click="filterGenres(genre)">@{{genre}}</li>
-            <button class="btn btn-primary" @click="filterNone">Tutti</button>
+            <li class="list-unstyled" role="button" v-for="genre in showGenres" @click="filterGenres(genre.type)">
+                <img :src="'./img/asset/genres/' + genre.img + '.png'" :alt="genre.type">
+                @{{genre.type}}
+            </li>
         </ul>
     </div>
-        <span v-for="(genre, index) in genresFiter"> @{{genre}} <small @click="genreSelected(index)">X</small> </span>
+    <span class="badge badge-pill badge-success text-dark h5 ml-1" v-for="(genre, index) in genresFiter"> @{{genre}} <span role="button" @click="genreSelected(index)">X</span> </span>
 
     {{-- Controlo nessun ristorante presente --}}
     @if ($restaurants->isEmpty())

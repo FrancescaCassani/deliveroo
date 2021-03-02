@@ -16,6 +16,7 @@ class CreateGenresTable extends Migration
         Schema::create('genres', function (Blueprint $table) {
             $table->id();
             $table->string('type', 100)->notnull();
+            $table->string('img', 255)->nullable();
         });
     }
 

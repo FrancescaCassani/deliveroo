@@ -9,6 +9,7 @@ class Genre extends Model
     //MASS ASSIGNMENT
     protected $fillable = [
         'type',
+        'img',
     ];
 
     //Questo permette a laravel di non creare in automatico created_at & updated_at

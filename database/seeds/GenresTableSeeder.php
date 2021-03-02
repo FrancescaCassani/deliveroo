@@ -13,19 +13,42 @@ class GenresTableSeeder extends Seeder
     public function run()
     {
         $genres = [
-            'Pizzeria',
-            'Piadineria',
-            'Gelateria',
-            'Indiano',
-            'Cinese',
-            'Giapponese',
-            'Messicano',
+            [
+                'type' => 'Pizzeria',
+                'img' => 'pizza'
+            ],
+            [
+                'type' => 'Piadineria',
+                'img' => 'piandina'
+            ],
+            [
+                'type' => 'Gelateria',
+                'img' => 'gelato'
+            ],
+            [
+                'type' => 'Indiano',
+                'img' => 'indiano'
+            ],
+            [
+                'type' => 'Cinese',
+                'img' => 'cinese'
+            ],
+            [
+                'type' => 'Giapponese',
+                'img' => 'giapponese'
+            ],
+            [
+                'type' => 'Messicano',
+                'img' => 'messicano'
+            ],
+            [
+                'type' => 'Vegana',
+                'img' => 'vegano'
+            ],
         ];
 
         foreach ($genres as $genre) {
-            $newGenre = new Genre();
-            $newGenre->type = $genre;
-            $newGenre->save();
+            Genre::create($genre);
         }
     }
 }

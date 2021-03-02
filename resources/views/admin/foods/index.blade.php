@@ -14,35 +14,40 @@
     @endif
 
     @if ($foods->isEmpty())
-        <p>Nessun piatto creato</p>
+        <p>Non è ancora stato creato nessun piatto!</p>
     @endif
 
 
-    <a href="{{route('admin.foods.create')}}">Aggiungi piatto</a>
-    <ul>
+    <div class="d-flex justify-content-start mb-5">
+        <a class="btn btn-primary" href="{{route('admin.foods.create')}}">Aggiungi piatto</a>
+    </div>
+    <ul class="auth-container">
         <table class="table">
-            <thead>
+            <thead class="bg">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Created</th>
-                    <th colspan=“3”></th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Nome piatto</th>
+                    <th scope="col">Creato</th>
+                    <th scope="col">|</th>
+                    <th colspan="10">Azioni</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($foods as $food)
                     <tr>
-                        <td>{{$food->id}}</td>
+                        <th scope="row">{{$food->id}}</th>
+                        <td><img width="80" src="{{asset('storage/' . $food->path_img)}}" alt=""></td>
                         <td>{{$food->name}}</td>
                         <td>{{$food->created_at->format('d/m/Y')}}</td>
-                        <td> <a class="btn btn-success" href="{{ route('admin.foods.show', $food->slug) }}">Mostra food</a></td>
-                        <td> <a class="btn btn-primary" href="{{ route('admin.foods.edit', $food->id) }}">Modifica food</a></td>
+                        <td> <a class="btn btn-primary" href="{{ route('admin.foods.show', $food->slug) }}">Mostra piatto</a></td>
+                        <td> <a class="btn btn-warning" href="{{ route('admin.foods.edit', $food->id) }}">Modifica piatto</a></td>
                         <td>
                         <form action="{{ route('admin.foods.destroy', $food->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
 
-                            <input type="submit" class="btn btn-danger" value="Elimina food">
+                            <input type="submit" class="btn btn-danger" value="Elimina piatto">
                         </form>
                         </td>
                     </tr>
@@ -51,4 +56,5 @@
         </table>
     </ul>
 </div>
+
 @endsection

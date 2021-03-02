@@ -11,3 +11,10 @@
 @import 'partials/common';
 @import 'partials/header';
 @import 'partials/footer';
+
+
+//PARTIALS ADMIN
+@import 'partials/auth/auth-index';
+@import 'partials/auth/auth-show';
+@import 'partials/auth/auth-food-index';
+@import 'partials/auth/auth-food-show';

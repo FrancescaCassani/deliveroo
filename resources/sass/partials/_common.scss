@@ -9,14 +9,14 @@ a {
 
 // Buttons
 .btn i {
-   margin-right: 10px; 
+   margin-right: 10px;
    color: $principal-col;
 }
 
 .btn-primary {
     background-color: $principal-col;
     border: 1px solid $white;
-    transition: all 0.1s
+    transition: all 0.1s;
 }
 
 .btn-primary:hover {
@@ -25,7 +25,31 @@ a {
     border: 1px solid $principal-col;
 }
 
-/* TRANSITIONS */  
+.btn-warning {
+    background-color: #ffed4a;
+    border: 1px solid $white;
+    transition: all 0.1s;
+}
+
+.btn-warning:hover {
+    color: #ffed4a;
+    background-color: $white;
+    border: 1px solid #ffed4a;
+}
+
+.btn-danger {
+    background-color: #e3342f;
+    border: 1px solid $white;
+    transition: all 0.1s;
+}
+
+.btn-danger:hover {
+    color: #e3342f;
+    background-color: $white;
+    border: 1px solid #e3342f;
+}
+
+/* TRANSITIONS */
   .slide-down-fade-enter-active {
     transition: all .3s ease;
   }

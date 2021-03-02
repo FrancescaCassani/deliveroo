@@ -10973,6 +10973,30 @@ a {
   border: 1px solid #00ccbb;
 }
 
+.btn-warning {
+  background-color: #ffed4a;
+  border: 1px solid #fff;
+  transition: all 0.1s;
+}
+
+.btn-warning:hover {
+  color: #ffed4a;
+  background-color: #fff;
+  border: 1px solid #ffed4a;
+}
+
+.btn-danger {
+  background-color: #e3342f;
+  border: 1px solid #fff;
+  transition: all 0.1s;
+}
+
+.btn-danger:hover {
+  color: #e3342f;
+  background-color: #fff;
+  border: 1px solid #e3342f;
+}
+
 /* TRANSITIONS */
 
 .slide-down-fade-enter-active {
@@ -11088,5 +11112,69 @@ nav .container .menu .navbar-nav:nth-child(2) .nav-item .btn {
   .footer .box-ft {
     width: 500px;
   }
+}
+
+.auth-container {
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-container .bg {
+  background-color: #00ccbb;
+}
+
+.auth-container .bg th {
+  color: #fff;
+}
+
+.auth-container th,
+.auth-container td {
+  vertical-align: middle;
+}
+
+.auth-container {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.auth-container .content p {
+  color: #7d7d7d;
+}
+
+.auth-container {
+  width: 1000px;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-container .bg {
+  background-color: #00ccbb;
+}
+
+.auth-container .bg th {
+  color: #fff;
+}
+
+.auth-container th,
+.auth-container td {
+  vertical-align: middle;
+}
+
+.auth-container {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.auth-container .content p {
+  color: #7d7d7d;
 }
 

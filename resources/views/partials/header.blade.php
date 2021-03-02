@@ -5,15 +5,24 @@
         </a>
 
         <div class="navbar-nav">
-            <a class="btn btn-light" href="{{ route('login') }}">
+            <a class="btn btn-light" href="{{ route('register') }}">
                 <i class="fas fa-home"></i>
-                {{ __('Registrati o Accedi') }}
+                {{ __('Registrati') }}
+            </a>
+
+            <a class="btn btn-light" href="{{ route('login') }}"> 
+                <i class="fas fa-sign-in-alt"></i>
+                {{ __('Accedi') }}
             </a>
 
             <div @click="showMenu = !showMenu" class="btn btn-light">
                 <i class="fas fa-bars"></i>
                 Menu
             </div>
+            <a class="nav-link cart" href="#">
+                <i class="fas fa-cart-plus"></i>
+                <small v-if="counter != 0" class="onCart" for="">@{{counter}}</small>
+            </a>
         </div>
 
         <transition name="slide-down-fade">
@@ -36,22 +45,25 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li class="nav-item">
-                            <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Accedi') }}</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="btn btn-primary" href="{{ route('login') }}">{{ __('Accedi') }}</a>
+                            </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
                                 <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href=""><i class="far fa-question-circle"></i>FAQ</a>
+                            </li>
                         @endif
-                            <li class="nav-item position-relative" @click="showCart = !showCart">
+                            {{-- <li class="nav-item position-relative" @click="showCart = !showCart">
                                 <a class="nav-link" href="#"><i class="fas fa-cart-plus"></i></a>
                                 <ul v-if='showCart' class="position-absolute mt-4" style="width: 250px">
                                     <li v-for="(product, index) in shopCart" width=100>@{{ product.name }} @{{ product.price }}</li>
                                     <li>Total: @{{ finalPrice }}</li>
                                 </ul>
                                 <a href="{{ route('pay') }}">Vai al pagamento</a>
-                            </li>
+                            </li> --}}
                         @else
     
                         {{-- <li class="nav-item dropdown">
@@ -81,6 +93,18 @@
                             </div>
                         </li>
                     @endguest
+                </ul>
+
+                <ul class="navbar-nav bottom">
+                    <li class="nav-item">
+                        <select class="minimal" id="languages-picker" name="languages">
+                            <option value="italiano">Italiano</option>
+                            <option value="inglese">English</option>
+                        </select>
+                    </li>
+                    <li class="nav-item">
+                        <select class="minimal" id="languages-picker" name="languages"><option value="italy">Italy</option></select>
+                    </li>
                 </ul>
             </div>
         </transition>

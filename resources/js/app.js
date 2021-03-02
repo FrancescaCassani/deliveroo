@@ -25,6 +25,7 @@ const app = new Vue({
         finalPrice: 0,
         showCart: false,
         activeGenre: 'Pizzeria',
+        counter: '',
 
         // menù
         showMenu: false,
@@ -60,6 +61,7 @@ const app = new Vue({
                 });
             });
             this.totalPrice(food);
+            this.counter = this.shopCart.length;
         },
 
         //Totale carrello

@@ -12,6 +12,7 @@ class GenresTableSeeder extends Seeder
      */
     public function run()
     {
+
         $genres = [
             [
                 'type' => 'Pizzeria',

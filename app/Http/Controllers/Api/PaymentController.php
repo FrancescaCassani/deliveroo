@@ -32,5 +32,5 @@ class PaymentController extends Controller
 
           // return response()->json($result);
           return redirect()->route('payed');
-        }
+    }
 }

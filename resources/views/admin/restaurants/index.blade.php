@@ -6,6 +6,7 @@
 
 @section('content')
 
+<div class="table-responsive-sm">
     <div class="container">
         {{-- Banner verifica deleted --}}
         @if (session('deleted'))
@@ -62,5 +63,7 @@
             </table>
         </ul>
     </div>
+</div>
+
 
 @endsection

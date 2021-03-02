@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-<div class="container">
-    {{-- Banner verifica deleted --}}
+{{-- <div class="container">
+
     @if (session('deleted'))
     <div class="alert alert-danger">
         {{ session('deleted') }} Piatto eliminato con successo.
@@ -37,7 +37,7 @@
                 @foreach ($foods as $food)
                     <tr>
                         <th scope="row">{{$food->id}}</th>
-                        <td><img width="80" src="{{asset('storage/' . $food->path_img)}}" alt=""></td>
+                        <td><img width="80" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}"></td>
                         <td>{{$food->name}}</td>
                         <td>{{$food->created_at->format('d/m/Y')}}</td>
                         <td> <a class="btn btn-primary" href="{{ route('admin.foods.show', $food->slug) }}">Mostra piatto</a></td>
@@ -55,6 +55,33 @@
             </tbody>
         </table>
     </ul>
+</div> --}}
+
+
+<div class="container">
+    <div class="card-columns">
+        <div class="card" style="width: 20rem;">
+            @foreach ($foods as $food)
+                <img class="card-img-top" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
+                <div class="card-body">
+                    <p class="card-text pl-1">Nome: {{$food->name}}</p>
+                    <p class="card-text pl-1">Creato il: {{$food->created_at->format('d/m/Y')}}</p>
+                    <div class="d-flex justify-content-center">
+                        <a class="btn btn-primary mr-3" href="{{ route('admin.foods.show', $food->slug) }}">Dettaglio</a>
+                        <a class="btn btn-warning mr-3" href="{{ route('admin.foods.edit', $food->id) }}">Modifica</a>
+                        <form action="{{ route('admin.foods.destroy', $food->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+
+                            <input type="submit" class="btn btn-danger" value="Elimina">
+                        </form>
+                    </div>
+
+                </div>
+
+            @endforeach
+        </div>
+    </div>
 </div>
 
 @endsection

@@ -5,10 +5,43 @@
 @endsection
 
 @section('content')
-<div class="text-center">
-    <h1>Homepage</h1>
-    {{-- Barra di ricerca --}}
-    <input class="imput-group" type="text" placeholder="Ricerca il ristorante" v-model='research' @keyup="searchRestaurant">
+<div class="image-bg">
+    <section class="container">
+        <div class="hero">
+            <div class="content">
+                <h1>I piatti che ami, a domicilio.</h1>
+                {{-- Barra di ricerca --}}
+                <div class="search">
+                    <p>Cerca i tuoi ristoranti preferiti</p>
+                    <input
+                    class="imput-group"
+                    type="text"
+                    placeholder="Inserisci il ristorante" v-model='research' @keyup="searchRestaurant">
+                    <a href="#"
+                    class="btn btn-primary"
+                    @click="searchRestaurant">Cerca</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {{-- Lista generi --}}
     <div class="container d-flex justify-content-center mt-4 mb-3">
         <ul class="list-group list-group-horizontal-sm">
@@ -45,7 +78,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@{{restaurant.name}}</h5>
                         <h5 class="card-title">@{{restaurant.restaurant_id}}</h5>
-                        <a :href="'#' + restaurant.slug" @click="showRestaurant(restaurant)" class="btn btn-primary">Show</a>
+                        <a :href=`{{ route('restaurants.show', '') }}/${restaurant.slug}` class="btn btn-primary">Show</a>
                     </div>
                 </div>
             </div>

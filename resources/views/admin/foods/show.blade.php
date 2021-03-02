@@ -16,7 +16,7 @@
                 <p>Descrizione: {{$food->description}}</p>
             </div>
 
-            <div class="image">
+            <div class="image mb-3">
                 <img width="250" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
             </div>
         </li>

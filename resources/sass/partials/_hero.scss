@@ -1,0 +1,33 @@
+.image-bg {
+    background: url('../img/asset/hero.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 540px;
+}
+.hero {
+    display: flex;
+    justify-content: start;
+    .content {
+        background: $white;
+        padding: 25px 22px;
+        border: 1px solid lightgray;
+        border-radius: 8px;
+        margin-top: 300px;
+        input {
+            color: $system3-col;
+            min-width: 80%;
+            height: 35px;
+            border: 0;
+            outline: none;
+            border-radius: 5px;
+            padding-left: 15px;
+            &:focus, &:hover {
+                background: $white;
+                border: 2px solid $principal-col;
+            }
+        }
+
+    }
+}
+

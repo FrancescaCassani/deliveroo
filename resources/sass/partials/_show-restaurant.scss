@@ -1,7 +1,9 @@
 .hero-restaurant {
     height: 400px;
+    margin: 0 auto;
+    max-width: 1300px;
     display: flex;
-    background: rgba($system3-col, .1);
+    background-color: #f8fafc;
     .hero-info {
         flex-grow: 1;
         padding: 50px 80px;
@@ -22,11 +24,6 @@
         }
         p {
             color: $system2-col;
-        }
-    }
-    .hero-img {
-        img {
-            height: 100%
         }
     }
 }

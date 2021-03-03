@@ -10459,7 +10459,7 @@ nav .container .bottom .nav-item {
 }
 .hero .content {
   background: #fff;
-  padding: 25px 22px;
+  padding: 25px 18px;
   border: 1px solid lightgray;
   border-radius: 8px;
   margin-top: 40px;
@@ -10481,8 +10481,10 @@ nav .container .bottom .nav-item {
 
 .hero-restaurant {
   height: 400px;
+  margin: 0 auto;
+  max-width: 1300px;
   display: flex;
-  background: rgba(171, 173, 172, 0.1);
+  background-color: #f8fafc;
 }
 .hero-restaurant .hero-info {
   flex-grow: 1;
@@ -10505,9 +10507,6 @@ nav .container .bottom .nav-item {
 }
 .hero-restaurant .hero-info p {
   color: #7d7d7d;
-}
-.hero-restaurant .hero-img img {
-  height: 100%;
 }
 
 .food-list {
@@ -10607,6 +10606,43 @@ nav .container .bottom .nav-item {
 }
 .auth-container .content p {
   color: #7d7d7d;
+}
+
+.guest-bg {
+  background: #f4f5f5;
+  height: 100vh;
+}
+.guest-bg .box-food {
+  display: flex;
+  padding-top: 45px;
+}
+.guest-bg .box-food .box-detail {
+  width: 360px;
+  display: flex;
+  width: calc((100% / 3) - 20px);
+  margin: 0 10px;
+  align-items: center;
+  padding: 10px 15px;
+  background: #fff;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+  transition: box-shadow 0.3s ease-in-out;
+}
+.guest-bg .box-food .box-detail:hover {
+  box-shadow: 4px 12px 8px -6px #ccc;
+}
+.guest-bg .box-food .box-detail .text {
+  padding: 0 8px;
+}
+.guest-bg .box-food .box-detail .text h5 {
+  color: #7d7d7d;
+}
+.guest-bg .box-food .box-detail .text p {
+  color: #abadac;
+}
+.guest-bg .box-food .box-detail img {
+  width: 100px;
+  height: 100px;
 }
 
 .jumbotron-fluid {

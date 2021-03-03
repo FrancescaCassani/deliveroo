@@ -1,0 +1,40 @@
+.guest-bg {
+    background: #f4f5f5;
+    height: 100vh;
+    .box-food {
+        display: flex;
+        padding-top: 45px;
+        // flex-wrap: wrap;
+        .box-detail{
+            width: 360px;
+            display: flex;
+            // justify-content: space-between;
+            width: calc((100% / 3) - 20px);
+            margin: 0 10px;
+            align-items: center;
+            // border: 1px solid $system3-col;
+            padding: 10px 15px;
+            background: $white;
+            cursor: grabbing;
+            transition: box-shadow 0.3s ease-in-out;
+            &:hover {
+                box-shadow:  4px 12px 8px -6px#ccc;
+            }
+            .text {
+                padding: 0 8px;
+                h5 {
+                    color: $system2-col;
+                }
+                p {
+                    color: $system3-col;
+                }
+            }
+            img {
+                width: 100px;
+                height: 100px;
+            }
+
+        }
+    }
+}
+

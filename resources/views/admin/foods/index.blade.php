@@ -58,6 +58,7 @@
 </div> --}}
 
 
+
 <div class="container">
     @if (session('deleted'))
     <div class="alert alert-danger">
@@ -86,13 +87,10 @@
                         <form action="{{ route('admin.foods.destroy', $food->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-
                             <input type="submit" class="btn btn-danger" value="Elimina">
                         </form>
                     </div>
-
                 </div>
-
             @endforeach
         </div>
     </div>

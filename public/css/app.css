@@ -10327,22 +10327,30 @@ nav .container .bottom .nav-item {
   border: 2px solid #00ccbb;
 }
 
-.show-restaurant {
-  position: relative;
-  overflow: hidden;
-  height: 600px;
+.hero-restaurant {
+  height: auto;
   display: flex;
-  align-items: flex-end;
-  padding: 0;
+  background: rgba(171, 173, 172, 0.1);
 }
 .show-restaurant .bg-img {
+.hero-restaurant .hero-info {
+  flex-grow: 1;
+  padding: 50px 80px;
+}
+.hero-restaurant .hero-info h2 {
+  position: relative;
+  font-size: 3rem;
+  color: #00ccbb;
+}
+.hero-restaurant .hero-info h2::after {
+  content: "";
   position: absolute;
+  bottom: -20px;
   left: 0;
-  top: 0;
-  width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  z-index: 0;
+  width: 250px;
+  max-width: 100%;
+  height: 3px;
+  background: #00ccbb;
 }
 .show-restaurant .jumbotron-txt {
   position: relative;
@@ -10351,9 +10359,15 @@ nav .container .bottom .nav-item {
   width: 100%;
   padding: 10px 0;
   background: linear-gradient(rgba(0, 204, 187, 0), #00ccbb);
+.hero-restaurant .hero-info p {
+  color: #7d7d7d;
 }
 .show-restaurant .jumbotron-txt h1 {
   font-weight: bold;
+
+.food-list {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .footer {

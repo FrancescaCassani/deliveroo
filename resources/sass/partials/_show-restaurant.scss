@@ -1,27 +1,32 @@
-.show-restaurant {
-    position: relative;
-    overflow: hidden;
-    height: 600px;
+.hero-restaurant {
+    height: auto;
     display: flex;
-    align-items: flex-end;
-    padding: 0;
-    .bg-img {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        object-fit: cover;
-        z-index: 0;
-    }
-    .jumbotron-txt {
-        position: relative;
-        z-index: 1;
-        text-align: left;
-        width: 100%;
-        padding: 10px 0;
-        background: linear-gradient(rgba($principal-col, 0), $principal-col);
-        h1 {
-            font-weight: bold;
+    background: rgba($system3-col, .1);
+    .hero-info {
+        flex-grow: 1;
+        padding: 50px 80px;
+        h2 {
+            position: relative;
+            font-size: 3rem;
+            color: $principal-col;
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -20px;
+                left: 0;
+                width: 250px;
+                max-width: 100%;
+                height: 3px;
+                background: $principal-col;
+            }
+        }
+        p {
+            color: $system2-col;
         }
     }
+}
+
+.food-list {
+    display: flex;
+    flex-wrap: wrap;
 }

@@ -49654,6 +49654,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
           name: element.name
         });
       });
+      console.log(newFood);
       this.totalPrice(food);
       this.counter = this.shopCart.length;
     },

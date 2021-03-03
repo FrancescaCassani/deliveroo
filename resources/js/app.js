@@ -60,6 +60,7 @@ const app = new Vue({
                     name: element.name,
                 });
             });
+            console.log(newFood);
             this.totalPrice(food);
             this.counter = this.shopCart.length;
         },

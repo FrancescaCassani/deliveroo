@@ -44,7 +44,7 @@
                             <td>{{$restaurant->created_at->format('d/m/Y')}}</td>
                             <td>
                                 @foreach($restaurant->genres as $genre)
-                                    | {{$genre->type}}
+                                    |{{$genre->type}}
                                 @endforeach
                             </td>
                             <td> <a class="btn btn-primary" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">Mostra</a></td>
@@ -64,6 +64,4 @@
         </ul>
     </div>
 </div>
-
-
 @endsection

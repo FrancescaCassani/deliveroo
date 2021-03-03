@@ -51,7 +51,9 @@
             </li>
         </ul>
     </div>
-    <span class="badge badge-pill badge-success text-dark h5 ml-1" v-for="(genre, index) in genresFiter"> @{{genre}} <span role="button" @click="genreSelected(index)">X</span> </span>
+    <div class="genre-selected text-center">
+        <span class="badge badge-pill badge-success text-dark h5 ml-1" v-for="(genre, index) in genresFiter"> @{{genre}} <span role="button" @click="genreSelected(index)">X</span> </span>
+    </div>
 
     {{-- Controlo nessun ristorante presente --}}
     @if ($restaurants->isEmpty())

@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+{{-- HEADER --}}
+@include('partials.header-admin')
+
     <div class="container">
 
         @if ($errors->any())

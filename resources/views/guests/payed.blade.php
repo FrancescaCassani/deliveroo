@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+{{-- HEADER --}}
+@include('partials.header')
 
 <div class="jumbotron-fluid text-center">
 <img src="../img/asset/payment/payed.png" alt="">

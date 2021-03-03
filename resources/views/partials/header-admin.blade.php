@@ -1,28 +1,18 @@
-<nav class="navbar navbar-expand-md navbar-principal shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light shadow-sm">
     <div class="container">
         <a class="navbar-brand desk" href="{{ url('/') }}">
-            <img src="{{ asset('img/asset/del-logo.png') }}" alt="Deliveroo">
+            <img src="{{ asset('img/asset/del-logo-2.png') }}" alt="Deliveroo">
         </a>
 
         <div class="navbar-nav">
-            <a class="btn btn-light desk" href="{{ route('register') }}">
+            <a href="{{route('admin.restaurants.index')}}" class="btn btn-primary desk">
                 <i class="fas fa-home"></i>
-                {{ __('Registrati') }}
+                {{ __('I tuoi ristoranti') }}
             </a>
 
-            <a class="btn btn-light desk" href="{{ route('login') }}"> 
+            <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary desk">
                 <i class="fas fa-sign-in-alt"></i>
-                {{ __('Accedi') }}
-            </a>
-
-            <div @click="showMenu = !showMenu" class="btn btn-light desk">
-                <i class="fas fa-bars"></i>
-                Menu
-            </div>
-            
-            <a class="nav-link cart" href="#">
-                <i class="fas fa-cart-plus"></i>
-                <small v-if="counter != 0" class="onCart" for="">@{{counter}}</small>
+                {{ __('Aggiungi ristorante') }}
             </a>
 
             {{-- Mobile --}}

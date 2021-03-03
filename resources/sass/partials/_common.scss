@@ -17,7 +17,6 @@ a {
 // Buttons
 .btn i {
    margin-right: 10px;
-   color: $principal-col;
 }
 
 .btn-primary {
@@ -34,6 +33,12 @@ a {
     padding: 0 20px;
 }
 
+.btn-light:hover, .btn-light:focus {
+    color: $white;
+    background-color: $principal-col;
+    border: 1px solid $white;
+}
+
 .btn-primary:hover, .btn-primary:focus {
     color: $principal-col;
     background-color: $white;
@@ -41,27 +46,28 @@ a {
 }
 
 .btn-warning {
-    background-color: #ffed4a;
+    color: $white;
+    background-color: #440061;
     border: 1px solid $white;
     transition: all 0.1s;
 }
 
 .btn-warning:hover {
-    color: #ffed4a;
+    color: #440061;
     background-color: $white;
-    border: 1px solid #ffed4a;
+    border: 1px solid #440061;
 }
 
 .btn-danger {
-    background-color: #e3342f;
+    background-color: #ff8001;
     border: 1px solid $white;
     transition: all 0.1s;
 }
 
 .btn-danger:hover {
-    color: #e3342f;
+    color: #ff8001;
     background-color: $white;
-    border: 1px solid #e3342f;
+    border: 1px solid #ff8001;
 }
 
 /* TRANSITIONS */

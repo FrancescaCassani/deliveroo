@@ -4,8 +4,10 @@
     <title>Deliveroo - Aggiungi un nuovo piatto</title>
 @endsection
 
-
 @section('content')
+{{-- HEADER --}}
+@include('partials.header-admin')
+
     <div class="container">
 
         @if ($errors->any())

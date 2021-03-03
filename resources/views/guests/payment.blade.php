@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+{{-- HEADER --}}
+@include('partials.header')
+
 <div class="text-center">
     <div class="container">
         <form id="payment-form" action="{{ route('payment') }}" method="post">

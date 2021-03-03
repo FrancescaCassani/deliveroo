@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+{{-- HEADER --}}
+@include('partials.header-admin')
+
     <div class="container text-center">
         <h3 class="pb-4 text-center">Riepilogo ristorante</h3>
         <div class="auth-container mt-4">

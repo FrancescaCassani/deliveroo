@@ -5,6 +5,9 @@
 @endsection
 
 @section('content')
+{{-- HEADER --}}
+@include('partials.header')
+
 <div class="hero-restaurant">
     <div class="hero-info">
         <h2>{{$restaurant->name}}</h2>

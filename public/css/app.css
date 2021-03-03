@@ -10024,7 +10024,6 @@ a {
 
 .btn i {
   margin-right: 10px;
-  color: #00ccbb;
 }
 
 .btn-primary {
@@ -10041,6 +10040,12 @@ a {
   padding: 0 20px;
 }
 
+.btn-light:hover, .btn-light:focus {
+  color: #fff;
+  background-color: #00ccbb;
+  border: 1px solid #fff;
+}
+
 .btn-primary:hover, .btn-primary:focus {
   color: #00ccbb;
   background-color: #fff;
@@ -10048,27 +10053,28 @@ a {
 }
 
 .btn-warning {
-  background-color: #ffed4a;
+  color: #fff;
+  background-color: #440061;
   border: 1px solid #fff;
   transition: all 0.1s;
 }
 
 .btn-warning:hover {
-  color: #ffed4a;
+  color: #440061;
   background-color: #fff;
-  border: 1px solid #ffed4a;
+  border: 1px solid #440061;
 }
 
 .btn-danger {
-  background-color: #e3342f;
+  background-color: #ff8001;
   border: 1px solid #fff;
   transition: all 0.1s;
 }
 
 .btn-danger:hover {
-  color: #e3342f;
+  color: #ff8001;
   background-color: #fff;
-  border: 1px solid #e3342f;
+  border: 1px solid #ff8001;
 }
 
 /* TRANSITIONS */
@@ -10087,7 +10093,149 @@ a {
 
 nav {
   position: fixed;
+}
+nav.navbar-principal {
   background: #00ccbb;
+}
+nav.navbar-principal .container .navbar-brand {
+  height: 40px;
+}
+nav.navbar-principal .container .navbar-brand img {
+  max-height: 100%;
+}
+nav.navbar-principal .container a.navbar-brand.mobile {
+  display: none;
+}
+nav.navbar-principal .container .navbar-nav div#menu-mobile {
+  display: none;
+}
+nav.navbar-principal .container .navbar-nav div, nav.navbar-principal .container .navbar-nav > .btn, nav.navbar-principal .container .navbar-nav .cart {
+  margin-left: 20px;
+}
+nav.navbar-principal .container .navbar-nav a.btn > i, nav.navbar-principal .container .navbar-nav div.btn > i {
+  font-size: 20px;
+  color: #00ccbb;
+}
+nav.navbar-principal .container .navbar-nav a.btn:hover > i, nav.navbar-principal .container .navbar-nav div.btn:hover > i {
+  color: #fff;
+}
+nav.navbar-principal .container .navbar-nav .cart, nav.navbar-principal .container .navbar-nav .onCart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+nav.navbar-principal .container .navbar-nav .cart .onCart, nav.navbar-principal .container .navbar-nav .onCart .onCart {
+  position: absolute;
+  top: -1px;
+  left: 28px;
+  width: 20px;
+  height: 20px;
+  color: #fff;
+  background: #00ccbb;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+nav.navbar-principal .container .navbar-nav a.cart > i {
+  font-size: 25px;
+  color: #fff;
+}
+nav.navbar-principal .container .navbar-nav a.cart:hover > i {
+  color: #fff;
+}
+nav.navbar-principal .container .menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  z-index: 99;
+}
+nav.navbar-principal .container .menu .navbar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+nav.navbar-principal .container .menu .navbar-nav:first-child {
+  border-bottom: 1px solid #abadac;
+}
+nav.navbar-principal .container .menu .navbar-nav:nth-child(2) {
+  display: block;
+}
+nav.navbar-principal .container .menu .navbar-nav:nth-child(2) .nav-item {
+  margin: 20px 0;
+}
+nav.navbar-principal .container .menu .navbar-nav:nth-child(2) .nav-item .btn {
+  width: 100%;
+}
+nav.navbar-principal .container .menu .navbar-nav:nth-child(2) .nav-item a {
+  font-size: 16px;
+}
+nav.navbar-principal .container .menu .navbar-nav:nth-child(2) .nav-item a i {
+  font-size: 22px;
+  margin-right: 20px;
+}
+nav.navbar-principal .container .menu .navbar-nav:nth-child(2) .nav-item a .fa-question-circle {
+  color: #abadac;
+}
+nav.navbar-principal .container .menu .navbar-nav:nth-child(2) .nav-item:hover .nav-link {
+  color: #00ccbb;
+}
+nav.navbar-principal .container .menu .navbar-nav select {
+  width: 100%;
+  color: #000;
+  padding: 8px 16px;
+  margin: 20px 0;
+  border: 1px solid #abadac;
+  cursor: pointer;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+nav.navbar-principal .container .menu .navbar-nav select.minimal {
+  background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+nav.navbar-principal .container .bottom {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  flex-direction: column;
+  width: 100%;
+}
+nav.navbar-principal .container .bottom .nav-item {
+  width: 100%;
+}
+@media (max-width: 900px) {
+  nav a.navbar-brand.mobile {
+    display: block;
+  }
+  nav .navbar-nav {
+    display: flex;
+    flex-direction: row;
+  }
+  nav .navbar-nav a.desk, nav .navbar-nav div.desk {
+    display: none;
+  }
+  nav nav .container .navbar-nav div#menu-mobile {
+    display: flex;
+    padding: 10px 15px;
+  }
+  nav nav .container .navbar-nav div#menu-mobile i {
+    margin: 0;
+  }
+}
+
+nav {
+  position: fixed;
+  color: #00ccbb;
+  background: #fff;
 }
 nav .container .navbar-brand {
   height: 40px;
@@ -10104,8 +10252,11 @@ nav .container .navbar-nav div#menu-mobile {
 nav .container .navbar-nav div, nav .container .navbar-nav > .btn, nav .container .navbar-nav .cart {
   margin-left: 20px;
 }
-nav .container .navbar-nav i {
+nav .container .navbar-nav a.btn > i, nav .container .navbar-nav div.btn > i {
   font-size: 20px;
+  color: #fff;
+}
+nav .container .navbar-nav a.btn:hover > i, nav .container .navbar-nav div.btn:hover > i {
   color: #00ccbb;
 }
 nav .container .navbar-nav .cart, nav .container .navbar-nav .onCart {
@@ -10127,7 +10278,7 @@ nav .container .navbar-nav .cart .onCart, nav .container .navbar-nav .onCart .on
 }
 nav .container .navbar-nav .cart > i {
   font-size: 25px;
-  color: #fff;
+  color: #00ccbb;
 }
 nav .container .menu {
   position: absolute;

@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+{{-- HEADER --}}
+@include('partials.header-admin')
 
 <div class="table-responsive-sm">
     <div class="container">

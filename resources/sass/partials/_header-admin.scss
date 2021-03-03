@@ -1,7 +1,7 @@
 nav {
     position: fixed;
-    &.navbar-principal {
-        background: $principal-col;
+    color: $principal-col;
+    background: $white;
     .container {
         .navbar-brand {
             height: 40px;
@@ -21,10 +21,10 @@ nav {
             }
             a.btn > i, div.btn > i {
                 font-size: 20px;
-                color: $principal-col;
+                color: $white;
             }
             a.btn:hover > i, div.btn:hover > i {
-                color: $white;
+                color: $principal-col;
             }
             .cart, .onCart {
                 position: relative;
@@ -43,12 +43,9 @@ nav {
                     border: 2px solid $white;
                 }
             }
-            a.cart > i{
+            .cart > i{
                 font-size: 25px;
-                color: $white;
-            }
-            a.cart:hover > i {
-                color: $white;
+                color: $principal-col;
             }
         }
         .menu {
@@ -149,5 +146,4 @@ nav {
             margin: 0;
         }
     }
-}
 }

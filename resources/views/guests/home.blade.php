@@ -5,6 +5,10 @@
 @endsection
 
 @section('content')
+{{-- HEADER --}}
+@include('partials.header')
+
+{{-- Main --}}
 <div class="image-bg">
     <section class="container">
         <div class="hero">
@@ -25,20 +29,6 @@
         </div>
     </section>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

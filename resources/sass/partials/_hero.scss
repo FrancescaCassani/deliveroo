@@ -1,19 +1,20 @@
 .image-bg {
-    background: url('../img/asset/hero.jpg');
+    background: url('../img/asset/deliveroo.gif');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 540px;
+    height: 500px;
 }
 .hero {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     .content {
         background: $white;
         padding: 25px 22px;
         border: 1px solid lightgray;
         border-radius: 8px;
-        margin-top: 300px;
+        margin-top: 40px;
+        transform: translateX(-20px);
         input {
             color: $system3-col;
             min-width: 80%;

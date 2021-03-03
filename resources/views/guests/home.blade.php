@@ -8,8 +8,8 @@
 <div class="image-bg">
     <section class="container">
         <div class="hero">
-            <div class="content col-sm-12 col-md-8 col-lg-6">
-                <h1>I piatti che ami, a domicilio.</h1>
+            <div class="content col-sm-12 col-md-8 col-lg-5">
+                <h2>I piatti che ami, a domicilio.</h2>
                 {{-- Barra di ricerca --}}
                 <div class="search">
                     <p>Cerca i tuoi ristoranti preferiti</p>

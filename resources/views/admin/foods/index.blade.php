@@ -103,7 +103,7 @@
 </div>
 
 
-        {{-- VERSIONE CON CLASSE CARD BOOTSTRAP --}}
+    {{-- VERSIONE CON CLASSE CARD BOOTSTRAP --}}
       {{-- <div class="row">
         <div class="col-sm">
             @foreach ($foods as $food)

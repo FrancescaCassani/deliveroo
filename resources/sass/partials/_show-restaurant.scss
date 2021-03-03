@@ -1,5 +1,5 @@
 .hero-restaurant {
-    height: auto;
+    height: 400px;
     display: flex;
     background: rgba($system3-col, .1);
     .hero-info {
@@ -22,6 +22,11 @@
         }
         p {
             color: $system2-col;
+        }
+    }
+    .hero-img {
+        img {
+            height: 100%
         }
     }
 }

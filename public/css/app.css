@@ -10328,7 +10328,7 @@ nav .container .bottom .nav-item {
 }
 
 .hero-restaurant {
-  height: auto;
+  height: 400px;
   display: flex;
   background: rgba(171, 173, 172, 0.1);
 }
@@ -10353,6 +10353,9 @@ nav .container .bottom .nav-item {
 }
 .hero-restaurant .hero-info p {
   color: #7d7d7d;
+}
+.hero-restaurant .hero-img img {
+  height: 100%;
 }
 
 .food-list {

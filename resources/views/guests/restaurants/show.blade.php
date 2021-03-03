@@ -17,15 +17,17 @@
 
 <div class="foods container">
     <ul class="food-list">
-        <div class="col-sm-6" v-for="food in foods">
+        @foreach ($restaurant->foods as $food)
+        <div class="col-sm-6">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">@{{food.name}}</h5>
-                    <p class="card-text">@{{food.ingredients}}</p>
-                    <span @click="addCart(food)" href="#" class="btn btn-primary">Aggiungi al carrello</span>
+                    <h5 class="card-title">{{$food->name}}</h5>
+                    <p class="card-text">{{$food->ingredients}}</p>
+                    <a href="#" @click="addCart({{$food}})">Aggiungi al carrello</a>
                 </div>
             </div>
         </div>
+        @endforeach
     </ul>
 </div>
 @endsection

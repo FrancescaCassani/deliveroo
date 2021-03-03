@@ -1,28 +1,37 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm">
     <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand desk" href="{{ url('/') }}">
             <img src="{{ asset('img/asset/del-logo.png') }}" alt="Deliveroo">
         </a>
 
         <div class="navbar-nav">
-            <a class="btn btn-light" href="{{ route('register') }}">
+            <a class="btn btn-light desk" href="{{ route('register') }}">
                 <i class="fas fa-home"></i>
                 {{ __('Registrati') }}
             </a>
 
-            <a class="btn btn-light" href="{{ route('login') }}"> 
+            <a class="btn btn-light desk" href="{{ route('login') }}"> 
                 <i class="fas fa-sign-in-alt"></i>
                 {{ __('Accedi') }}
             </a>
 
-            <div @click="showMenu = !showMenu" class="btn btn-light">
+            <div @click="showMenu = !showMenu" class="btn btn-light desk">
                 <i class="fas fa-bars"></i>
                 Menu
             </div>
+            
             <a class="nav-link cart" href="#">
                 <i class="fas fa-cart-plus"></i>
                 <small v-if="counter != 0" class="onCart" for="">@{{counter}}</small>
             </a>
+
+            {{-- Mobile --}}
+            <a class="navbar-brand mobile" href="{{ url('/') }}">
+                <img src="{{ asset('img/asset/fav-icon.png') }}" alt="Deliveroo">
+            </a>
+            <div @click="showMenu = !showMenu" id="menu-mobile" class="btn btn-light">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
 
         <transition name="slide-down-fade">
@@ -55,6 +64,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href=""><i class="far fa-question-circle"></i>FAQ</a>
                             </li>
+
                         @endif
                             {{-- <li class="nav-item position-relative" @click="showCart = !showCart">
                                 <a class="nav-link" href="#"><i class="fas fa-cart-plus"></i></a>

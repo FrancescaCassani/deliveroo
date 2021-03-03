@@ -8,7 +8,13 @@ nav {
                 max-height: 100%;
             }
         }
+        a.navbar-brand.mobile {
+            display: none;
+        }
         .navbar-nav {
+            div#menu-mobile {
+                display: none;
+            }
             div, > .btn, .cart {
                 margin-left: 20px;
             }
@@ -114,6 +120,26 @@ nav {
             .nav-item {
                 width: 100%;
             }
+        }
+    }
+}
+
+@media(max-width: 900px) {
+    a.navbar-brand.mobile {
+        display: block;
+    }
+    .navbar-nav {
+        display: flex;
+        flex-direction: row;
+        a.desk, div.desk {
+            display: none;
+        }
+    }
+    nav .container .navbar-nav div#menu-mobile {
+        display: flex;
+        padding: 10px 15px;
+        i {
+            margin: 0;
         }
     }
 }

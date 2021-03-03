@@ -10421,6 +10421,7 @@ nav .container .bottom .nav-item {
   color: #fff;
   font-weight: 700;
   font-size: 2rem;
+  text-shadow: 2px 3px #abadac;
 }
 .selection .content .dolci-dessert {
   width: calc(60% - 20px);
@@ -10446,6 +10447,7 @@ nav .container .bottom .nav-item {
   color: #fff;
   font-weight: 700;
   font-size: 2rem;
+  text-shadow: 2px 3px #abadac;
 }
 .selection .content .perfect-to-share {
   width: 60%;
@@ -10473,6 +10475,7 @@ nav .container .bottom .nav-item {
   color: #fff;
   font-weight: 700;
   font-size: 2rem;
+  text-shadow: 2px 3px #abadac;
 }
 .selection .content .exclusive-deliveroo {
   width: calc(40% - 20px);
@@ -10499,6 +10502,7 @@ nav .container .bottom .nav-item {
   color: #fff;
   font-weight: 700;
   font-size: 2rem;
+  text-shadow: 2px 3px #abadac;
 }
 
 .news {

@@ -10332,7 +10332,6 @@ nav .container .bottom .nav-item {
   display: flex;
   background: rgba(171, 173, 172, 0.1);
 }
-.show-restaurant .bg-img {
 .hero-restaurant .hero-info {
   flex-grow: 1;
   padding: 50px 80px;
@@ -10352,18 +10351,9 @@ nav .container .bottom .nav-item {
   height: 3px;
   background: #00ccbb;
 }
-.show-restaurant .jumbotron-txt {
-  position: relative;
-  z-index: 1;
-  text-align: left;
-  width: 100%;
-  padding: 10px 0;
-  background: linear-gradient(rgba(0, 204, 187, 0), #00ccbb);
 .hero-restaurant .hero-info p {
   color: #7d7d7d;
 }
-.show-restaurant .jumbotron-txt h1 {
-  font-weight: bold;
 
 .food-list {
   display: flex;

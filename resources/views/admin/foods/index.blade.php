@@ -61,9 +61,9 @@
 
 <div class="container">
     @if (session('deleted'))
-    <div class="alert alert-danger">
-        {{ session('deleted') }} Piatto eliminato con successo.
-    </div>
+        <div class="alert alert-danger">
+            {{ session('deleted') }} Piatto eliminato con successo.
+        </div>
     @endif
 
     @if ($foods->isEmpty())
@@ -72,28 +72,60 @@
 
 
     <div class="d-flex justify-content-start mb-5">
+        <a class="btn btn-light mr-3" href="{{route('admin.restaurants.index')}}">I tuoi ristoranti</a>
         <a class="btn btn-primary" href="{{route('admin.foods.create')}}">Aggiungi piatto</a>
     </div>
-    <div class="card-columns">
-        <div class="card" style="width: 20rem;">
+
+    <div class="container">
+        <div class="row">
             @foreach ($foods as $food)
-                <img class="card-img-top" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
-                <div class="card-body">
-                    <p class="card-text pl-1">Nome: {{$food->name}}</p>
-                    <p class="card-text pl-1">Creato il: {{$food->created_at->format('d/m/Y')}}</p>
-                    <div class="d-flex justify-content-center">
-                        <a class="btn btn-primary mr-3" href="{{ route('admin.foods.show', $food->slug) }}">Dettaglio</a>
-                        <a class="btn btn-warning mr-3" href="{{ route('admin.foods.edit', $food->id) }}">Modifica</a>
-                        <form action="{{ route('admin.foods.destroy', $food->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" class="btn btn-danger" value="Elimina">
-                        </form>
-                    </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+                    <ul class="mt-4 list-unstyled list-group-item">
+                        <img class="mb-2 mt-2" width="160" height="170" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
+                        <p class="card-text pl-1">Nome: {{$food->name}}</p>
+                        <p class="card-text pl-1">Creato il: {{$food->created_at->format('d/m/Y')}}</p>
+
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-primary mr-1" href="{{ route('admin.foods.show', $food->slug) }}">Dettaglio</a>
+                            <a class="btn btn-warning mr-1" href="{{ route('admin.foods.edit', $food->id) }}">Modifica</a>
+                            <form action="{{ route('admin.foods.destroy', $food->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" class="btn btn-danger" value="Elimina">
+                            </form>
+                        </div>
+                    </ul>
                 </div>
             @endforeach
         </div>
     </div>
 </div>
+
+
+        {{-- VERSIONE CON CLASSE CARD BOOTSTRAP --}}
+      {{-- <div class="row">
+        <div class="col-sm">
+            @foreach ($foods as $food)
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
+                    <div class="card-body">
+                        <p class="card-text pl-1">Nome: {{$food->name}}</p>
+                        <p class="card-text pl-1">Creato il: {{$food->created_at->format('d/m/Y')}}</p>
+                        <div class="d-flex justify-content-center">
+                            <a class="btn btn-primary mr-3" href="{{ route('admin.foods.show', $food->slug) }}">Dettaglio</a>
+                            <a class="btn btn-warning mr-3" href="{{ route('admin.foods.edit', $food->id) }}">Modifica</a>
+                            <form action="{{ route('admin.foods.destroy', $food->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <input type="submit" class="btn btn-danger" value="Elimina">
+                            </form>
+                        </div>
+                    </div>
+            @endforeach
+        </div>
+    </div> --}}
+
 
 @endsection

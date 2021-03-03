@@ -27,7 +27,7 @@
                     <img width="250" src="{{asset('storage/' . $restaurant->path_img)}}" alt="">
                 </div>
 
-                <div class="button mt-2 text-center">
+                <div class="button mt-2 text-center d-flex justify-content-center">
                     <a class="btn btn-light mr-3" href="{{route('admin.restaurants.index')}}">I tuoi ristoranti</a>
                     <a class="btn btn-primary" href="{{route('admin.foods.index')}}">I tuoi piatti</a>
                 </div>

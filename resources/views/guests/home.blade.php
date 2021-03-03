@@ -82,25 +82,44 @@
         <h2>La selezione di deliveroo</h2>
         <div class="content">
             <div class="comfort-food">
-                <img src="{{ asset('img/asset/comfort_food.png') }}" alt="Comfort_food">
+                <div class="content-img">
+                    <h3>Comfort food</h3>
+                </div>
                 <p>I grandi classici che scaldano il cuore, perfetti in ogni momento.</p>
                 <a href="#">Scopri Comfort food</a>
             </div>
             <div class="dolci-dessert">
-                <img src="{{ asset('img/asset/dolci_dessert.png') }}" alt="Dolci_dessert">
+                <div class="content-img">
+                    <h3>Dolci e dessert</h3>
+                </div>
                 <p>Dolci piaceri per rendere la gionata ancora più gustosa.</p>
                 <a href="#">Scopri Dolci e dessert</a>
             </div>
             <div class="perfect-to-share">
-                <img src="{{ asset('img/asset/perfect_to_share.png') }}" alt="Perfect-to-share">
+                <div class="content-img">
+                    <h3>Perfetti da condividere</h3>
+                </div>
                 <p>Serve una scusa per stare insieme? Ordina dai ristoranti che trasformeranno la tua serata in una vera festa.</p>
                 <a href="#">Scopri perfetti da condividere</a>
             </div>
             <div class="exclusive-deliveroo">
-                <img src="{{ asset('img/asset/exclusive_deliveroo.png') }}" alt="Exclusive-deliveroo">
+                <div class="content-img">
+                    <h3>Esclusiva Deliveroo</h3>
+                </div>
                 <p>I più famosi, i più buoni, i preferiti. Quelli che trovi solo su Deliveroo.</p>
                 <a href="#">Scopri Esclusiva Deliveroo</a>
             </div>
+        </div>
+    </section>
+
+    {{-- Section news --}}
+    <section class="news container">
+        <h2>Novità dalla nostra cucina</h2>
+        <div>
+            <img src="{{ asset('img/asset/deliveroo_per_aziende.png') }}" alt="Deliveroo per aziende">
+        </div>
+        <div>
+            <img src="{{ asset('img/asset/app_promo.png') }}" alt="App promo">
         </div>
     </section>
 

@@ -8,21 +8,29 @@
 {{-- HEADER --}}
 @include('partials.header')
 
-<div class="hero-restaurant">
+<div class="hero-restaurant col-sm-12 col-md-8 col-lg-4">
     <div class="hero-info">
-        <h2>{{$restaurant->name}}</h2>
+        <h2 class="mb-5">{{$restaurant->name}}</h2>
+        <div class="votes">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
 
         @foreach ($restaurant->genres as $genre)
-            <p>{{$genre->type}}</p>
+            <p class="d-inline">{{$genre->type}} •</p>
         @endforeach
 
-        <p class="lead mt-5">{{$restaurant->address}}</p>
+        <p class="lead">{{$restaurant->address}}</p>
         <p class="lead">{{$restaurant->description}}</p>
     </div>
 
-    <div class="hero-img">
+    <div class="hero-img mt-4">
         <img src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->name}}">
     </div>
+
 </div>
 
 
@@ -31,7 +39,7 @@
     <div class="container">
         <div class="box-food">
             @foreach ($restaurant->foods as $food)
-                <div class="box-detail mr-5 ">
+                <div class="box-detail col-sm-12 col-md-8 col-lg-4 mr-2 mt-2">
                     <div class="text">
                         <h5 >{{$food->name}}</h5>
                         <p >{{$food->ingredients}}</p>
@@ -40,8 +48,13 @@
                     </div>
 
                     <div class="image">
-                        <img class="mb-2 mt-2" width="160" height="170" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
+                        @if (!empty($food->path_img))
+                            <img class="mb-2 mt-2" height="80" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
+                        @else
+                        @endif
                     </div>
+
+
                 </div>
             @endforeach
         </div>

@@ -4,11 +4,11 @@
     .box-food {
         display: flex;
         padding-top: 45px;
-        // flex-wrap: wrap;
+        flex-wrap: wrap;
         .box-detail{
-            width: 360px;
+            // width: 360px;
             display: flex;
-            // justify-content: space-between;
+            justify-content: space-between;
             width: calc((100% / 3) - 20px);
             margin: 0 10px;
             align-items: center;
@@ -32,9 +32,17 @@
             img {
                 width: 100px;
                 height: 100px;
+                object-fit: cover;
             }
 
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .box-detail {
+
+    }
+  }
 

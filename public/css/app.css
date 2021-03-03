@@ -10652,6 +10652,7 @@ nav .container .bottom .nav-item {
   max-width: 1300px;
   display: flex;
   background-color: #f8fafc;
+  position: relative;
 }
 .hero-restaurant .hero-info {
   flex-grow: 1;
@@ -10675,12 +10676,20 @@ nav .container .bottom .nav-item {
 .hero-restaurant .hero-info p {
   color: #7d7d7d;
 }
-
-.food-list {
-  display: flex;
-  flex-wrap: wrap;
+.hero-restaurant .hero-info i {
+  color: #00ccbb;
+}
+.hero-restaurant .hero-img {
+  transform: translateX(-80px);
 }
 
+@media only screen and (max-width: 575px) {
+  .hero-restaurant {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+  }
+}
 .footer {
   background-color: #2f3233;
   display: flex;
@@ -10790,10 +10799,11 @@ nav .container .bottom .nav-item {
 .guest-bg .box-food {
   display: flex;
   padding-top: 45px;
+  flex-wrap: wrap;
 }
 .guest-bg .box-food .box-detail {
-  width: 360px;
   display: flex;
+  justify-content: space-between;
   width: calc((100% / 3) - 20px);
   margin: 0 10px;
   align-items: center;
@@ -10818,8 +10828,13 @@ nav .container .bottom .nav-item {
 .guest-bg .box-food .box-detail img {
   width: 100px;
   height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+}
 .jumbotron-fluid {
   height: 100vh;
   color: #00ccbb;

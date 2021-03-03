@@ -4,6 +4,7 @@
     max-width: 1300px;
     display: flex;
     background-color: #f8fafc;
+    position: relative;
     .hero-info {
         flex-grow: 1;
         padding: 50px 80px;
@@ -25,10 +26,24 @@
         p {
             color: $system2-col;
         }
+        i {
+            color: $principal-col;
+        }
+    }
+    .hero-img {
+        // position: absolute;
+        // right: 50px;
+        // top: 20px;
+        transform: translateX(-80px);
     }
 }
 
-.food-list {
-    display: flex;
-    flex-wrap: wrap;
+
+@media only screen and (max-width: 575px) {
+    .hero-restaurant {
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px;
+    }
 }
+

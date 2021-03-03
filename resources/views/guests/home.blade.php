@@ -35,9 +35,9 @@
     {{-- Lista generi --}}
     <div class="container d-flex justify-content-center mt-4 mb-3">
         <ul class="list-group list-group-horizontal-sm">
-            <li class="list-unstyled" role="button" v-for="genre in showGenres" @click="filterGenres(genre.type)">
+            <li class="list-unstyled text-center" role="button" v-for="genre in showGenres" @click="filterGenres(genre.type)">
                 <img :src="'./img/asset/genres/' + genre.img + '.png'" :alt="genre.type">
-                @{{genre.type}}
+                <span class="text-uppercase font-weight-bold text-secondary"> @{{genre.type}}</span>
             </li>
         </ul>
     </div>

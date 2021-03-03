@@ -10598,6 +10598,14 @@ nav .container .bottom .nav-item {
   vertical-align: middle;
 }
 
+.food-container {
+  overflow: hidden;
+  padding: 0 0 20px 0;
+}
+.food-container .food-img {
+  height: 150px;
+}
+
 .auth-container {
   max-width: 100%;
   margin: 0 auto;

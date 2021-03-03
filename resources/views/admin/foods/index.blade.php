@@ -82,10 +82,10 @@
         <div class="row">
             @foreach ($foods as $food)
                 <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-                    <ul class="mt-4 list-unstyled list-group-item">
-                        <img class="mb-2 mt-2" width="160" height="170" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
-                        <p class="card-text pl-1">Nome: {{$food->name}}</p>
-                        <p class="card-text pl-1">Creato il: {{$food->created_at->format('d/m/Y')}}</p>
+                    <ul class="mt-4 list-unstyled list-group-item food-container">
+                        <img class="mb-2 mt-2 food-img" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
+                        <p class="card-text pl-1"><strong>{{$food->name}}</strong></p>
+                        <p class="card-text pl-1">{{$food->created_at->format('d/m/Y')}}</p>
 
                         <div class="d-flex justify-content-center">
                             <a class="btn btn-primary mr-1" href="{{ route('admin.foods.show', $food->slug) }}">Dettaglio</a>

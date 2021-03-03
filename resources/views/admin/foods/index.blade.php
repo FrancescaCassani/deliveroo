@@ -59,6 +59,20 @@
 
 
 <div class="container">
+    @if (session('deleted'))
+    <div class="alert alert-danger">
+        {{ session('deleted') }} Piatto eliminato con successo.
+    </div>
+    @endif
+
+    @if ($foods->isEmpty())
+        <p>Non è ancora stato creato nessun piatto!</p>
+    @endif
+
+
+    <div class="d-flex justify-content-start mb-5">
+        <a class="btn btn-primary" href="{{route('admin.foods.create')}}">Aggiungi piatto</a>
+    </div>
     <div class="card-columns">
         <div class="card" style="width: 20rem;">
             @foreach ($foods as $food)

@@ -16,6 +16,11 @@
     }
 }
 
+//Genre
+.genre-responsive {
+    display: none;
+}
+
 //Selection Deliveroo
 .selection {
     h2 {
@@ -183,6 +188,48 @@
 }
 
 @media only screen and (min-width: 575px) and (max-width: 1024px) {
+    .no-restaurant {
+        margin-top: 50px;
+    }
+    //Genre
+    .genre {
+        ul {
+            display: none;
+        }
+    }
+    .genre-responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        i {
+            display: block;
+            cursor: pointer;
+            color: $principal-col;
+            font-size: 30px;
+            position: absolute;
+            top: 0;
+        }
+        .drop-down {
+            display: block;
+            margin-top: 50px;
+            margin-left: -35px;
+            ul {
+                display: block;
+                list-style: none;
+                li {
+                    cursor: pointer;
+                    text-align: center;
+                    background-color: $principal-col;
+                    border-radius: 7px;
+                    color: $white;
+                    margin-top: 5px;
+                    padding: 2px;
+                }
+            }
+        }
+    }
+
     .selection {
         img {
             width: 100%;
@@ -215,6 +262,48 @@
         .card {
             margin: 0 auto;
             width: 20rem;
+        }
+    }
+    .no-restaurant {
+        margin-top: 50px;
+    }
+
+    //Genre
+    .genre {
+        ul {
+            display: none;
+        }
+    }
+    .genre-responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        i {
+            display: block;
+            cursor: pointer;
+            color: $principal-col;
+            font-size: 30px;
+            position: absolute;
+            top: 0;
+        }
+        .drop-down {
+            display: block;
+            margin-top: 50px;
+            margin-left: -35px;
+            ul {
+                display: block;
+                list-style: none;
+                li {
+                    cursor: pointer;
+                    text-align: center;
+                    background-color: $principal-col;
+                    border-radius: 7px;
+                    color: $white;
+                    margin-top: 5px;
+                    padding: 2px;
+                }
+            }
         }
     }
 

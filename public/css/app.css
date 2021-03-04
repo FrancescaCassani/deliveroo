@@ -10377,6 +10377,10 @@ nav .container .bottom .nav-item {
   color: #7d7d7d;
 }
 
+.genre-responsive {
+  display: none;
+}
+
 .selection h2 {
   font-weight: 700;
 }
@@ -10539,6 +10543,47 @@ nav .container .bottom .nav-item {
 }
 
 @media only screen and (min-width: 575px) and (max-width: 1024px) {
+  .no-restaurant {
+    margin-top: 50px;
+  }
+
+  .genre ul {
+    display: none;
+  }
+
+  .genre-responsive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .genre-responsive i {
+    display: block;
+    cursor: pointer;
+    color: #00ccbb;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+  }
+  .genre-responsive .drop-down {
+    display: block;
+    margin-top: 50px;
+    margin-left: -35px;
+  }
+  .genre-responsive .drop-down ul {
+    display: block;
+    list-style: none;
+  }
+  .genre-responsive .drop-down ul li {
+    cursor: pointer;
+    text-align: center;
+    background-color: #00ccbb;
+    border-radius: 7px;
+    color: #fff;
+    margin-top: 5px;
+    padding: 2px;
+  }
+
   .selection img {
     width: 100%;
     max-height: 130px;
@@ -10565,6 +10610,47 @@ nav .container .bottom .nav-item {
   .hero .card {
     margin: 0 auto;
     width: 20rem;
+  }
+
+  .no-restaurant {
+    margin-top: 50px;
+  }
+
+  .genre ul {
+    display: none;
+  }
+
+  .genre-responsive {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  .genre-responsive i {
+    display: block;
+    cursor: pointer;
+    color: #00ccbb;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+  }
+  .genre-responsive .drop-down {
+    display: block;
+    margin-top: 50px;
+    margin-left: -35px;
+  }
+  .genre-responsive .drop-down ul {
+    display: block;
+    list-style: none;
+  }
+  .genre-responsive .drop-down ul li {
+    cursor: pointer;
+    text-align: center;
+    background-color: #00ccbb;
+    border-radius: 7px;
+    color: #fff;
+    margin-top: 5px;
+    padding: 2px;
   }
 
   .selection img {

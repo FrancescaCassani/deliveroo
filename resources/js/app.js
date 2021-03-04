@@ -29,6 +29,7 @@ const app = new Vue({
 
         // menù
         showMenu: false,
+        showGenre: false,
 
     },
     created() {
@@ -175,6 +176,6 @@ const app = new Vue({
         },
         showRestaurant(restaurant) {
             this.restaurantIndex = restaurant.slug
-        }
+        },
     }
 });

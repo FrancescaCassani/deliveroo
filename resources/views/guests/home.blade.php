@@ -40,7 +40,7 @@
 
 
     {{-- Lista generi --}}
-    <div class="container d-flex justify-content-center mt-4 mb-3">
+    <div class="genre container d-flex justify-content-center mt-4 mb-3">
         <ul class="list-group list-group-horizontal-sm">
             <li class="list-unstyled text-center" role="button" v-for="genre in showGenres" @click="filterGenres(genre.type)">
                 <img :src="'./img/asset/genres/' + genre.img + '.png'" :alt="genre.type">
@@ -51,6 +51,23 @@
     <div class="genre-selected text-center">
         <span role="button" class="text-uppercase badge badge-pill badge-dark h5 ml-1 p-1 pl-2 pr-2" v-for="(genre, index) in genresFiter" @click="genreSelected(index)"> @{{genre}} </span>
     </div>
+
+    {{-- Lista generi responsive --}}
+    <div class="genre-responsive">
+        <i class="fas fa-bars" @click="showGenre = !showGenre"></i>
+        <div class="drop-down" v-if="showGenre">
+            <ul>
+                <li v-for="genre in showGenres" @click="filterGenres(genre.type)">
+                    <span class="text-uppercase font-weight-bold text-secondary"> @{{genre.type}}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    {{-- Controlo nessun ristorante presente --}}
+    @if ($restaurants->isEmpty())
+       <p class="no-restaurant">Nessun ristorante presente nella tua ricerca</p>
+    @endif
 
     <h2 class="text-center pt-3 pb-3">I ristoranti nella tua zona</h2>
     <div class="container">

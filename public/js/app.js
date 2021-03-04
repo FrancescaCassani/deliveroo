@@ -49621,7 +49621,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1___default.a({
     activeGenre: 'Pizzeria',
     counter: '',
     // menù
-    showMenu: false
+    showMenu: false,
+    showGenre: false
   },
   created: function created() {
     this.getRestaurants();
@@ -49843,8 +49844,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/FrankieFitze/Desktop/deliveroo/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/FrankieFitze/Desktop/deliveroo/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\boolean-php\deliveroo\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\boolean-php\deliveroo\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

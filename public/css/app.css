@@ -10344,6 +10344,17 @@ nav .container .navbar-nav a.dropdown-item:hover {
   transition: color 200ms ease;
 }
 
+.genre img {
+  border-radius: 15px;
+}
+.genre span {
+  position: relative;
+  top: -28px;
+  left: 12px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
 .genre-responsive {
   display: none;
 }
@@ -10383,11 +10394,11 @@ nav .container .navbar-nav a.dropdown-item:hover {
   justify-content: center;
   align-items: center;
   opacity: none;
-  transition: opacity 3s;
+  transition: opacity 300ms;
 }
 .selection .content .comfort-food .content-img:hover {
   opacity: 0.5;
-  transition: opacity 3s;
+  transition: opacity 300ms;
   cursor: pointer;
 }
 .selection .content .comfort-food .content-img h3 {
@@ -10409,11 +10420,11 @@ nav .container .navbar-nav a.dropdown-item:hover {
   justify-content: center;
   align-items: center;
   opacity: none;
-  transition: opacity 3s;
+  transition: opacity 300ms;
 }
 .selection .content .dolci-dessert .content-img:hover {
   opacity: 0.5;
-  transition: opacity 3s;
+  transition: opacity 300ms;
   cursor: pointer;
 }
 .selection .content .dolci-dessert .content-img h3 {
@@ -10437,11 +10448,11 @@ nav .container .navbar-nav a.dropdown-item:hover {
   justify-content: center;
   align-items: center;
   opacity: none;
-  transition: opacity 3s;
+  transition: opacity 300ms;
 }
 .selection .content .perfect-to-share .content-img:hover {
   opacity: 0.5;
-  transition: opacity 3s;
+  transition: opacity 300ms;
   cursor: pointer;
 }
 .selection .content .perfect-to-share .content-img h3 {
@@ -10464,11 +10475,11 @@ nav .container .navbar-nav a.dropdown-item:hover {
   justify-content: center;
   align-items: center;
   opacity: none;
-  transition: opacity 3s;
+  transition: opacity 300ms;
 }
 .selection .content .exclusive-deliveroo .content-img:hover {
   opacity: 0.5;
-  transition: opacity 3s;
+  transition: opacity 300ms;
   cursor: pointer;
 }
 .selection .content .exclusive-deliveroo .content-img h3 {
@@ -10478,11 +10489,12 @@ nav .container .navbar-nav a.dropdown-item:hover {
   text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.news {
-  margin-top: 50px;
-}
 .news h2 {
   font-weight: 700;
+}
+.news h4 {
+  font-weight: 700;
+  font-size: 2rem;
 }
 .news .card {
   height: 200px;
@@ -10517,6 +10529,10 @@ nav .container .navbar-nav a.dropdown-item:hover {
   top: -10px;
   z-index: 1;
 }
+.news .card .app::after {
+  left: auto;
+  right: -25px;
+}
 
 .work {
   margin-top: 50px;
@@ -10524,19 +10540,49 @@ nav .container .navbar-nav a.dropdown-item:hover {
 .work h2 {
   font-weight: 700;
 }
-.work .content {
-  display: flex;
+.work h5 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 15px 0;
 }
-.work .content .box-work {
-  width: calc((100% / 3) - 20px);
-  margin: 0 10px;
+.work .card {
+  overflow: hidden;
 }
-.work .content .box-work img {
-  width: 100%;
-  max-height: 560px;
+.work .card-body {
+  position: relative;
+  min-height: 300px;
+  color: #fff;
+}
+.work .card-body::after {
+  content: "";
+  width: 45px;
+  height: 120%;
+  transform: rotate(85deg);
+  position: absolute;
+  left: 150px;
+  top: -180px;
+  z-index: 1;
+}
+.work .card-body.rider {
+  background: #ff483b;
+}
+.work .card-body.rider::after {
+  background: #ff483b;
+}
+.work .card-body.ristoranti {
+  background: #ff8100;
+}
+.work .card-body.ristoranti::after {
+  background: #ff8100;
+}
+.work .card-body.lavoro {
+  background: #bac3c3;
+}
+.work .card-body.lavoro::after {
+  background: #bac3c3;
 }
 
-@media only screen and (min-width: 575px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   .no-restaurant {
     margin-top: 50px;
   }
@@ -10578,6 +10624,43 @@ nav .container .navbar-nav a.dropdown-item:hover {
     padding: 2px;
   }
 
+  .news h2 {
+    font-weight: 700;
+  }
+  .news h4 {
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  .news .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .news .card .img-container {
+    width: 100%;
+    position: relative;
+    height: 300px;
+  }
+  .news .card .img-container img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  .news .card .text-container {
+    flex-grow: 1;
+    position: relative;
+    padding: 40px;
+  }
+  .news .card .text-container::after {
+    display: none;
+  }
+  .news .card .app::after {
+    left: auto;
+    right: -25px;
+  }
+
   .selection img {
     width: 100%;
     max-height: 130px;
@@ -10598,6 +10681,18 @@ nav .container .navbar-nav a.dropdown-item:hover {
   .selection .content .exclusive-deliveroo {
     width: calc(50% - 10px);
     margin-top: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .work .card-body::after {
+    content: "";
+    width: 65px;
+    height: 250%;
+    transform: rotate(89deg);
+    position: absolute;
+    left: 150px;
+    top: -370px;
+    z-index: 1;
   }
 }
 @media only screen and (max-width: 575px) {
@@ -10683,15 +10778,6 @@ nav .container .navbar-nav a.dropdown-item:hover {
   }
   .selection .content .exclusive-deliveroo a {
     margin-bottom: 20px;
-  }
-
-  .work .content {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .work .content .box-work {
-    width: 100%;
-    margin: 7px auto;
   }
 }
 .image-bg {

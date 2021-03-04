@@ -42,13 +42,14 @@
     {{-- Lista generi --}}
     <div class="genre container d-flex justify-content-center mt-4 mb-3">
         <ul class="list-group list-group-horizontal-sm">
-            <li class="list-unstyled text-center" role="button" v-for="genre in showGenres" @click="filterGenres(genre.type)">
+            <li class="list-unstyled mr-2" role="button" v-for="genre in showGenres" @click="filterGenres(genre.type)">
                 <img :src="'./img/asset/genres/' + genre.img + '.png'" :alt="genre.type">
-                <span class="text-uppercase font-weight-bold text-secondary"> @{{genre.type}}</span>
+                <span class="text-uppercase font-weight-bold"> @{{genre.type}}</span>
             </li>
         </ul>
     </div>
     <div class="genre-selected text-center">
+        <p v-if="genresFiter.length > 0" class="lead text-secondary">I generi selezionati sono: </p>
         <span role="button" class="text-uppercase badge badge-pill badge-dark h5 ml-1 p-1 pl-2 pr-2" v-for="(genre, index) in genresFiter" @click="genreSelected(index)"> @{{genre}} </span>
     </div>
 
@@ -91,8 +92,8 @@
     </div>
 
     {{-- Selezione di deliveroo --}}
-    <section class="selection container">
-        <h2>La selezione di deliveroo</h2>
+    <section class="selection container mt-5">
+        <h2 class="mb-4">La selezione di deliveroo</h2>
         <div class="content">
             <div class="comfort-food">
                 <div class="content-img">
@@ -126,35 +127,68 @@
     </section>
 
     {{-- Section news --}}
-    <section class="news container">
-        <h2>Novità dalla nostra cucina</h2>
+    <section class="news container mt-5">
+        <h2 class="mb-4">Novità dalla nostra cucina</h2>
         <div class="work-news card mb-5">
             <div class="img-container">
                 <img src="{{asset('img/asset/news-work-sushi.jpg')}}" alt="News Work">
             </div>
-            <div class="text-container">
+            <div class="text-container news">
                 <h4>Deliveroo per le Aziende</h4>
                 <p>Clienti o colleghi affamati? il nostro team Corporate ti può aiutare.</p>
                 <a href="#" @click.prevent="" class="btn btn-primary">Contattaci</a>
             </div>
         </div>
-        <div>
-            <img src="{{ asset('img/asset/app_promo.png') }}" alt="App promo">
+        <div class="work-app card mb-5">
+            <div class="text-container app">
+                <h4>Hai già la nostra app?</h4>
+                <p>Scaricala ora - disponibile su Apple store e Google Play!</p>
+                <a href="#">
+                    <img height="40" src="{{ asset('img/asset/app-store.png') }}" @click.prevent="" alt="App-store">
+                </a>
+                <a href="#">
+                    <img height="40" src="{{ asset('img/asset/google-play.png') }}" @click.prevent="" alt="Google-play">
+                </a>
+            </div>
+            <div class="img-container">
+                <img src="{{asset('img/asset/app.jpg')}}" alt="News Work">
+            </div>
         </div>
     </section>
 
     {{-- Section work with Deliveroo --}}
     <section class="work container mb-5">
         <h2>Lavora con Deliveroo</h2>
-        <div class="content">
-            <div class="box-work">
-                <img src="{{ asset('img/asset/lavora_con_deliveroo.png') }}" alt="Lavora con noi">
+        <div class="row row-cols-1 row-cols-md-3">
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="{{ asset('img/asset/rider.jpg') }}" alt="Lavora con noi">
+                <div class="card-body rider">
+                    <h5 class="card-title">Rider</h5>
+                    <p class="card-text">Diventa un rider: flessibilità, ottimi guadagni e un mondo di vantaggi per te.</p>
+                    <a href="#" click.prevent="" class="btn btn-primary">Unisciti a noi</a>
+                </div>
+                </div>
             </div>
-            <div class="box-work">
-                <img src="{{ asset('img/asset/diventa_partner.png') }}" alt="Diventa partner">
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="{{ asset('img/asset/ristoranti.jpg') }}" alt="Diventa partner">
+                <div class="card-body ristoranti">
+                    <h5 class="card-title">Ristoranti</h5>
+                    <p class="card-text">Diventa partner di Deliveroo e raggiungi sempre più clienti. Ci occupiamo noi della consegna, così che la tua unica preoccupazione sia continuare a preparare il miglior cibo.</p>
+                    <a href="#" click.prevent="" class="btn btn-primary">Diventa nostro partner</a>
+                </div>
+                </div>
             </div>
-            <div class="box-work">
-                <img src="{{ asset('img/asset/lavora_con_noi.png') }}" alt="Lavora con noi">
+            <div class="col mb-4">
+                <div class="card">
+                    <img src="{{ asset('img/asset/lavoro.jpg') }}" alt="Lavora con noi">
+                    <div class="card-body lavoro">
+                        <h5 class="card-title">Lavora con noi</h5>
+                        <p class="card-text">La nostra missione è trasformare il modo in cui le persone mangiano. È un obiettivo ambizioso, come noi, e ci servono persone che ci aiutino a raggiungerlo.</p>
+                        <a href="#" click.prevent="" class="btn btn-primary">Scopri di più</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

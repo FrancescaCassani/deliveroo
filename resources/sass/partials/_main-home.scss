@@ -69,6 +69,18 @@
 }
 
 //Genre
+.genre {
+    img {
+        border-radius: 15px;
+    }
+    span {
+        position: relative;
+        top: -28px;
+        left: 12px;
+        font-size: 1.1rem;
+        color: #fff;
+    }
+}
 .genre-responsive {
     display: none;
 }
@@ -108,10 +120,10 @@
                 justify-content: center;
                 align-items: center;
                 opacity: none;
-                transition: opacity 3s;
+                transition: opacity 300ms;
                 &:hover {
                     opacity: .5;
-                    transition: opacity 3s;
+                    transition: opacity 300ms;
                     cursor: pointer;
                 }
                 h3 {
@@ -134,10 +146,10 @@
                 justify-content: center;
                 align-items: center;
                 opacity: none;
-                transition: opacity 3s;
+                transition: opacity 300ms;
                 &:hover {
                     opacity: .5;
-                    transition: opacity 3s;
+                    transition: opacity 300ms;
                     cursor: pointer;
                 }
                 h3 {
@@ -162,10 +174,10 @@
                 justify-content: center;
                 align-items: center;
                 opacity: none;
-                transition: opacity 3s;
+                transition: opacity 300ms;
                 &:hover {
                     opacity: .5;
-                    transition: opacity 3s;
+                    transition: opacity 300ms;
                     cursor: pointer;
                 }
                 h3 {
@@ -189,10 +201,10 @@
                 justify-content: center;
                 align-items: center;
                 opacity: none;
-                transition: opacity 3s;
+                transition: opacity 300ms;
                 &:hover {
                     opacity: .5;
-                    transition: opacity 3s;
+                    transition: opacity 300ms;
                     cursor: pointer;
                 }
                 h3 {
@@ -208,9 +220,12 @@
 
 //Section news
 .news {
-    margin-top: 50px;
     h2 {
         font-weight: 700;
+    }
+    h4 {
+        font-weight: 700;
+        font-size: 2rem;
     }
     .card {
         height: 200px;
@@ -244,6 +259,12 @@
                 z-index: 1;
             }
         }
+        .app {
+            &::after {
+                left: auto;
+                right: -25px;
+            }
+        }
     }
 }
 
@@ -253,20 +274,50 @@
     h2 {
         font-weight: 700;
     }
-    .content {
-        display: flex;
-        .box-work {
-            width: calc((100% / 3) - 20px);
-            margin: 0 10px;
-            img {
-                width: 100%;
-                max-height: 560px;
+    h5 {
+        font-weight: 700;
+        font-size: 2rem;
+        margin: 15px 0;
+    }
+    .card {
+        overflow: hidden;
+    }
+    .card-body {
+        position: relative;
+        min-height: 300px;
+        color: #fff;
+        &::after {
+            content: "";
+            width: 45px;
+            height: 120%;
+            transform: rotate(85deg);
+            position: absolute;
+            left: 150px;
+            top: -180px;
+            z-index: 1;
+        }
+        &.rider {
+            background: #ff483b;
+            &::after {
+                background: #ff483b;
+            }
+        }
+        &.ristoranti {
+            background: #ff8100;
+             &::after {
+                background: #ff8100;
+            }
+        }
+        &.lavoro {
+            background: #bac3c3;
+             &::after {
+                background: #bac3c3;
             }
         }
     }
 }
 
-@media only screen and (min-width: 575px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
     .no-restaurant {
         margin-top: 50px;
     }
@@ -309,6 +360,48 @@
         }
     }
 
+    //Section news
+.news {
+    h2 {
+        font-weight: 700;
+    }
+    h4 {
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    .card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        .img-container {
+            width: 100%;
+            position: relative;
+            height: 300px;
+            img {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+        }
+        .text-container {
+            flex-grow: 1;
+            position: relative;
+            padding: 40px;
+            &::after {
+                display: none;
+            }
+        }
+        .app {
+            &::after {
+                left: auto;
+                right: -25px;
+            }
+        }
+    }
+}
+
     .selection {
         img {
             width: 100%;
@@ -331,6 +424,23 @@
             .exclusive-deliveroo {
                 width: calc(50% - 10px);
                 margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .work {
+        .card-body {
+            &::after {
+                content: "";
+                width: 65px;
+                height: 250%;
+                transform: rotate(89deg);
+                position: absolute;
+                left: 150px;
+                top: -370px;
+                z-index: 1;
             }
         }
     }
@@ -428,16 +538,4 @@
         }
 
     }
-
-        //Section work with Deliveroo
-        .work {
-            .content {
-                display: flex;
-                flex-wrap: wrap;
-                .box-work {
-                    width: 100%;
-                    margin: 7px auto;
-                }
-            }
-        }
-    }
+}

@@ -23,14 +23,13 @@ const app = new Vue({
         // shop cart
         shopCart: [],
         finalPrice: 0,
-        showCart: false,
         activeGenre: 'Pizzeria',
         counter: '',
 
         // menù
         showMenu: false,
+        showCart: false,
         showGenre: false,
-
     },
     created() {
         this.getRestaurants();

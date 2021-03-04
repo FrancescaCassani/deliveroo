@@ -13,7 +13,7 @@
     <section class="container">
         <div class="hero">
             <div class="content col-sm-12 col-md-8 col-lg-5">
-                <h2>I piatti che ami, a domicilio.</h2>
+                <h2 class="title">I piatti che ami, a domicilio.</h2>
                 {{-- Barra di ricerca --}}
                 <div class="search">
                     <p>Cerca i tuoi ristoranti preferiti</p>

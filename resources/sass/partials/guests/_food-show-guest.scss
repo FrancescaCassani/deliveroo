@@ -3,14 +3,12 @@
     // height: 100vh;
     .box-food {
         display: flex;
-        padding-top: 45px;
         flex-wrap: wrap;
         .box-detail {
             position: relative;
             display: flex;
             justify-content: space-between;
             width: calc((100% / 2) - 20px);
-            margin: 10px 10px;
             align-items: center;
             padding: 20px 15px;
             background: $white;
@@ -44,19 +42,29 @@
     .container {
         display: flex;
         justify-content: space-between;
+        padding: 80px;
         .basket-content {
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-content: center;
-            max-height: a;
             background: #f8fafc;
             box-shadow: 5px 5px 5px rgb(0 0 0 / 10%);
-            height: 100%;
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
+            // display: flex;
+            height: 200px;
+            background: $white;
+            padding: 20px;
+            overflow: scroll;
             .basket-item, .total, .pay {
                 padding: 0px 10px;
+            }
+            .total {
+                font-weight: 700;
+            }
+            .pay {
+                margin-top: 20px;
             }
             .price-single-product {
                 position: relative;
@@ -73,6 +81,60 @@
             }
         }
     }
+}
+
+// CART-Menu
+#cart-menu {
+    // position: relative;
+    overflow: scroll;
+}
+
+#cart-menu .top {
+    position: fixed;
+    width: 400px;
+    color: $principal-col;
+    background: $white;
+    z-index: 99;
+}
+
+#cart-menu .pay {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+    padding: 20px;
+    background: $white;
+    z-index: 99;
+}
+
+#cart-menu .over {
+    padding-top: 80px;
+}
+
+#cart-menu .basket-content {
+    position: relative;
+    padding: 20px 20px 150px 20px;   
+}
+
+#cart-menu .basket-content .pay {
+    margin-top: 20px;
+}
+
+#cart-menu .basket-content .total {
+    font-weight: 700;
+}
+
+#cart-menu .basket-content .navbar-nav {
+    padding: 0;
+    background: $white;
+}
+
+#cart-menu .basket-content .navbar-nav p {
+    margin: 0;
+}
+
+p.price-single-product {
+    font-weight: 700;
 }
 
 @media(max-width: 767px) {

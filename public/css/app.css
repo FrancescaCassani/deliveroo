@@ -10021,6 +10021,12 @@ body {
 
 a {
   cursor: pointer;
+  color: #00ccbb;
+}
+
+.title {
+  font-weight: 700;
+  color: #440061;
 }
 
 #navbarDropdown {
@@ -10965,7 +10971,6 @@ nav .container .bottom .nav-item {
 }
 .guest-bg .box-food {
   display: flex;
-  padding-top: 45px;
   flex-wrap: wrap;
 }
 .guest-bg .box-food .box-detail {
@@ -10973,7 +10978,6 @@ nav .container .bottom .nav-item {
   display: flex;
   justify-content: space-between;
   width: calc((100% / 2) - 20px);
-  margin: 10px 10px;
   align-items: center;
   padding: 20px 15px;
   background: #fff;
@@ -11006,21 +11010,30 @@ nav .container .bottom .nav-item {
 .guest-bg .container {
   display: flex;
   justify-content: space-between;
+  padding: 80px;
 }
 .guest-bg .container .basket-content {
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-content: center;
-  max-height: a;
   background: #f8fafc;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-  height: 100%;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+  height: 200px;
+  background: #fff;
+  padding: 20px;
+  overflow: scroll;
 }
 .guest-bg .container .basket-content .basket-item, .guest-bg .container .basket-content .total, .guest-bg .container .basket-content .pay {
   padding: 0px 10px;
+}
+.guest-bg .container .basket-content .total {
+  font-weight: 700;
+}
+.guest-bg .container .basket-content .pay {
+  margin-top: 20px;
 }
 .guest-bg .container .basket-content .price-single-product {
   position: relative;
@@ -11034,6 +11047,58 @@ nav .container .bottom .nav-item {
   top: 50%;
   transform: translateY(-50%);
   content: "\20AC";
+}
+
+#cart-menu {
+  overflow: scroll;
+}
+
+#cart-menu .top {
+  position: fixed;
+  width: 400px;
+  color: #00ccbb;
+  background: #fff;
+  z-index: 99;
+}
+
+#cart-menu .pay {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  padding: 20px;
+  background: #fff;
+  z-index: 99;
+}
+
+#cart-menu .over {
+  padding-top: 80px;
+}
+
+#cart-menu .basket-content {
+  position: relative;
+  padding: 20px 20px 150px 20px;
+}
+
+#cart-menu .basket-content .pay {
+  margin-top: 20px;
+}
+
+#cart-menu .basket-content .total {
+  font-weight: 700;
+}
+
+#cart-menu .basket-content .navbar-nav {
+  padding: 0;
+  background: #fff;
+}
+
+#cart-menu .basket-content .navbar-nav p {
+  margin: 0;
+}
+
+p.price-single-product {
+  font-weight: 700;
 }
 
 @media (max-width: 767px) {

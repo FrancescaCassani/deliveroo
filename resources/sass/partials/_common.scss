@@ -13,6 +13,13 @@ body {
 
 a {
     cursor: pointer;
+    color: $principal-col;
+}
+
+// Typhography
+.title {
+    font-weight: 700;
+    color: $accent2-col;
 }
 
 #navbarDropdown {

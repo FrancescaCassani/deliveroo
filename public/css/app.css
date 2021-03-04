@@ -10009,6 +10009,7 @@ h3 {
 }
 body {
   font-family: "Roboto", sans-serif;
+  padding-top: 40px;
 }
 
 .menu-block {
@@ -10872,10 +10873,10 @@ nav .container .bottom .nav-item {
   color: #abadac;
 }
 .guest-bg .box-food .box-detail img {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .guest-bg .container {
   display: flex;

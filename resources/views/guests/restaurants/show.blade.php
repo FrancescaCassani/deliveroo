@@ -18,15 +18,12 @@
             <i class="fas fa-star"></i>
             <i class="far fa-star"></i>
           </div>
-
         @foreach ($restaurant->genres as $genre)
             <p class="d-inline">{{$genre->type}} •</p>
         @endforeach
-
         <p class="lead">{{$restaurant->address}}</p>
         <p class="lead">{{$restaurant->description}}</p>
     </div>
-
     <div class="hero-img mt-4">
         <img src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->name}}">
     </div>

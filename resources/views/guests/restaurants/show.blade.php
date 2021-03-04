@@ -30,16 +30,15 @@
     <div class="hero-img mt-4">
         <img src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->name}}">
     </div>
-
 </div>
 
 
-
+{{-- SHOW RISTORANTI GUESTS --}}
 <section class="guest-bg">
     <div class="container">
         <div class="box-food">
             @foreach ($restaurant->foods as $food)
-                <div class="box-detail col-sm-12 col-md-8 col-lg-4 mr-2 mt-2">
+                <div class="box-detail col-sm-12 col-md-8 col-lg-4 mr-2 mt-3">
                     <div class="text">
                         <h5 >{{$food->name}}</h5>
                         <p >{{$food->ingredients}}</p>
@@ -53,17 +52,29 @@
                         @else
                         @endif
                     </div>
-
-
                 </div>
             @endforeach
         </div>
+
+        {{-- SHOW CARRELLO LATERALE --}}
+        <div class="basket-content">
+            <ul class="list-group basket" style="width: 300px">
+                <li
+                class="d-flex justify-content-between list-unstyled basket-item"
+                v-for="(product, index) in shopCart" width=100>
+                    <p>@{{ product.name }}</p>
+                    <p class="price-single-product">@{{ product.price }}</p>
+                </li>
+
+
+                <li class="list-unstyled total">Total: @{{ finalPrice }} €</li>
+            </ul>
+            <div class="pay">
+                <a class="d-flex justify-content-center btn btn-primary" href="{{ route('pay') }}">Vai al pagamento</a>
+            </div>
+        </div>
     </div>
 </section>
-
-
-
-
 
 
 

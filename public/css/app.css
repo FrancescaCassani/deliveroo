@@ -10805,7 +10805,7 @@ nav .container .bottom .nav-item {
   display: flex;
   justify-content: space-between;
   width: calc((100% / 3) - 20px);
-  margin: 0 10px;
+  margin: 0 15px;
   align-items: center;
   padding: 10px 15px;
   background: #fff;
@@ -10831,10 +10831,29 @@ nav .container .bottom .nav-item {
   -o-object-fit: cover;
      object-fit: cover;
 }
-
-@media only screen and (max-width: 768px) {
-  /* For mobile phones: */
+.guest-bg .container {
+  display: flex;
+  justify-content: space-between;
 }
+.guest-bg .container .basket-content {
+  max-height: 280px;
+  background: #fff;
+  margin-top: 60px;
+}
+.guest-bg .container .basket-content .basket-item, .guest-bg .container .basket-content .total, .guest-bg .container .basket-content .pay {
+  padding: 0px 10px;
+}
+.guest-bg .container .basket-content .price-single-product {
+  position: relative;
+  margin-right: 10px;
+}
+.guest-bg .container .basket-content .price-single-product::after {
+  position: absolute;
+  right: -10px;
+  bottom: 0;
+  content: "\20AC";
+}
+
 .jumbotron-fluid {
   height: 100vh;
   color: #00ccbb;

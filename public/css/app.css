@@ -10967,3 +10967,87 @@ nav .container .bottom .nav-item {
 .jumbotron-fluid p {
   color: #000;
 }
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin-top: -40px;
+}
+.box .wrapper {
+  width: 450px;
+  padding: 15px;
+}
+.box .wrapper .input-data {
+  position: relative;
+  height: 40px;
+  width: 100%;
+}
+.box .wrapper .input-data input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid silver;
+  background: #f8fafc;
+  outline: none;
+}
+.box .wrapper .input-data label {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  color: #7d7d7d;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.box .wrapper .input-data input:focus ~ label,
+.box .wrapper .input-data input:valid ~ label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: #00ccbb;
+}
+.box .wrapper .input-data .underline {
+  position: absolute;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  left: -50%;
+}
+.box .wrapper .input-data .underline:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #00ccbb;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.box .wrapper .input-data input:focus ~ .underline:before,
+.box .wrapper .input-data input:valid ~ .underline:before {
+  transform: scaleX(1);
+}
+.box .payment {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  color: #7d7d7d;
+}
+.box .payment span {
+  font-weight: bold;
+  font-size: 16px;
+}
+.box .payment .btn-pay {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.box .payment .btn-total {
+  cursor: default;
+  background: none;
+  color: #7d7d7d;
+}
+.box .payment .btn-total:hover {
+  background: none;
+  color: #7d7d7d;
+}

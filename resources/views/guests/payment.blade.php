@@ -10,16 +10,46 @@
 
 <div class="text-center">
     <div class="container">
-        <form id="payment-form" action="{{ route('payment') }}" method="post">
-            <div id="dropin-container"></div>
-            <input type="text" value="nome utente">
-            <input type="text" value="cognome utente">
-            <input type="text" value="indirizzo utente">
-            <input @click="puliziaCache" type="submit" />
-            <input type="hidden" id="nonce" name="payment_method_nonce"/>
-            <input type="hidden" :value="finalPrice" id="amount" name="amount"/>
-            <label for="amount">@{{finalPrice}}</label>
-        </form>
+        <div class="box">
+            <form id="payment-form" action="{{ route('payment') }}" method="post">
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label>Nome utente</label>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label>Cognome utente</label>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div class="input-data">
+                        <input type="text" required>
+                        <div class="underline"></div>
+                        <label>Indirizzo di consegna</label>
+                    </div>
+                </div>
+
+                <div class="wrapper">
+                    <div id="dropin-container"></div>
+                </div>
+
+                <div class="wrapper payment">
+                    <span class="btn btn-outline-secondary btn-total" for="amount">Totale: @{{finalPrice}} €</span>
+                    <input
+                    class="btn btn-primary btn-pay" @click="puliziaCache" type="submit" value="Paga ora"/>
+                    <input type="hidden" id="nonce" name="payment_method_nonce"/>
+                    <input type="hidden" :value="finalPrice" id="amount" name="amount"/>
+                </div>
+
+            </form>
+        </div>
     </div>
 </div>
 @endsection

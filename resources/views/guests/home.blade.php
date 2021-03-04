@@ -58,21 +58,23 @@
                     <img :src="'../storage/' + restautant.path_img" class="card-img-top" :alt="restautant.name">
                     <h1>@{{restautant.name}}</h1>
                     <div v-for="food in foods" v-if="food.restaurant_id === restautant.id">
-                        <h3>@{{food.name}}</h3> <span href="#" class="btn btn-primary" @click="addCart(food)">Aggiungi al carrello</span>
+                        <h3>@{{food.name}}</h3> <span href="#" class="btn btn-primary" @click.prevent="addCart(food)">Aggiungi al carrello</span>
                     </div>
                 </div>
             </span>
         </div>
         <div class="hero row">
             <div class="col-sm mb-5" v-for="(restaurant, index) in allRestaurants" v-if="restaurant.visible == 1">
-                <div class="card" style="width: 15rem">
-                    <img :src="'../storage/' + restaurant.path_img" class="card-img-top" :alt="restaurant.name">
-                    <div class="card-body">
-                        <h5 class="card-title">@{{restaurant.name}}</h5>
-                        <h5 class="card-title">@{{restaurant.restaurant_id}}</h5>
-                        <a :href=`{{ route('restaurants.show', '') }}/${restaurant.slug}` class="btn btn-primary">Show</a>
+                <a class="text-decoration-none" :href=`{{ route('restaurants.show', '') }}/${restaurant.slug}`>
+                    <div class="card text-center" style="width: 15rem">
+                        <img :src="'../storage/' + restaurant.path_img" class="card-img-top" :alt="restaurant.name">
+                        <div class="card-body">
+                            <h5 class="card-title">@{{restaurant.name}}</h5>
+                            <small>Consegna gratuita</small>
+                            <h5 class="card-title">@{{restaurant.restaurant_id}}</h5>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>

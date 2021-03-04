@@ -71,10 +71,13 @@
             </ul>
             <div class="pay">
                 <a class="d-flex justify-content-center btn btn-primary" href="{{ route('pay') }}">Vai al pagamento</a>
+                <input @click="puliziaCache" type="submit" />
             </div>
         </div>
     </div>
 </section>
+
+
 
 
 

@@ -10374,6 +10374,12 @@ nav .container .bottom .nav-item {
 .hero .card img {
   max-height: 160px;
 }
+.hero h5 {
+  color: #2f3233;
+}
+.hero small {
+  color: #7d7d7d;
+}
 
 .selection h2 {
   font-weight: 700;
@@ -10794,7 +10800,6 @@ nav .container .bottom .nav-item {
 
 .guest-bg {
   background: #f4f5f5;
-  height: 100vh;
 }
 .guest-bg .box-food {
   display: flex;

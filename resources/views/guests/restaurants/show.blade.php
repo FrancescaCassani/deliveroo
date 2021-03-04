@@ -19,13 +19,15 @@
             <i class="far fa-star"></i>
           </div>
         @foreach ($restaurant->genres as $genre)
-            <p class="d-inline">{{$genre->type}} •</p>
+            <p class="genre d-inline">{{$genre->type}}</p>
         @endforeach
         <p class="lead">{{$restaurant->address}}</p>
         <p class="lead">{{$restaurant->description}}</p>
     </div>
-    <div class="hero-img mt-4">
+    <div class="restaurant-info">
+        <div class="contacts card" style="width: 18rem;">
         <img src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->name}}">
+        </div>
     </div>
 </div>
 
@@ -38,17 +40,17 @@
                 <div class="box-detail col-sm-12 col-md-8 col-lg-5">
                     <a class="text-decoration-none" href="#" @click.prevent="addCart({{$food}})">
                         <div class="text">
-                            <h5 >{{$food->name}}</h5>
-                            <p >{{ $food->ingredients}}</p>
-                            <p >{{$food->price}} €</p>
+                            <h5>{{$food->name}}</h5>
+                            <p>{{ $food->ingredients}}</p>
+                            <p class="price" >{{$food->price}} €</p>
                         </div>
 
-                        <div class="image">
-                            @if (!empty($food->path_img))
-                                <img class="mb-2 mt-2" height="80" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
-                            @else
-                            @endif
-                        </div>
+                        @if (!empty($food->path_img))
+                            <div class="image">
+                                <img class="mt-2" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
+                            </div>
+                        @else
+                        @endif
                     </a>
 
                 </div>
@@ -66,11 +68,11 @@
                 </li>
 
 
-                <li class="list-unstyled total">Total: @{{ finalPrice }} €</li>
+                <li v-if="finalPrice > 0" class="list-unstyled total">Total: @{{ finalPrice }} €</li>
             </ul>
             <div class="pay">
-                <a class="d-flex justify-content-center btn btn-primary" href="{{ route('pay') }}">Vai al pagamento</a>
-                <input @click.prevent="puliziaCache" type="submit" />
+                <a :class="['d-flex justify-content-center btn', finalPrice <= 0 ? 'disabled btn-outline-secondary' : 'btn-primary']" href="{{ route('pay') }}">Vai al pagamento</a>
+                <a class="d-flex justify-content-center btn text-danger" @click="puliziaCache" href="">Svuota carrello</a>
             </div>
         </div>
     </div>

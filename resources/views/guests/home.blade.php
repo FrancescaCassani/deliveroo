@@ -52,25 +52,9 @@
         <span role="button" class="text-uppercase badge badge-pill badge-dark h5 ml-1 p-1 pl-2 pr-2" v-for="(genre, index) in genresFiter" @click="genreSelected(index)"> @{{genre}} </span>
     </div>
 
-    {{-- Controlo nessun ristorante presente --}}
-    @if ($restaurants->isEmpty())
-       <p>Nessun ristorante presente nella tua ricerca</p>
-    @endif
-
     <h2 class="text-center pt-3 pb-3">I ristoranti nella tua zona</h2>
     <div class="container">
-        <div class="show-restaurant">
-            <span v-for="(restautant, i) in allRestaurants">
-                <div class="container" v-if="restautant.slug == restaurantIndex">
-                    <img :src="'../storage/' + restautant.path_img" class="card-img-top" :alt="restautant.name">
-                    <h1>@{{restautant.name}}</h1>
-                    <div v-for="food in foods" v-if="food.restaurant_id === restautant.id">
-                        <h3>@{{food.name}}</h3> <span href="#" class="btn btn-primary" @click.prevent="addCart(food)">Aggiungi al carrello</span>
-                    </div>
-                </div>
-            </span>
-        </div>
-        <div class="hero row">
+        <div class="hero row restaurants-list">
             <div class="col-sm mb-5" v-for="(restaurant, index) in allRestaurants" v-if="restaurant.visible == 1">
                 <a class="text-decoration-none" :href=`{{ route('restaurants.show', '') }}/${restaurant.slug}`>
                     <div class="card text-center" style="width: 15rem">
@@ -83,6 +67,9 @@
                     </div>
                 </a>
             </div>
+        </div>
+        <div class="no-restaurants text-center" v-if="allRestaurants.length <= 0">
+            <h4 class="title mt-4 mb-5 text-uppercase text-secondary">Non ci sono ristoranti che corrispondono alla ricerca</h4>
         </div>
     </div>
 

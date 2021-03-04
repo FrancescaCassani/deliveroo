@@ -1,7 +1,10 @@
-.hero {
+.restaurants-list {
     .card {
+        border: none;
         img {
-            max-height: 160px;
+            height: 160px;
+            width: 100%;
+            object-fit: cover;
         }
 
     }

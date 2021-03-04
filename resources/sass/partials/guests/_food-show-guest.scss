@@ -11,17 +11,30 @@
             width: calc((100% / 2) - 20px);
             align-items: center;
             padding: 20px 15px;
+            margin: 10px;
             background: $white;
-            cursor: pointer;    
+            cursor: pointer;
             border-radius: 10px;
-            transition: box-shadow 0.3s ease-in-out;
+            transition: box-shadow 250ms ease-in-out;
             &:hover {
                 box-shadow:  4px 12px 8px -6px#ccc;
             }
             .text {
                 padding: 0 8px;
                 h5 {
+                    position: relative;
                     color: $system2-col;
+                    transition: color 250ms ease;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: -5px;
+                        left: 0;
+                        width: 0;
+                        height: 3px;
+                        background: $principal-col;
+                        transition: width 250ms cubic-bezier(.4,1.19,.71,1.19);
+                    }
                 }
                 p {
                     color: $system3-col;
@@ -37,6 +50,14 @@
                 object-fit: cover;
                 border-radius: 5px;
             }
+            &:hover {
+                h5 {
+                    color: $principal-col;
+                    &::after {
+                        width: 55%;
+                    }
+                }
+            }
         }
     }
     .container {
@@ -44,7 +65,6 @@
         justify-content: space-between;
         padding: 80px;
         .basket-content {
-            padding: 20px;
             display: flex;
             flex-direction: column;
             align-content: center;
@@ -52,11 +72,9 @@
             box-shadow: 5px 5px 5px rgb(0 0 0 / 10%);
             border-bottom-left-radius: 20px;
             border-bottom-right-radius: 20px;
-            // display: flex;
-            height: 200px;
-            background: $white;
+            height: 100%;
+            width: 500px;
             padding: 20px;
-            overflow: scroll;
             .basket-item, .total, .pay {
                 padding: 0px 10px;
             }
@@ -137,8 +155,12 @@ p.price-single-product {
     font-weight: 700;
 }
 
-@media(max-width: 767px) {
-    .basket-content{
-        display: none;
+@media screen and (max-width: 767px) {
+    .guest-bg {
+        .container {
+            .basket-content{
+                display: none;
+            }
+        }
     }
 }

@@ -35,18 +35,18 @@
         align-items: center;
         .contacts {
             border-radius: 10px;
-            background: linear-gradient(45deg, $principal-col, rgba($principal-col, .2));
             padding: 10px;
             height: 250px;
             border: none;
-        }
-        img {
-            vertical-align: middle;
-            border-style: none;
-            height: 100%;
-            border-radius: 5px;
-            width: 100%;
-            object-fit: cover;
+            background: $principal-col;
+            img {
+                vertical-align: middle;
+                border-style: none;
+                height: 100%;
+                border-radius: 5px;
+                width: 100%;
+                object-fit: cover;
+            }
         }
     }
     .genre {
@@ -62,12 +62,14 @@
     }
 }
 
-
-@media only screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
     .hero-restaurant {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         margin: 0 10px;
+        height: auto;
+        .contacts {
+            margin-top: 25px;
+        }
     }
 }
-

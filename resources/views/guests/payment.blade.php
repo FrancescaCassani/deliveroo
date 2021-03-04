@@ -52,6 +52,9 @@
         </div>
     </div>
 </div>
+
+{{-- Footer --}}
+@include('partials.footer')
 @endsection
 
 

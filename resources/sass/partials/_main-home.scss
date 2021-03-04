@@ -1,18 +1,70 @@
 .restaurants-list {
     .card {
+        position: relative;
         border: none;
+        border-radius: 10px;
+        min-height: 350px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 250ms ease;
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: $principal-col;
+            transition: width 250ms ease;
+        }
+        &:hover {
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            h4 {
+                color: $principal-col;
+                &::after {
+                    width: 80%;
+                }
+            }
+            &::after {
+                width: 80%;
+            }
+            small {
+                color: $principal-col;
+            }
+        }
         img {
             height: 160px;
             width: 100%;
             object-fit: cover;
         }
-
+        .description {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
     }
-    h5 {
+    h4 {
+        position: relative;
         color: $system1-col;
+        transition: color 350ms linear;
+        &::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: $principal-col;
+            transition: width 250ms ease;
+        }
     }
-    small {
+    small, p {
         color: $system2-col;
+        transition: color 200ms ease;
     }
 }
 
@@ -160,10 +212,37 @@
     h2 {
         font-weight: 700;
     }
-    div {
-        margin-top: 20px;
-        img {
-            width: 100%;
+    .card {
+        height: 200px;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+        .img-container {
+            width: 50%;
+            position: relative;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
+        }
+        .text-container {
+            flex-grow: 1;
+            position: relative;
+            padding: 40px;
+            &::after {
+                content: '';
+                width: 40px;
+                height: 120%;
+                background: #fff;
+                transform: rotate(6deg);
+                position: absolute;
+                left: -30px;
+                top: -10px;
+                z-index: 1;
+            }
         }
     }
 }

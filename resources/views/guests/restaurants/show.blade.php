@@ -25,8 +25,8 @@
         <p class="lead">{{$restaurant->description}}</p>
     </div>
     <div class="restaurant-info">
-        <div class="contacts card" style="width: 18rem;">
-        <img src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->name}}">
+        <div class="contacts card" style="width: 20rem;">
+            <img src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->name}}">
         </div>
     </div>
 </div>
@@ -44,7 +44,6 @@
                             <p>{{ $food->ingredients}}</p>
                             <p class="price" >{{$food->price}} €</p>
                         </div>
-
                         @if (!empty($food->path_img))
                             <div class="image">
                                 <img class="mt-2" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
@@ -52,7 +51,6 @@
                         @else
                         @endif
                     </a>
-
                 </div>
             @endforeach
         </div>
@@ -102,4 +100,7 @@
     </div>
 </div> --}}
 
+
+{{-- Footer --}}
+@include('partials.footer')
 @endsection

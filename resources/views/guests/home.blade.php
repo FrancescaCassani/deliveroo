@@ -53,7 +53,7 @@
     </div>
 
     {{-- Lista generi responsive --}}
-    <div class="genre-responsive">
+    <div class="genre-responsive mb-4">
         <i class="fas fa-bars" @click="showGenre = !showGenre"></i>
         <div class="drop-down" v-if="showGenre">
             <ul>
@@ -77,9 +77,9 @@
                     <div class="card text-center" style="width: 15rem">
                         <img :src="'../storage/' + restaurant.path_img" class="card-img-top" :alt="restaurant.name">
                         <div class="card-body">
-                            <h5 class="card-title">@{{restaurant.name}}</h5>
+                            <h4 class="card-title">@{{restaurant.name}}</h4>
+                            <p class="card-text description">@{{(restaurant.description)}}</p>
                             <small>Consegna gratuita</small>
-                            <h5 class="card-title">@{{restaurant.restaurant_id}}</h5>
                         </div>
                     </div>
                 </a>
@@ -128,8 +128,15 @@
     {{-- Section news --}}
     <section class="news container">
         <h2>Novità dalla nostra cucina</h2>
-        <div>
-            <img src="{{ asset('img/asset/deliveroo_per_aziende.png') }}" alt="Deliveroo per aziende">
+        <div class="work-news card mb-5">
+            <div class="img-container">
+                <img src="{{asset('img/asset/news-work-sushi.jpg')}}" alt="News Work">
+            </div>
+            <div class="text-container">
+                <h4>Deliveroo per le Aziende</h4>
+                <p>Clienti o colleghi affamati? il nostro team Corporate ti può aiutare.</p>
+                <a href="#" @click.prevent="" class="btn btn-primary">Contattaci</a>
+            </div>
         </div>
         <div>
             <img src="{{ asset('img/asset/app_promo.png') }}" alt="App promo">
@@ -137,7 +144,7 @@
     </section>
 
     {{-- Section work with Deliveroo --}}
-    <section class="work container">
+    <section class="work container mb-5">
         <h2>Lavora con Deliveroo</h2>
         <div class="content">
             <div class="box-work">

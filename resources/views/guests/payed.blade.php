@@ -16,4 +16,7 @@
   <a class="btn btn-primary btn-lg" href="{{route('home')}}" role="button">Torna alla home</a>
 </div>
 
+
+{{-- Footer --}}
+@include('partials.footer')
 @endsection

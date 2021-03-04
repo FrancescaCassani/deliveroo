@@ -10809,8 +10809,8 @@ nav .container .bottom .nav-item {
 .guest-bg .box-food .box-detail {
   display: flex;
   justify-content: space-between;
-  width: calc((100% / 3) - 20px);
-  margin: 0 15px;
+  width: calc((100% / 2) - 20px);
+  margin: 10px 10px;
   align-items: center;
   padding: 20px 15px;
   background: #fff;
@@ -10850,15 +10850,23 @@ nav .container .bottom .nav-item {
 }
 .guest-bg .container .basket-content .price-single-product {
   position: relative;
+  display: flex;
+  align-items: center;
   margin-right: 10px;
 }
 .guest-bg .container .basket-content .price-single-product::after {
   position: absolute;
   right: -10px;
-  bottom: 0;
+  top: 50%;
+  transform: translateY(-50%);
   content: "\20AC";
 }
 
+@media (max-width: 767px) {
+  .basket-content {
+    display: none;
+  }
+}
 .jumbotron-fluid {
   height: 100vh;
   color: #00ccbb;

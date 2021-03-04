@@ -9,8 +9,8 @@
             // width: 360px;
             display: flex;
             justify-content: space-between;
-            width: calc((100% / 3) - 20px);
-            margin: 0 15px;
+            width: calc((100% / 2) - 20px);
+            margin: 10px 10px;
             align-items: center;
             // border: 1px solid $system3-col;
             padding: 20px 15px;
@@ -50,14 +50,23 @@
             }
             .price-single-product {
                 position: relative;
+                display: flex;
+                align-items: center;
                 margin-right: 10px;
                 &::after {
                     position: absolute;
                     right: -10px;
-                    bottom: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
                     content: '€';
                 }
             }
         }
+    }
+}
+
+@media(max-width: 767px) {
+    .basket-content{
+        display: none;
     }
 }

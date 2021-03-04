@@ -38,20 +38,22 @@
     <div class="container">
         <div class="box-food">
             @foreach ($restaurant->foods as $food)
-                <div class="box-detail col-sm-12 col-md-8 col-lg-4 mr-2 mt-3">
-                    <div class="text">
-                        <h5 >{{$food->name}}</h5>
-                        <p >{{$food->ingredients}}</p>
-                        <p >{{$food->price}} €</p>
-                        <a class="btn btn-primary" href="#" @click="addCart({{$food}})">Aggiungi al carrello</a>
-                    </div>
+                <div class="box-detail col-sm-12 col-md-8 col-lg-5">
+                    <a href="#" @click.prevent="addCart({{$food}})">
+                        <div class="text">
+                            <h5 >{{$food->name}}</h5>
+                            <p >{{ Str::limit($food->ingredients, 30 )}}</p>
+                            <p >{{$food->price}} €</p>
+                        </div>
 
-                    <div class="image">
-                        @if (!empty($food->path_img))
-                            <img class="mb-2 mt-2" height="80" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
-                        @else
-                        @endif
-                    </div>
+                        <div class="image">
+                            @if (!empty($food->path_img))
+                                <img class="mb-2 mt-2" height="80" src="{{asset('storage/' . $food->path_img)}}" alt="{{$food->name}}">
+                            @else
+                            @endif
+                        </div>
+                    </a>
+
                 </div>
             @endforeach
         </div>
@@ -62,7 +64,7 @@
                 <li
                 class="d-flex justify-content-between list-unstyled basket-item"
                 v-for="(product, index) in shopCart" width=100>
-                    <p>@{{ product.name }}</p>
+                    <p style="width: 60%">@{{ product.name }}</p>
                     <p class="price-single-product">@{{ product.price }}</p>
                 </li>
 
@@ -71,7 +73,7 @@
             </ul>
             <div class="pay">
                 <a class="d-flex justify-content-center btn btn-primary" href="{{ route('pay') }}">Vai al pagamento</a>
-                <input @click="puliziaCache" type="submit" />
+                <input @click.prevent="puliziaCache" type="submit" />
             </div>
         </div>
     </div>

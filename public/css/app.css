@@ -10871,6 +10871,7 @@ nav .container .bottom .nav-item {
   flex-wrap: wrap;
   padding: 0 150px;
   color: #fff;
+  margin-top: 25px;
 }
 .footer .box-ft {
   background-color: #434848;

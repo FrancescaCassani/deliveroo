@@ -66,7 +66,7 @@
 
     {{-- Controlo nessun ristorante presente --}}
     @if ($restaurants->isEmpty())
-       <p class="no-restaurant">Nessun ristorante presente nella tua ricerca</p>
+       <p class="no-restaurant container">Nessun ristorante presente nella tua ricerca</p>
     @endif
 
     <h2 class="text-center pt-3 pb-3">I ristoranti nella tua zona</h2>

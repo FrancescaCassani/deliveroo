@@ -5,6 +5,7 @@
     display: flex;
     justify-content: center;
     .bg {
+        border-radius: 5px;
         background-color: $principal-col;
         th {
             color: $white;

@@ -37,7 +37,7 @@ a {
 
 .btn-primary {
     background-color: $principal-col;
-    border: 1px solid $white;
+    border: 1px solid $principal-col;
     transition: all 0.1s;
 }
 
@@ -63,27 +63,27 @@ a {
 
 .btn-warning {
     color: $white;
-    background-color: #440061;
-    border: 1px solid $white;
+    background-color: $accent2-col;
+    border: 1px solid $accent2-col;
     transition: all 0.1s;
 }
 
 .btn-warning:hover {
-    color: #440061;
+    color: $accent2-col;
     background-color: $white;
-    border: 1px solid #440061;
+    border: 1px solid $accent2-col;
 }
 
 .btn-danger {
-    background-color: #ff8001;
-    border: 1px solid $white;
+    background-color: $accent1-col;
+    border: 1px solid $accent1-col;
     transition: all 0.1s;
 }
 
 .btn-danger:hover {
-    color: #ff8001;
+    color: $accent1-col;
     background-color: $white;
-    border: 1px solid #ff8001;
+    border: 1px solid $accent1-col;
 }
 
 /* TRANSITIONS */

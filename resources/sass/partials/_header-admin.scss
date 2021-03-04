@@ -9,18 +9,20 @@ nav {
                 max-height: 100%;
             }
         }
-        .navbar-nav a{
+        a.navbar-brand.mobile {
+            display: none;
+        }
+        .navbar-nav a.dropdown-item {
             color: $white;
             background: $principal-col;
-            border: 1px solid $white;
-            border-radius: 5px; 
-            transition: all 0.2s;  
+            border: 1px solid $principal-col;
+            border-radius: 3px;
+            transition: all 0.2s;
             &:hover {
                 color: $principal-col;
                 background: $white;
-                border: 1px solid $principal-col;
             }
-        }
+        }          
     }
 }
 
@@ -35,4 +37,17 @@ nav {
             display: none;
         }
     }
+    // #menu-mobile {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     padding: 10px 15px;
+    //     border-radius: 5px;
+    //     cursor: pointer;
+    //     i {
+    //         margin: 0;
+    //         font-size: 25px;
+    //         color: $white;
+    //     }
+    // }
 }

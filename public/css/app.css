@@ -10247,17 +10247,19 @@ nav .container .navbar-brand {
 nav .container .navbar-brand img {
   max-height: 100%;
 }
-nav .container .navbar-nav a {
+nav .container a.navbar-brand.mobile {
+  display: none;
+}
+nav .container .navbar-nav a.dropdown-item {
   color: #fff;
   background: #00ccbb;
-  border: 1px solid #fff;
-  border-radius: 5px;
+  border: 1px solid #00ccbb;
+  border-radius: 3px;
   transition: all 0.2s;
 }
-nav .container .navbar-nav a:hover {
+nav .container .navbar-nav a.dropdown-item:hover {
   color: #00ccbb;
   background: #fff;
-  border: 1px solid #00ccbb;
 }
 
 @media (max-width: 900px) {

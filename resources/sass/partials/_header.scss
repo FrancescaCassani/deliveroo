@@ -13,9 +13,6 @@ nav {
             display: none;
         }
         .navbar-nav {
-            div#menu-mobile {
-                display: none;
-            }
             div, > .btn, .cart {
                 margin-left: 20px;
             }
@@ -68,28 +65,7 @@ nav {
                 &:first-child {
                     border-bottom: 1px solid $system3-col;
                 }
-                &:nth-child(2) {
-                    display: block;
-                    .nav-item {
-                        margin: 20px 0;
-                        .btn {
-                            width: 100%;
-                        }
-                        a {
-                            font-size: 16px;
-                            i {
-                                font-size: 22px;
-                                margin-right: 20px;
-                            }
-                            .fa-question-circle {
-                                color: $system3-col;
-                            }
-                        }
-                        &:hover .nav-link {
-                            color: $principal-col;
-                        }
-                    }
-                }
+
                 select {
                     width: 100%;
                     color: $black;
@@ -131,10 +107,11 @@ nav {
     }
 }
 
+#menu-2 {
+    display: none;
+}
+
 @media(max-width: 900px) {
-    a.navbar-brand.mobile {
-        display: block;
-    }
     .navbar-nav {
         display: flex;
         flex-direction: row;
@@ -142,12 +119,27 @@ nav {
             display: none;
         }
     }
-    nav .container .navbar-nav div#menu-mobile {
+    nav.navbar-principal .container a.navbar-brand.mobile {
         display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
         i {
             margin: 0;
+            font-size: 25px;
+            color: $white;
         }
     }
-}
+
+    #menu-2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 25px;
+        color: $white;
+        cursor: pointer;
+    }
+  }
 }

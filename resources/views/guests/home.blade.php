@@ -20,10 +20,17 @@
                     <input
                     class="imput-group"
                     type="text"
-                    placeholder="Inserisci il ristorante" v-model='research' @keyup="searchRestaurant">
+                    placeholder="Cerca ristorante" v-model='research' @keyup="searchRestaurant">
+                    <i class="fas fa-location-arrow"></i>
                     <a href="#"
                     class="btn btn-primary"
                     @click="searchRestaurant">Cerca</a>
+                    <small class="lable-p">
+                        <a class="nav-link" href="{{ route('login') }}"> 
+                            {{ __('Accedi') }}
+                        </a>
+                        per gestire i tuoi ristoranti.
+                    </small>
                 </div>
             </div>
         </div>

@@ -94,18 +94,6 @@
                         </li>
                     @endguest
                 </ul>
-
-                <ul class="navbar-nav bottom">
-                    <li class="nav-item">
-                        <select class="minimal" id="languages-picker" name="languages">
-                            <option value="italiano">Italiano</option>
-                            <option value="inglese">English</option>
-                        </select>
-                    </li>
-                    <li class="nav-item">
-                        <select class="minimal" id="languages-picker" name="languages"><option value="italy">Italy</option></select>
-                    </li>
-                </ul>
             </div>
         </transition>
     </div>

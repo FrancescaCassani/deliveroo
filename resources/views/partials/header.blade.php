@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-principal shadow-sm">
+<nav class="navbar navbar-expand-md navbar-principal fixed-top shadow-sm">
     <div class="container">
         <a class="navbar-brand desk" href="{{ url('/') }}">
             <img src="{{ asset('img/asset/del-logo.png') }}" alt="Deliveroo">
@@ -19,6 +19,10 @@
                 <i class="fas fa-bars"></i>
                 Menu
             </div>
+
+            <div @click="showMenu = !showMenu" id="menu-2">
+                <i class="fas fa-bars"></i>
+            </div>
             
             <a class="nav-link cart" href="#">
                 <i class="fas fa-cart-plus"></i>
@@ -29,9 +33,6 @@
             <a class="navbar-brand mobile" href="{{ url('/') }}">
                 <img src="{{ asset('img/asset/fav-icon.png') }}" alt="Deliveroo">
             </a>
-            <div @click="showMenu = !showMenu" id="menu-mobile" class="btn btn-light">
-                <i class="fas fa-bars"></i>
-            </div>
         </div>
 
         <transition name="slide-down-fade">
@@ -62,7 +63,7 @@
                                 <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href=""><i class="far fa-question-circle"></i>FAQ</a>
+                                <a class="nav-link text-principal" href=""><i class="far fa-question-circle"></i>FAQ</a>
                             </li>
 
                         @endif
@@ -80,10 +81,10 @@
                             <a href="{{route('admin.home')}}" class="nav-link">Dashboard</a>
                         </li> --}}
                         <li class="nav-item dropdown">
-                            <a href="{{route('admin.restaurants.index')}}" class="nav-link">I tuoi ristoranti</a>
+                            <a href="{{route('admin.restaurants.index')}}" class="btn btn-primary">I tuoi ristoranti</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a href="{{route('admin.restaurants.create')}}" class="nav-link">Aggiungi</a>
+                            <a href="{{route('admin.restaurants.create')}}" class="btn btn-primary">Aggiungi</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

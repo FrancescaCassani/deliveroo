@@ -1,6 +1,5 @@
 nav {
     position: fixed;
-    color: $principal-col;
     background: $white;
     .container {
         .navbar-brand {
@@ -13,9 +12,6 @@ nav {
             display: none;
         }
         .navbar-nav {
-            div#menu-mobile {
-                display: none;
-            }
             div, > .btn, .cart {
                 margin-left: 20px;
             }
@@ -47,6 +43,9 @@ nav {
                 font-size: 25px;
                 color: $principal-col;
             }
+            // #menu-mobile {
+            //     display: none;
+            // }
         }
         .menu {
             position: absolute;
@@ -74,6 +73,7 @@ nav {
                         }
                         a {
                             font-size: 16px;
+                            color: $white;
                             i {
                                 font-size: 22px;
                                 margin-right: 20px;
@@ -83,6 +83,9 @@ nav {
                             }
                         }
                         &:hover .nav-link {
+                            color: $principal-col;
+                        }
+                        a.nav-link.text-principal {
                             color: $principal-col;
                         }
                     }
@@ -139,11 +142,17 @@ nav {
             display: none;
         }
     }
-    nav .container .navbar-nav div#menu-mobile {
-        display: flex;
-        padding: 10px 15px;
-        i {
-            margin: 0;
-        }
-    }
+    // #menu-mobile {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     padding: 10px 15px;
+    //     border-radius: 5px;
+    //     cursor: pointer;
+    //     i {
+    //         margin: 0;
+    //         font-size: 25px;
+    //         color: $white;
+    //     }
+    // }
 }

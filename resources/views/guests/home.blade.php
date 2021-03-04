@@ -49,7 +49,7 @@
         </ul>
     </div>
     <div class="genre-selected text-center">
-        <span class="badge badge-pill badge-success text-dark h5 ml-1" v-for="(genre, index) in genresFiter"> @{{genre}} <span role="button" @click="genreSelected(index)">X</span> </span>
+        <span role="button" class="text-uppercase badge badge-pill badge-dark h5 ml-1 p-1 pl-2 pr-2" v-for="(genre, index) in genresFiter" @click="genreSelected(index)"> @{{genre}} </span>
     </div>
 
     {{-- Controlo nessun ristorante presente --}}

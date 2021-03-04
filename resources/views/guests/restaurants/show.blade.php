@@ -36,10 +36,10 @@
         <div class="box-food">
             @foreach ($restaurant->foods as $food)
                 <div class="box-detail col-sm-12 col-md-8 col-lg-5">
-                    <a href="#" @click.prevent="addCart({{$food}})">
+                    <a class="text-decoration-none" href="#" @click.prevent="addCart({{$food}})">
                         <div class="text">
                             <h5 >{{$food->name}}</h5>
-                            <p >{{ Str::limit($food->ingredients, 30 )}}</p>
+                            <p >{{ $food->ingredients}}</p>
                             <p >{{$food->price}} €</p>
                         </div>
 

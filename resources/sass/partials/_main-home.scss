@@ -7,7 +7,7 @@
         overflow: hidden;
         border-radius: 10px;
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-        transition: box-shadow 250ms ease;
+        transition: box-shadow 250ms ease, background 150ms linear;
         &::after {
             content: '';
             position: absolute;
@@ -16,22 +16,27 @@
             transform: translateX(-50%);
             width: 0;
             height: 3px;
-            background: $principal-col;
+            background: $accent1-col;
             transition: width 250ms ease;
         }
         &:hover {
             box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+            background: rgba($accent2-col, .8);
+            color: #fff;
             h4 {
-                color: $principal-col;
+                color: #fff;
                 &::after {
                     width: 80%;
                 }
+            }
+            p {
+                color: rgba(255,255,255, .8);
             }
             &::after {
                 width: 80%;
             }
             small {
-                color: $principal-col;
+                color: $accent1-col;
             }
         }
         img {
@@ -48,7 +53,7 @@
     }
     h4 {
         position: relative;
-        color: $system1-col;
+        color: $accent2-col;
         transition: color 350ms linear;
         &::after {
             content: '';
@@ -58,7 +63,7 @@
             transform: translateX(-50%);
             width: 0;
             height: 3px;
-            background: $principal-col;
+            background: $accent1-col;
             transition: width 250ms ease;
         }
     }
@@ -68,6 +73,9 @@
     }
 }
 
+.title-col-accent {
+    color: $accent2-col;
+}
 //Genre
 .genre {
     img {
@@ -89,6 +97,7 @@
 //Selection Deliveroo
 .selection {
     h2 {
+        color: $accent2-col;
         font-weight: 700;
     }
     .content {
@@ -222,6 +231,7 @@
 //Section news
 .news {
     h2 {
+        color: $accent2-col;
         font-weight: 700;
     }
     h4 {
@@ -273,6 +283,7 @@
 .work {
     margin-top: 50px;
     h2 {
+        color: $accent2-col;
         font-weight: 700;
     }
     h5 {
@@ -368,6 +379,7 @@
 //Section news
 .news {
     h2 {
+        color: $accent2-col;
         font-weight: 700;
     }
     h4 {

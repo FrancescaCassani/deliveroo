@@ -10288,7 +10288,7 @@ nav .container .navbar-nav a {
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 250ms ease;
+  transition: box-shadow 250ms ease, background 150ms linear;
 }
 .restaurants-list .card::after {
   content: "";
@@ -10298,23 +10298,28 @@ nav .container .navbar-nav a {
   transform: translateX(-50%);
   width: 0;
   height: 3px;
-  background: #00ccbb;
+  background: #ff8001;
   transition: width 250ms ease;
 }
 .restaurants-list .card:hover {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  background: rgba(68, 0, 97, 0.8);
+  color: #fff;
 }
 .restaurants-list .card:hover h4 {
-  color: #00ccbb;
+  color: #fff;
 }
 .restaurants-list .card:hover h4::after {
   width: 80%;
+}
+.restaurants-list .card:hover p {
+  color: rgba(255, 255, 255, 0.8);
 }
 .restaurants-list .card:hover::after {
   width: 80%;
 }
 .restaurants-list .card:hover small {
-  color: #00ccbb;
+  color: #ff8001;
 }
 .restaurants-list .card img {
   height: 160px;
@@ -10330,7 +10335,7 @@ nav .container .navbar-nav a {
 }
 .restaurants-list h4 {
   position: relative;
-  color: #2f3233;
+  color: #440061;
   transition: color 350ms linear;
 }
 .restaurants-list h4::after {
@@ -10341,12 +10346,16 @@ nav .container .navbar-nav a {
   transform: translateX(-50%);
   width: 0;
   height: 3px;
-  background: #00ccbb;
+  background: #ff8001;
   transition: width 250ms ease;
 }
 .restaurants-list small, .restaurants-list p {
   color: #7d7d7d;
   transition: color 200ms ease;
+}
+
+.title-col-accent {
+  color: #440061;
 }
 
 .genre img {
@@ -10366,6 +10375,7 @@ nav .container .navbar-nav a {
 }
 
 .selection h2 {
+  color: #440061;
   font-weight: 700;
 }
 .selection .content {
@@ -10496,6 +10506,7 @@ nav .container .navbar-nav a {
 }
 
 .news h2 {
+  color: #440061;
   font-weight: 700;
 }
 .news h4 {
@@ -10544,6 +10555,7 @@ nav .container .navbar-nav a {
   margin-top: 50px;
 }
 .work h2 {
+  color: #440061;
   font-weight: 700;
 }
 .work h5 {
@@ -10635,6 +10647,7 @@ nav .container .navbar-nav a {
   }
 
   .news h2 {
+    color: #440061;
     font-weight: 700;
   }
   .news h4 {
@@ -10889,7 +10902,7 @@ nav .container .navbar-nav a {
 .hero-restaurant .hero-info h2 {
   position: relative;
   font-size: 3rem;
-  color: #00ccbb;
+  color: #ff8001;
 }
 .hero-restaurant .hero-info h2::after {
   content: "";
@@ -10899,7 +10912,7 @@ nav .container .navbar-nav a {
   width: 250px;
   max-width: 100%;
   height: 3px;
-  background: #00ccbb;
+  background: #ff8001;
 }
 .hero-restaurant .hero-info p {
   color: #7d7d7d;
@@ -10946,6 +10959,12 @@ nav .container .navbar-nav a {
   padding: 20px;
   margin-top: 20px;
 }
+.hero-restaurant .restaurant-info .text h3 {
+  color: #440061;
+}
+.hero-restaurant .restaurant-info .text .btn-warning:hover {
+  background-color: #00ccbb;
+}
 .hero-restaurant .genre {
   position: relative;
   margin-right: 8px;
@@ -10973,18 +10992,23 @@ nav .container .navbar-nav a {
     left: 50%;
     transform: translate(-50%);
   }
-
+  .hero-restaurant .restaurant-info .text {
+    text-align: center;
+  }
   .hero-restaurant .restaurant-info .contacts {
     border-radius: 0;
     margin-top: 10px;
-    width: 100%;
     padding: 0;
   }
-  .hero-restaurant .restaurant-info .contacts img {
-    border-radius: 0;
-  }
-  .hero-restaurant .restaurant-info .contacts .card {
+  .hero-restaurant .restaurant-info .contacts.card {
     width: 100%;
+  }
+  .hero-restaurant .restaurant-info .contacts.card img {
+    border-radius: 0;
+    width: 100%;
+  }
+  .hero-restaurant .restaurant-info .contacts.card::before {
+    content: none;
   }
 }
 .footer {

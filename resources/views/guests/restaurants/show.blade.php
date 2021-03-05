@@ -30,8 +30,8 @@
         </div>
         <div class="text">
             <h3 class="text-bold">Contatti: </h3>
-            <h6 class=""><a class="text-decoration-none pl-1 btn btn-outline-dark" href="tell:{{$restaurant->phone_number}}">{{$restaurant->phone_number}}</a></h6>
-            <h6 class=""><a class="text-decoration-none pl-1 btn btn-outline-dark" href="mailto:{{$restaurant->email}}">{{$restaurant->email}}</a></h6>
+            <h6 class=""><a class="text-decoration-none pl-1 btn btn-warning" href="tell:{{$restaurant->phone_number}}">{{$restaurant->phone_number}}</a></h6>
+            <h6 class=""><a class="text-decoration-none pl-1 btn btn-warning" href="mailto:{{$restaurant->email}}">{{$restaurant->email}}</a></h6>
         </div>
     </div>
 </div>

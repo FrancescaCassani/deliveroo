@@ -4,7 +4,7 @@
 {{-- HEADER --}}
 @include('partials.header')
 
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -61,7 +61,7 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="ml-2" href="{{ route('password.request') }}">
                                         {{ __('Hai dimenticato la password?') }}
                                     </a>
                                 @endif

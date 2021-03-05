@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-md navbar-principal fixed-top shadow-sm">
     <div class="container">
-        <a class="navbar-brand desk" href="{{ url('/') }}">
+        <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{ asset('img/asset/del-logo.png') }}" alt="Deliveroo">
         </a>
 
         <div class="navbar-nav">
-            <a class="btn btn-light desk" href="{{ route('register') }}">
+            <a class="btn btn-light d-none d-lg-flex" href="{{ route('register') }}">
                 <i class="fas fa-home"></i>
                 {{ __('Registrati') }}
             </a>
 
-            <a class="btn btn-light desk" href="{{ route('login') }}"> 
+            <a class="btn btn-light d-none d-lg-flex" href="{{ route('login') }}"> 
                 <i class="fas fa-sign-in-alt"></i>
                 {{ __('Accedi') }}
             </a>
@@ -155,7 +155,7 @@
                                 <p>Grazie per aver scelto <strong>deliveroo!</strong></p>
                                 <small>Tutte le consegne sono gratuite</small>
                                 <p>
-                                   <a href="">Scopri di più</a>
+                                   <a href="" class="d-flex justify-content-start">Scopri di più</a>
                                 </p>
                             </li>
                         </ul>

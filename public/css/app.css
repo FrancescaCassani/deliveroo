@@ -10171,6 +10171,10 @@ nav.navbar-principal .container .menu .navbar-nav {
   align-items: center;
   padding: 20px;
 }
+nav.navbar-principal .container .menu .navbar-nav li a i {
+  font-size: 20px;
+  color: #00ccbb;
+}
 nav.navbar-principal .container .menu .navbar-nav:first-child {
   border-bottom: 1px solid #abadac;
 }
@@ -10205,6 +10209,9 @@ nav.navbar-principal .container .bottom .nav-item {
 nav #menu-2 {
   display: none;
 }
+nav a.desk, nav div.desk {
+  display: flex;
+}
 @media (max-width: 900px) {
   nav .navbar-nav {
     display: flex;
@@ -10225,6 +10232,13 @@ nav #menu-2 {
     margin: 0;
     font-size: 25px;
     color: #fff;
+  }
+  nav #navbarSupportedContent, nav #cart-menu {
+    width: 100%;
+    height: 100vh;
+  }
+  nav #cart-menu .pay, nav #cart-menu .top {
+    width: 100%;
   }
   nav #menu-2 {
     display: flex;
@@ -10247,19 +10261,10 @@ nav .container .navbar-brand {
 nav .container .navbar-brand img {
   max-height: 100%;
 }
-nav .container a.navbar-brand.mobile {
-  display: none;
-}
-nav .container .navbar-nav a.dropdown-item {
-  color: #fff;
-  background: #00ccbb;
-  border: 1px solid #00ccbb;
-  border-radius: 3px;
-  transition: all 0.2s;
-}
-nav .container .navbar-nav a.dropdown-item:hover {
-  color: #00ccbb;
-  background: #fff;
+nav .container .navbar-nav a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 900px) {

@@ -61,6 +61,10 @@ nav {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                li a i {
+                    font-size: 20px;
+                    color: $principal-col;
+                }
                 padding: 20px;
                 &:first-child {
                     border-bottom: 1px solid $system3-col;
@@ -111,6 +115,10 @@ nav {
     display: none;
 }
 
+a.desk, div.desk {
+    display: flex;
+}
+
 @media(max-width: 900px) {
     .navbar-nav {
         display: flex;
@@ -131,6 +139,15 @@ nav {
             font-size: 25px;
             color: $white;
         }
+    }
+
+    #navbarSupportedContent, #cart-menu {
+        width: 100%;
+        height: 100vh;
+    }
+
+    #cart-menu .pay, #cart-menu .top {
+        width: 100%;
     }
 
     #menu-2 {

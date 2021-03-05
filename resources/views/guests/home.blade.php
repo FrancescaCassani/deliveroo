@@ -70,7 +70,7 @@
        <p class="no-restaurant container">Nessun ristorante presente nella tua ricerca</p>
     @endif
 
-    <h2 class="text-center pt-3 pb-3">I ristoranti nella tua zona</h2>
+    <h2 class="text-center pt-3 pb-3" style="font-weight: 700">I ristoranti nella tua zona</h2>
     <div class="container">
         <div class="hero row restaurants-list">
             <div class="col-sm mb-5" v-for="(restaurant, index) in allRestaurants" v-if="restaurant.visible == 1">

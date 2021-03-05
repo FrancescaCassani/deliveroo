@@ -22,7 +22,7 @@
                     type="text"
                     placeholder="Cerca ristorante" v-model='research' @keyup="searchRestaurant">
                     <i class="fas fa-location-arrow"></i>
-                    <a href="#"
+                    <a href="#" click.prevent=""
                     class="btn btn-primary"
                     @click="searchRestaurant">Cerca</a>
                     <small class="lable-p">
@@ -100,28 +100,28 @@
                     <h3>Comfort food</h3>
                 </div>
                 <p>I grandi classici che scaldano il cuore, perfetti in ogni momento.</p>
-                <a href="#">Scopri Comfort food</a>
+                <a href="#" click.prevent="">Scopri Comfort food</a>
             </div>
             <div class="dolci-dessert">
                 <div class="content-img">
                     <h3>Dolci e dessert</h3>
                 </div>
                 <p>Dolci piaceri per rendere la gionata ancora più gustosa.</p>
-                <a href="#">Scopri Dolci e dessert</a>
+                <a href="#" click.prevent="">Scopri Dolci e dessert</a>
             </div>
             <div class="perfect-to-share">
                 <div class="content-img">
                     <h3>Perfetti da condividere</h3>
                 </div>
                 <p>Serve una scusa per stare insieme? Ordina dai ristoranti che trasformeranno la tua serata in una vera festa.</p>
-                <a href="#">Scopri perfetti da condividere</a>
+                <a href="#" click.prevent="">Scopri perfetti da condividere</a>
             </div>
             <div class="exclusive-deliveroo">
                 <div class="content-img">
                     <h3>Esclusiva Deliveroo</h3>
                 </div>
                 <p>I più famosi, i più buoni, i preferiti. Quelli che trovi solo su Deliveroo.</p>
-                <a href="#">Scopri Esclusiva Deliveroo</a>
+                <a href="#" click.prevent="">Scopri Esclusiva Deliveroo</a>
             </div>
         </div>
     </section>
@@ -136,18 +136,18 @@
             <div class="text-container news">
                 <h4>Deliveroo per le Aziende</h4>
                 <p>Clienti o colleghi affamati? il nostro team Corporate ti può aiutare.</p>
-                <a href="#" @click.prevent="" class="btn btn-primary">Contattaci</a>
+                <a href="#" click.prevent=""  class="btn btn-primary">Contattaci</a>
             </div>
         </div>
         <div class="work-app card mb-5">
             <div class="text-container app">
                 <h4>Hai già la nostra app?</h4>
                 <p>Scaricala ora - disponibile su Apple store e Google Play!</p>
-                <a href="#">
-                    <img height="40" src="{{ asset('img/asset/app-store.png') }}" @click.prevent="" alt="App-store">
+                <a href="#" click.prevent="">
+                    <img height="40" src="{{ asset('img/asset/app-store.png') }}"  alt="App-store">
                 </a>
-                <a href="#">
-                    <img height="40" src="{{ asset('img/asset/google-play.png') }}" @click.prevent="" alt="Google-play">
+                <a href="#" click.prevent="">
+                    <img height="40" src="{{ asset('img/asset/google-play.png') }}"  alt="Google-play">
                 </a>
             </div>
             <div class="img-container">

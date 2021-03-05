@@ -79,6 +79,7 @@
         left: 12px;
         font-size: 1.1rem;
         color: #fff;
+        text-shadow: 0 2px 4px rgba(0,0,0, .5);
     }
 }
 .genre-responsive {
@@ -296,6 +297,10 @@
             top: -180px;
             z-index: 1;
         }
+        h5, p {
+            position: relative;
+            z-index: 2;
+        }
         &.rider {
             background: #ff483b;
             &::after {
@@ -360,7 +365,7 @@
         }
     }
 
-    //Section news
+//Section news
 .news {
     h2 {
         font-weight: 700;

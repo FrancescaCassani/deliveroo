@@ -8,7 +8,7 @@
 {{-- HEADER --}}
 @include('partials.header')
 
-<div class="hero-restaurant col-sm-12 col-md-8 col-lg-4">
+<div class="hero-restaurant">
     <div class="hero-info">
         <h2 class="mb-5">{{$restaurant->name}}</h2>
         <div class="votes">
@@ -25,8 +25,13 @@
         <p class="lead">{{$restaurant->description}}</p>
     </div>
     <div class="restaurant-info">
-        <div class="contacts card" style="width: 20rem;">
+        <div class="contacts card">
             <img src="{{asset('storage/' . $restaurant->path_img)}}" alt="{{$restaurant->name}}">
+        </div>
+        <div class="text">
+            <h3 class="text-bold">Contatti: </h3>
+            <h6 class=""><a class="text-decoration-none pl-1 btn btn-outline-dark" href="tell:{{$restaurant->phone_number}}">{{$restaurant->phone_number}}</a></h6>
+            <h6 class=""><a class="text-decoration-none pl-1 btn btn-outline-dark" href="mailto:{{$restaurant->email}}">{{$restaurant->email}}</a></h6>
         </div>
     </div>
 </div>
@@ -35,9 +40,9 @@
 {{-- SHOW RISTORANTI GUESTS --}}
 <section class="guest-bg">
     <div class="container">
-        <div class="box-food">
+        <div class="box-food justify-content-center">
             @foreach ($restaurant->foods as $food)
-                <div class="box-detail col-sm-12 col-md-8 col-lg-5">
+                <div class="box-detail col-12 col-sm-12 col-md-5">
                     <a class="text-decoration-none" href="#" @click.prevent="addCart({{$food}})">
                         <div class="text">
                             <h5>{{$food->name}}</h5>

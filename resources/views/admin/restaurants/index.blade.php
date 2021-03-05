@@ -7,7 +7,6 @@
 @section('content')
 {{-- HEADER --}}
 @include('partials.header-admin')
-
 <div class="table-responsive-sm">
     <div class="container">
         {{-- Banner verifica deleted --}}
@@ -46,7 +45,7 @@
                             <td>{{$restaurant->created_at->format('d/m/Y')}}</td>
                             <td>
                                 @foreach($restaurant->genres as $genre)
-                                    |{{$genre->type}}
+                                    {{$genre->type}}
                                 @endforeach
                             </td>
                             <td> <a class="btn btn-primary" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">Mostra</a></td>

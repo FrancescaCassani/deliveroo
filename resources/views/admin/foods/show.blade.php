@@ -12,11 +12,11 @@
     <h3 class="pb-4 text-center">Dettaglio del piatto</h3>
     <div class="auth-container mt-4">
         <li class="list-unstyled list-group-item">
-            <div class="content">
+            <div style="width: 550px" class="content">
                 <h4 class="pb-2">{{$food->name}}</h4>
-                <p>Ingredienti: {{$food->ingredients}}</p>
-                <p>Prezzo: {{$food->price}}€</p>
-                <p>Descrizione: {{$food->description}}</p>
+                <p><strong>Ingredienti:</strong> <br> {{$food->ingredients}}</p>
+                <p><strong>Prezzo:</strong> <br> {{$food->price}}€</p>
+                <p><strong>Descrizione:</strong> <br> {{$food->description}}</p>
             </div>
 
             <div class="image mb-3">

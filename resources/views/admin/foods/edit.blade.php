@@ -56,6 +56,12 @@
             {{-- IMAGE --}}
             <div class="form-group">
                 <label for="path_img">Add image</label>
+                @isset($food->path_img)
+                    <div class="wrap-image">
+                        <img width="250" src="{{ asset('storage/' . $food->path_img) }}" alt="">
+                    </div>
+                    <h5>Change img</h5>
+                @endisset
                 <input class="form-control" type="file" name="path_img" id="path_img" accept="image/*">
             </div>
 

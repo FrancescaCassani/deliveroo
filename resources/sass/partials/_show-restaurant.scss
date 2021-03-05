@@ -1,5 +1,4 @@
 .hero-restaurant {
-    height: 400px;
     margin: 0 auto;
     max-width: 1300px;
     display: flex;
@@ -31,22 +30,40 @@
     }
     .restaurant-info {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        background: $principal-col;
         .contacts {
             border-radius: 10px;
-            padding: 10px;
-            height: 250px;
+            padding: 10px 0;
+            height: 200px;
             border: none;
-            background: $principal-col;
+            background: none;
+            &.card {
+                width: 17rem;
+                position: relative;
+                &::before {
+                    content: "";
+                    width: 39px;
+                    height: 150%;
+                    transform: rotate(83deg);
+                    position: absolute;
+                    background: #f8fafc;
+                    left: 120px;
+                    top: 40px;
+                    z-index: 1;
+                }
+            }
             img {
                 vertical-align: middle;
                 border-style: none;
                 height: 100%;
-                border-radius: 5px;
                 width: 100%;
                 object-fit: cover;
             }
+        }
+        .text {
+            padding: 20px;
+            margin-top: 20px;
         }
     }
     .genre {
@@ -66,10 +83,29 @@
     .hero-restaurant {
         display: flex;
         flex-direction: column-reverse;
-        margin: 0 10px;
         height: auto;
-        .contacts {
-            margin-top: 25px;
+        .hero-info {
+            flex-grow: 1;
+            padding: 50px 10px;
+            text-align: center;
+            h2 {
+                &::after {
+                    left: 50%;
+                    transform: translate(-50%);
+                }
+            }
+        }
+    }
+    .hero-restaurant .restaurant-info .contacts {
+        border-radius: 0;
+        margin-top: 10px;
+        width: 100%;
+        padding: 0;
+        img {
+            border-radius: 0;
+        }
+        .card {
+            width: 100%;
         }
     }
 }

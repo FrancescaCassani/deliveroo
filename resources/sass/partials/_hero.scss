@@ -16,7 +16,7 @@
     .content {
         position: absolute;
         bottom: 30px;
-        height: 200px;
+        min-height: 200px;
         background: $white;
         padding: 25px 18px;
         border: 1px solid lightgray;

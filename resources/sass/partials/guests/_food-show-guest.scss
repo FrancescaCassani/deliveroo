@@ -70,8 +70,7 @@
             align-content: center;
             background: #f8fafc;
             box-shadow: 5px 5px 5px rgb(0 0 0 / 10%);
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
+            border-radius: 20px;
             height: 100%;
             width: 500px;
             padding: 20px;
@@ -155,7 +154,7 @@ p.price-single-product {
     font-weight: 700;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 998px) {
     .guest-bg {
         .container {
             .basket-content{

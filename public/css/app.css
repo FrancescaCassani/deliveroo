@@ -10358,6 +10358,7 @@ nav .container .navbar-nav a {
   left: 12px;
   font-size: 1.1rem;
   color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .genre-responsive {
@@ -10567,6 +10568,10 @@ nav .container .navbar-nav a {
   left: 150px;
   top: -180px;
   z-index: 1;
+}
+.work .card-body h5, .work .card-body p {
+  position: relative;
+  z-index: 2;
 }
 .work .card-body.rider {
   background: #ff483b;
@@ -10805,7 +10810,7 @@ nav .container .navbar-nav a {
 .hero .content {
   position: absolute;
   bottom: 30px;
-  height: 200px;
+  min-height: 200px;
   background: #fff;
   padding: 25px 18px;
   border: 1px solid lightgray;
@@ -10872,7 +10877,6 @@ nav .container .navbar-nav a {
   }
 }
 .hero-restaurant {
-  height: 400px;
   margin: 0 auto;
   max-width: 1300px;
   display: flex;
@@ -10905,24 +10909,42 @@ nav .container .navbar-nav a {
 }
 .hero-restaurant .restaurant-info {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  background: #00ccbb;
 }
 .hero-restaurant .restaurant-info .contacts {
   border-radius: 10px;
-  padding: 10px;
-  height: 250px;
+  padding: 10px 0;
+  height: 200px;
   border: none;
-  background: #00ccbb;
+  background: none;
+}
+.hero-restaurant .restaurant-info .contacts.card {
+  width: 17rem;
+  position: relative;
+}
+.hero-restaurant .restaurant-info .contacts.card::before {
+  content: "";
+  width: 39px;
+  height: 150%;
+  transform: rotate(83deg);
+  position: absolute;
+  background: #f8fafc;
+  left: 120px;
+  top: 40px;
+  z-index: 1;
 }
 .hero-restaurant .restaurant-info .contacts img {
   vertical-align: middle;
   border-style: none;
   height: 100%;
-  border-radius: 5px;
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.hero-restaurant .restaurant-info .text {
+  padding: 20px;
+  margin-top: 20px;
 }
 .hero-restaurant .genre {
   position: relative;
@@ -10940,11 +10962,29 @@ nav .container .navbar-nav a {
   .hero-restaurant {
     display: flex;
     flex-direction: column-reverse;
-    margin: 0 10px;
     height: auto;
   }
-  .hero-restaurant .contacts {
-    margin-top: 25px;
+  .hero-restaurant .hero-info {
+    flex-grow: 1;
+    padding: 50px 10px;
+    text-align: center;
+  }
+  .hero-restaurant .hero-info h2::after {
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .hero-restaurant .restaurant-info .contacts {
+    border-radius: 0;
+    margin-top: 10px;
+    width: 100%;
+    padding: 0;
+  }
+  .hero-restaurant .restaurant-info .contacts img {
+    border-radius: 0;
+  }
+  .hero-restaurant .restaurant-info .contacts .card {
+    width: 100%;
   }
 }
 .footer {
@@ -11122,8 +11162,7 @@ nav .container .navbar-nav a {
   align-content: center;
   background: #f8fafc;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-radius: 20px;
   height: 100%;
   width: 500px;
   padding: 20px;
@@ -11203,7 +11242,7 @@ p.price-single-product {
   font-weight: 700;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 998px) {
   .guest-bg .container .basket-content {
     display: none;
   }
